@@ -123,4 +123,4 @@ function drawMap(){const mw=150,mh=105,x=canvas.width-mw-18,y=18;ctx.fillStyle='
 document.querySelector('#reset').addEventListener('click',()=>{player={x:390,y:390,a:0,inCar:-1};mission=0;money=850;heat=0;completed=[];collected=[];pickups.forEach(p=>p.taken=false);cars.forEach(c=>c.used=false);syncMission();switchHero(0);say('New game started.')});
 const next=document.querySelector('#dialogue-next');if(next)next.addEventListener('click',()=>{if(dialogue)interact()});const close=document.querySelector('#dialogue-close');if(close)close.addEventListener('click',closeDialogue);
 syncMission();switchHero(0);say('Explore Port Meridian · F to talk · collect gold cash markers');requestAnimationFrame(draw);
-})();
+})()
