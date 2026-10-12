@@ -2,8 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090c12"><meta name="description" content="Neon State — an original open-world city game prototype.">
 <title>Neon State — Open World Prototype</title><link rel="stylesheet" href="style.css">
 </head>
-<body><main id="game-shell"><header><div><span class="eyebrow">OPEN-WORLD PROTOTYPE</span><h1>NEON <b>STATE</b></h1></div><div class="pill" id="chapter">CHAPTER 01 · FIRST CONTACT</div></header>
-<section id="stage"><canvas id="world" width="1200" height="720" aria-label="Playable top-down city game"></canvas><aside id="hud"><div class="hud-card"><small>ACTIVE CHARACTER</small><strong id="hero-name">JAX MERCER</strong><p id="hero-role">Wheelman · Fast on the move</p><div class="switches"> <button data-hero="0">1 JAX</button><button data-hero="1">2 NIA</button><button data-hero="2">3 ELI</button></div></div><div class="hud-card"><small>CURRENT OBJECTIVE</small><strong id="objective">Reach the meeting point</strong><p id="mission-detail">Find the gold marker near the waterfront.</p><div class="meter"><i id="progress"></i></div></div><div class="hud-card stats"><span>ZONE<strong id="zone">DOWNTOWN</strong></span><span>STATUS<strong id="status">ON FOOT</strong></span></div></aside><div id="toast">Find the gold marker to begin.</div></section>
-<footer><span>WASD / ARROWS <small>MOVE</small></span><span>E <small>ENTER / EXIT CAR</small></span><span>SPACE <small>MISSION ACTION</small></span><span>SHIFT <small>SPRINT</small></span><span>P / O <small>SAVE / LOAD</small></span><button id="reset">RESTART</button></footer></main><script src="game.js"></script></body></html>
+<body><main id="game-shell">
+<header><div><span class="eyebrow">ORIGINAL OPEN-WORLD GAME</span><h1>NEON <b>STATE</b></h1></div><div class="header-right"><div class="pill" id="chapter">CHAPTER 01 · FIRST CONTACT</div><div class="wallet">CASH <strong id="money">$850</strong><span class="divider">/</span> HEAT <strong id="heat">0</strong></div></div></header>
+<section id="stage"><canvas id="world" width="1200" height="720" aria-label="Playable top-down city game"></canvas>
+<aside id="hud">
+<div class="hud-card"><small>ACTIVE CHARACTER</small><strong id="hero-name">JAX MERCER</strong><p id="hero-role">Wheelman · Precision driver</p><div class="switches"><button data-hero="0">1 JAX</button><button data-hero="1">2 NIA</button><button data-hero="2">3 ELI</button></div></div>
+<div class="hud-card"><small>CURRENT OBJECTIVE</small><strong id="objective">FIRST CONTACT</strong><p id="mission-detail">Reach the gold meeting marker and press SPACE.</p><div class="meter"><i id="progress"></i></div></div>
+<div class="hud-card stats"><span>AREA<strong id="zone">OLD TOWN</strong></span><span>STATUS<strong id="status">ON FOOT</strong></span></div>
+</aside>
+<section id="dialogue" hidden aria-live="polite"><div class="dialogue-top"><strong id="dialogue-name">MARA · FIXER</strong><button id="dialogue-close" aria-label="Close dialogue">×</button></div><p id="dialogue-text"></p><div class="dialogue-bottom"><small id="dialogue-hint">F / SPACE · CONTINUE</small><button id="dialogue-next">CONTINUE ↗</button></div></section>
+<div id="toast" role="status">Find the gold marker to begin.</div></section>
+<footer><span>WASD / ARROWS <small>MOVE</small></span><span>SHIFT <small>SPRINT / ACCELERATE</small></span><span>E <small>ENTER / EXIT</small></span><span>F <small>TALK</small></span><span>SPACE <small>INTERACT</small></span><span>R <small>REPAIR · $100</small></span><span>P / O <small>SAVE / LOAD</small></span><button id="reset">NEW GAME</button></footer>
+</main><script src="game.js"></script></body></html>
