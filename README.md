@@ -61,4 +61,4 @@ This is an early prototype. The world is represented by simple 2D graphics. Traf
 - `feature/audio-polish`: sound volume controls.
 - `feature/gameplay-upgrade`: combined integration branch for review.
 
-Features listed as future work are not yet implemented. The integration branch should be tested in a browser before merging into `main`.
+Features listed as future work are not yet implemented. A GitHub Actions workflow runs `node --check` against both JavaScript files. The integration branch should pass that check and be tested in a browser before merging into `main`.
