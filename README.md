@@ -17,7 +17,7 @@ No package installation or build step is required. Google Fonts are optional.
 | Key | Action |
 |---|---|
 | WASD / arrows | Move |
-| Shift | Sprint / faster driving |
+| W / Up Arrow | Move forward on foot / accelerate in a vehicle |\n| S / Down Arrow | Move down on foot / brake or reverse in a vehicle |\n| A / D | Move on foot / steer left and right in a vehicle |\n| Shift | Sprint / boost vehicle acceleration |
 | E | Enter or exit a nearby vehicle |
 | 1 / 2 / 3 | Switch protagonists |
 | F | Talk to a nearby character |
@@ -34,7 +34,7 @@ No package installation or build step is required. Google Fonts are optional.
 
 - Large procedural 2D city grid, named districts, and a waterfront.
 - Three original switchable protagonists.
-- Parked vehicles, simple driving, building collision, and repairs.
+- Parked vehicles, acceleration, steering, reverse, momentum, building collision, and repairs.
 - Moving ambient traffic and lightweight pedestrian visuals.
 - Named NPCs with dialogue panels.
 - Three starter campaign objectives with cash rewards and a free-roam state.
@@ -54,6 +54,6 @@ This is an early prototype. Graphics are simple 2D shapes, traffic is a basic lo
 - `feature/world-simulation`: traffic experiment.
 - `feature/campaign-expansion`: campaign journal.
 - `feature/audio-polish`: sound volume control.
-- `feature/gameplay-upgrade-v3`: integrated review branch.
+- `feature/gameplay-upgrade-v3`: integrated review branch.\n- `feature/vehicle-handling`: acceleration and steering refinement.
 
 Features listed as future work are not yet implemented. The integration branch should pass the JavaScript syntax workflow and be tested in a browser before merging into `main`.
