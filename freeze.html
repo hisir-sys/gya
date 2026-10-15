@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d15">
+<meta name="description" content="Neon State: Freeze Build 0.1 — an original 3D city story prototype.">
+<title>Neon State — 3D Freeze Build 0.1</title>
+<link rel="stylesheet" href="freeze.css">
+</head>
+<body>
+<main id="shell">
+  <header class="topbar">
+    <div class="brand"><span>PLAYABLE PREVIEW · BUILD 0.1</span><h1>NEON <b>STATE</b></h1></div>
+    <div class="topstats"><span id="chapter">PORT MERIDIAN</span><span>CASH <b id="cash">$850</b></span><span id="weather">COASTAL NIGHT</span></div>
+  </header>
+  <section id="viewport">
+    <div id="loading"><div class="loader"></div><strong>BUILDING PORT MERIDIAN</strong><small>Loading the city and its stories…</small></div>
+    <div id="hud">
+      <div class="glass hero-card"><small>PLAYING AS</small><h2 id="hero-name">JAX MERCER</h2><p id="hero-role">Wheelman · The Long Way Home</p><div class="hero-switch"><button data-hero="0" class="selected">1 JAX</button><button data-hero="1">2 NIA</button><button data-hero="2">3 ELI</button></div></div>
+      <div class="glass objective"><small>PERSONAL STORY · <span id="story-count">01 / 03</span></small><h3 id="mission-title">A QUIET PICKUP</h3><p id="mission-text">Find the waterfront garage and speak to the mechanic.</p><div class="objective-foot"><span id="distance">OBJECTIVE NEARBY</span><span id="cash-reward">+$250</span></div></div>
+    </div>
+    <div id="location-tag">OLD MARKET <i></i></div>
+    <div id="minimap"><canvas id="map" width="150" height="150"></canvas><span>NORTH ↑</span></div>
+    <div id="toast">Welcome to Port Meridian. Your story starts now.</div>
+    <section id="dialogue" class="glass" hidden aria-live="polite"><div class="dialogue-head"><span id="speaker">MARA · MECHANIC</span><button id="close-dialogue" aria-label="Close dialogue">×</button></div><p id="dialogue-line"></p><div class="dialogue-actions"><small>PRESS SPACE OR E TO CONTINUE</small><button id="continue-dialogue">CONTINUE ↗</button></div></section>
+    <section id="pause" class="glass" hidden><small>NEON STATE · FREEZE BUILD 0.1</small><h2>TAKE A BREATHER.</h2><p>Three people. Three stories. One city.</p><button id="resume">RETURN TO CITY</button><button id="reset-progress" class="secondary">RESET STORY PROGRESS</button></section>
+    <div class="crosshair">+</div>
+  </section>
+  <footer><span><b>WASD</b> MOVE <b>SHIFT</b> RUN <b>E</b> INTERACT <b>1–3</b> SWITCH STORY <b>ESC</b> PAUSE</span><span>PORT MERIDIAN · FICTIONAL CITY</span></footer>
+</main>
+<script type="module" src="freeze.js"></script>
+</body>
+</html>
