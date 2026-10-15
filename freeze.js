@@ -47,7 +47,7 @@ const storyData=[
   {title:'A PLACE AT THE TABLE',text:'Bring everyone together at the waterfront steps.',x:168,z:-42,reward:675,speaker:'UNCLE REN · MECHANIC',lines:['You got them to sit in the same room. That is harder than it looks.','A city is not fixed by one big gesture. It is fixed by showing up again.']}
  ]}
 ];
-let activeHero=0,progress=[0,0,0],money=850,keys={},paused=false,dialogue=null,toastTimer=0,clock=0,started=false;
+let activeHero=0,progress=[0,0,0],money=850,keys={},paused=false,dialogue=null,toastTimer=0,started=false;
 const player=new THREE.Group();scene.add(player);let avatar=new THREE.Group();player.add(avatar);let heroParts=[];
 function buildAvatar(color){avatar.clear();heroParts=[];const skin=mat('#c99d7d'),shirt=mat(color,.55,.05),pants=mat('#252d38'),shoe=mat('#111820'),hair=mat('#24252a');box(avatar,1.05,1.2,.58,shirt,0,1.65,0);const head=new THREE.Mesh(new THREE.SphereGeometry(.34,16,12),skin);head.position.set(0,2.55,0);head.castShadow=true;avatar.add(head);box(avatar,.63,.22,.62,hair,0,2.82,-.01);const armL=box(avatar,.27,1,.3,shirt,-.68,1.67,0),armR=box(avatar,.27,1,.3,shirt,.68,1.67,0);const legL=box(avatar,.34,.82,.37,pants,-.28,.72,0),legR=box(avatar,.34,.82,.37,pants,.28,.72,0);box(avatar,.38,.2,.55,shoe,-.28,.2,.06);box(avatar,.38,.2,.55,shoe,.28,.2,.06);heroParts=[armL,armR,legL,legR];avatar.position.y=0;avatar.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}})}
 buildAvatar(storyData[0].color);
