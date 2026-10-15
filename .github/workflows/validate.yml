@@ -23,3 +23,5 @@ jobs:
         run: node --check game.js
       - name: Check audio JavaScript syntax
         run: node --check audio.js
+      - name: Check 3D freeze-build module syntax
+        run: node --check --input-type=module < freeze.js
