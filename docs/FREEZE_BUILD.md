@@ -34,4 +34,4 @@ Each protagonist has three short story beats with dialogue and a cash reward. Sw
 - Original fictional city, characters, and dialogue.
 
 ## Known limitations
-This is an early vertical slice, not a complete AAA-scale game. The city is procedural and uses simple geometry; traffic and pedestrians are ambient decoration. It does not yet have full vehicle driving, combat, police AI, interiors, voice acting, branching choices, cloud saves, or mobile touch controls. The renderer requires WebGL and an internet connection for the Three.js CDN. Test on the actual presentation computer before the event.
+This is an early vertical slice, not a complete AAA-scale game. The player can drive one basic sports car, but advanced vehicle physics, multiple usable vehicles, combat, police AI, interiors, voice acting, branching choices, cloud saves, and mobile touch controls are not implemented. The city is procedural and traffic/pedestrians are ambient decoration. The renderer requires WebGL and an internet connection for the Three.js CDN. Test on the actual presentation computer before the event.
