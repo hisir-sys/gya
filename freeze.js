@@ -149,4 +149,4 @@ function frame(){requestAnimationFrame(frame);const dt=Math.min(clock?clock.getD
 const clock=new THREE.Clock();
 window.addEventListener('resize',()=>{const w=root.clientWidth,h=root.clientHeight;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h);renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.8))});
 loadSave();buildAvatar(storyData[activeHero].color);syncUI();camera.position.set(0,8,12);camera.lookAt(0,1,0);requestAnimationFrame(()=>{document.querySelector('#loading').classList.add('done');started=true;say('Choose a story. Walk to its gold marker and press E.');});frame();
-})()
+})();
