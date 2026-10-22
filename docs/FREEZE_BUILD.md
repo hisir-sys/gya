@@ -11,7 +11,9 @@ A playable, browser-based 3D vertical slice for deadline demonstration. It uses 
 
 ## Controls
 - **WASD / arrow keys:** move around the city.
-- **Shift:** run.
+- **Shift:** run while on foot.
+- **F:** enter or exit the gold sports car near the starting intersection.
+- **WASD / arrow keys while driving:** accelerate, reverse, and steer; the camera follows the vehicle.
 - **E or Space:** start / continue the current story interaction.
 - **1 / 2 / 3:** switch between Jax, Nia, and Eli, each with independent mission progress.
 - **Esc:** pause; Esc again resumes. Use the menu to reset progress.
@@ -26,9 +28,10 @@ Each protagonist has three short story beats with dialogue and a cash reward. Sw
 ## Implemented
 - 3D perspective camera following a controllable character.
 - Procedurally assembled city blocks, streets, windows, trees, waterfront-inspired colors, fog, lighting, and shadows.
+- First drivable sports car with acceleration, reverse, steering, collision stops, enter/exit interaction, and a vehicle-follow camera.
 - Distinct player colors and independent mission progress for three protagonists.
 - Floating story markers, proximity interaction, dialogue panel, cash counter, minimap, pause/reset menu, and ambient traffic/pedestrians.
 - Original fictional city, characters, and dialogue.
 
 ## Known limitations
-This is a freeze/demo build, not a complete GTA-scale game. The city is procedural and uses simple geometry; traffic and pedestrians are ambient decoration. It does not yet have full vehicle driving, combat, police AI, interiors, voice acting, branching choices, cloud saves, or mobile touch controls. The renderer requires WebGL and an internet connection for the Three.js CDN. Test on the actual presentation computer before the event.
+This is an early vertical slice, not a complete AAA-scale game. The city is procedural and uses simple geometry; traffic and pedestrians are ambient decoration. It does not yet have full vehicle driving, combat, police AI, interiors, voice acting, branching choices, cloud saves, or mobile touch controls. The renderer requires WebGL and an internet connection for the Three.js CDN. Test on the actual presentation computer before the event.
