@@ -21,13 +21,15 @@
       <div class="glass objective"><small>PERSONAL STORY · <span id="story-count">01 / 03</span></small><h3 id="mission-title">A QUIET PICKUP</h3><p id="mission-text">Find the waterfront garage and speak to the mechanic.</p><div class="objective-foot"><span id="distance">OBJECTIVE NEARBY</span><span id="cash-reward">+$250</span></div></div>
     </div>
     <div id="location-tag">OLD MARKET <i></i></div>
+    <div id="view-controls"><button id="graphics-toggle" type="button">GRAPHICS · HIGH</button><button id="recenter-camera" type="button">RESET CAMERA</button></div>
+    <div id="look-hint">CLICK CITY TO CAPTURE MOUSE · MOVE CURSOR TO LOOK · ESC RELEASES</div>
     <div id="minimap"><canvas id="map" width="150" height="150"></canvas><span>NORTH ↑</span></div>
     <div id="toast">Welcome to Port Meridian. Your story starts now.</div>
     <section id="dialogue" class="glass" hidden aria-live="polite"><div class="dialogue-head"><span id="speaker">MARA · MECHANIC</span><button id="close-dialogue" aria-label="Close dialogue">×</button></div><p id="dialogue-line"></p><div class="dialogue-actions"><small>PRESS SPACE OR E TO CONTINUE</small><button id="continue-dialogue">CONTINUE ↗</button><div id="choice-options" hidden><button id="choice-a" class="choice-button">CHOICE A</button><button id="choice-b" class="choice-button">CHOICE B</button></div></div></section>
     <section id="pause" class="glass" hidden><small>NEON STATE · FREEZE BUILD 0.1</small><h2>TAKE A BREATHER.</h2><p>Three people. Three stories. One city.</p><button id="resume">RETURN TO CITY</button><button id="reset-progress" class="secondary">RESET STORY PROGRESS</button></section>
     <div id="vehicle-hud" class="glass"><div class="speed-read"><strong id="speed-value">0</strong><small>KM/H</small></div><div class="vehicle-read"><b id="gear-value">P</b><span id="vehicle-state">SPORT</span><label for="volume">SFX</label><input id="volume" type="range" min="0" max="100" value="55" aria-label="Sound effects volume"></div></div>\n    <div class="crosshair">+</div>
   </section>
-  <footer><span><b>WASD</b> MOVE / DRIVE <b>SHIFT</b> RUN <b>SPACE</b> HANDBRAKE <b>F</b> ENTER / EXIT <b>E</b> INTERACT <b>R</b> CHECKPOINT <b>1–3</b> STORY <b>ESC</b> PAUSE</span><span>PORT MERIDIAN · FICTIONAL CITY · <i id="save-status">CHECKPOINT READY</i></span></footer>
+  <footer><span><b>WASD</b> MOVE / DRIVE <b>MOUSE</b> LOOK <b>SHIFT</b> RUN <b>SPACE</b> HANDBRAKE <b>F</b> ENTER / EXIT <b>E</b> INTERACT <b>R</b> CHECKPOINT <b>1–3</b> STORY <b>ESC</b> PAUSE</span><span>PORT MERIDIAN · FICTIONAL CITY · <i id="save-status">CHECKPOINT READY</i></span></footer>
 </main>
 <script type="module" src="freeze.js"></script>
 </body>
