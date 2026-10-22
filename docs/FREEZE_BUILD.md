@@ -14,7 +14,9 @@ A playable, browser-based 3D vertical slice for deadline demonstration. It uses 
 - **Shift:** run while on foot.
 - **F:** enter or exit the gold sports car near the starting intersection.
 - **WASD / arrow keys while driving:** accelerate, reverse, and steer; the camera follows the vehicle.
-- **E or Space:** start / continue the current story interaction.
+- **Space while driving:** handbrake; the vehicle HUD shows speed, gear/state, and sound-effects volume.
+- **E or Space on foot:** start / continue the current story interaction; the final dialogue line presents a choice.
+- **R:** restart at the current story objective checkpoint.
 - **1 / 2 / 3:** switch between Jax, Nia, and Eli, each with independent mission progress.
 - **Esc:** pause; Esc again resumes. Use the menu to reset progress.
 
@@ -28,10 +30,13 @@ Each protagonist has three short story beats with dialogue and a cash reward. Sw
 ## Implemented
 - 3D perspective camera following a controllable character.
 - Procedurally assembled city blocks, streets, windows, trees, waterfront-inspired colors, fog, lighting, and shadows.
-- First drivable sports car with acceleration, reverse, steering, collision stops, enter/exit interaction, and a vehicle-follow camera.
+- First drivable sports car with acceleration/braking, reverse, grip/handbrake tuning, collision response, enter/exit interaction, speed/gear HUD, generated engine/skid audio, and a vehicle-follow camera.
+- Procedurally articulated original character silhouettes with pivot-based limb motion and smoother turning/running.
+- District identity pass: facade accents, rooftop beacons, street lamps, and custom civic/freight/waterfront landmark silhouettes.
+- Branching dialogue choices with saved decisions, reward differences, local save/load for cash and story progress, and objective checkpoint restart.
 - Distinct player colors and independent mission progress for three protagonists.
 - Floating story markers, proximity interaction, dialogue panel, cash counter, minimap, pause/reset menu, and ambient traffic/pedestrians.
 - Original fictional city, characters, and dialogue.
 
 ## Known limitations
-This is an early vertical slice, not a complete AAA-scale game. The player can drive one basic sports car, but advanced vehicle physics, multiple usable vehicles, combat, police AI, interiors, voice acting, branching choices, cloud saves, and mobile touch controls are not implemented. The city is procedural and traffic/pedestrians are ambient decoration. The renderer requires WebGL and an internet connection for the Three.js CDN. Test on the actual presentation computer before the event.
+This is an early vertical slice, not a complete AAA-scale game. These are first-pass implementations for roadmap Phases 1–4, not full production completion. The character is still procedural geometry rather than a professionally rigged external model; the city is procedural rather than a handcrafted streamed world; and choices currently change rewards and persist decisions rather than unlocking fully different mission scenes. There is one usable car, no advanced vehicle simulation, interiors, voice acting, combat, police AI, cloud saves, or mobile touch controls. Traffic/pedestrians remain ambient decoration. The renderer requires WebGL and an internet connection for the Three.js CDN. Browser syntax checks pass, but real gameplay, audio balance, collision tuning, and save/load still need a hands-on browser playtest on the target computer.
