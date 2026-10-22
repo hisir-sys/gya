@@ -47,7 +47,7 @@ const storyData=[
   {title:'A PLACE AT THE TABLE',text:'Bring everyone together at the waterfront steps.',x:168,z:-42,reward:675,speaker:'UNCLE REN · MECHANIC',lines:['You got them to sit in the same room. That is harder than it looks.','A city is not fixed by one big gesture. It is fixed by showing up again.']}
  ]}
 ];
-let activeHero=0,progress=[0,0,0],money=850,keys={},paused=false,dialogue=null,toastTimer=0,started=false;
+let activeHero=0,progress=[0,0,0],money=850,keys={},paused=false,dialogue=null,toastTimer=0,started=false,driving=false,driveSpeed=0,playerCar=null;
 const player=new THREE.Group();scene.add(player);let avatar=new THREE.Group();player.add(avatar);let heroParts=[];
 function buildAvatar(color){avatar.clear();heroParts=[];const skin=mat('#c99d7d'),shirt=mat(color,.55,.05),pants=mat('#252d38'),shoe=mat('#111820'),hair=mat('#24252a');box(avatar,1.05,1.2,.58,shirt,0,1.65,0);const head=new THREE.Mesh(new THREE.SphereGeometry(.34,16,12),skin);head.position.set(0,2.55,0);head.castShadow=true;avatar.add(head);box(avatar,.63,.22,.62,hair,0,2.82,-.01);const armL=box(avatar,.27,1,.3,shirt,-.68,1.67,0),armR=box(avatar,.27,1,.3,shirt,.68,1.67,0);const legL=box(avatar,.34,.82,.37,pants,-.28,.72,0),legR=box(avatar,.34,.82,.37,pants,.28,.72,0);box(avatar,.38,.2,.55,shoe,-.28,.2,.06);box(avatar,.38,.2,.55,shoe,.28,.2,.06);heroParts=[armL,armR,legL,legR];avatar.position.y=0;avatar.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}})}
 buildAvatar(storyData[0].color);
@@ -62,25 +62,56 @@ function switchHero(n){if(n<0||n>2||n===activeHero)return;activeHero=n;buildAvat
 document.querySelectorAll('[data-hero]').forEach(b=>b.addEventListener('click',()=>switchHero(Number(b.dataset.hero))));
 function makeCar(i){const g=new THREE.Group();const body=box(g,2.3,.72,4.4,mat(['#b24d43','#457f9a','#d0a35d','#597b63'][i%4],.4,.15),0,.8,0);box(g,1.7,.65,2.05,materials.glass,0,1.42,-.15);for(const x of [-.9,.9])for(const z of [-1.35,1.35]){const wheel=new THREE.Mesh(new THREE.CylinderGeometry(.38,.38,.2,12),mat('#15191d',.9));wheel.rotation.z=Math.PI/2;wheel.position.set(x,.4,z);g.add(wheel)}g.position.set(i%2===0?-126+i*9:126-i*7,0,i%2===0?-42:42);g.rotation.y=i%2===0?Math.PI/2:0;g.userData={axis:i%2===0?'z':'x',speed:.13+(i%4)*.025,sign:i%3===0?-1:1};city.add(g);traffic.push(g)}
 for(let i=0;i<12;i++)makeCar(i);
+function makePlayerCar(){
+ const g=new THREE.Group(),paint=mat('#d8a34d',.32,.32),dark=mat('#18232d',.35,.25),lamp=new THREE.MeshStandardMaterial({color:'#fff0bf',emissive:'#ffcf73',emissiveIntensity:2.1});
+ box(g,2.35,.72,4.65,paint,0,.82,0);box(g,1.72,.72,2.25,materials.glass,0,1.48,-.12);
+ box(g,1.75,.12,1.5,dark,0,1.82,-.18,false);
+ for(const x of [-.9,.9])for(const z of [-1.42,1.42]){const w=new THREE.Mesh(new THREE.CylinderGeometry(.39,.39,.22,16),mat('#101419',.8));w.rotation.z=Math.PI/2;w.position.set(x,.42,z);g.add(w)}
+ for(const x of [-.78,.78]){const h=new THREE.Mesh(new THREE.BoxGeometry(.38,.18,.08),lamp);h.position.set(x,.92,2.34);g.add(h);const tail=box(g,.35,.16,.08,mat('#a52e2e',.45),x,.9,-2.34,false);tail.castShadow=false}
+ g.position.set(0,0,9);g.rotation.y=Math.PI;g.userData={parked:true};city.add(g);return g
+}
+playerCar=makePlayerCar();
 function makePed(i){const g=new THREE.Group();const colors=['#d6a58c','#9bb8c8','#c5b7d7','#b5c8b7'];box(g,.55,1.1,.4,mat(colors[i%4]),0,1,0);const head=new THREE.Mesh(new THREE.SphereGeometry(.22,10,8),mat('#c99d7d'));head.position.y=1.78;g.add(head);g.position.set(-145+(i%6)*52,0,-140+Math.floor(i/6)*55);g.userData={phase:i*.8,origin:g.position.clone()};city.add(g);pedestrians.push(g)}
 for(let i=0;i<18;i++)makePed(i);
 const zones=[{name:'OLD MARKET',x:-180,z:-180,w:120,d:120},{name:'DOWNTOWN',x:-45,z:-45,w:100,d:100},{name:'FREIGHT QUARTER',x:-170,z:-100,w:90,d:110},{name:'WATERFRONT',x:70,z:35,w:100,d:100},{name:'UPTOWN',x:45,z:-150,w:100,d:100},{name:'CENTRAL GARDEN',x:-75,z:70,w:100,d:100}];
 function collides(x,z){return buildings.some(b=>Math.abs(x-b.x)<b.w/2+1.1&&Math.abs(z-b.z)<b.d/2+1.1)}
 function closeToMission(){const m=currentMission();return m&&Math.hypot(player.position.x-m.x,player.position.z-m.z)<8}
+function toggleVehicle(){
+ if(paused)return;
+ if(driving){
+  driving=false;avatar.visible=true;player.position.set(playerCar.position.x+2.8,0,playerCar.position.z);driveSpeed=0;
+  say('Exited vehicle · press F near the car to drive again');return;
+ }
+ if(Math.hypot(player.position.x-playerCar.position.x,player.position.z-playerCar.position.z)>5.5){say('Move closer to the gold sports car to drive it · F');return}
+ driving=true;avatar.visible=false;player.position.copy(playerCar.position);say('Vehicle entered · WASD drive · F exit'); 
+}
 function startInteraction(){if(paused)return;if(dialogue){dialogue.index++;if(dialogue.index>=dialogue.lines.length){document.querySelector('#dialogue').hidden=true;dialogue=null;const m=currentMission();if(m&&closeToMission()){progress[activeHero]++;money+=m.reward;setText('cash','$'+money);syncUI();say(progress[activeHero]>=3?'CHAPTER COMPLETE · '+storyData[activeHero].name:'STORY BEAT COMPLETE · +$'+m.reward)}return}showDialogue();return}
  const m=currentMission();if(!m){say('This chapter is complete. Switch protagonists for another story.');return}if(!closeToMission()){say('Move closer to the glowing story marker.');return}dialogue={index:0,lines:m.lines,speaker:m.speaker};showDialogue()}
 function showDialogue(){if(!dialogue)return;setText('speaker',dialogue.speaker);setText('dialogue-line',dialogue.lines[Math.min(dialogue.index,dialogue.lines.length-1)]);document.querySelector('#dialogue').hidden=false}
 function togglePause(force){paused=typeof force==='boolean'?force:!paused;document.querySelector('#pause').hidden=!paused;if(paused){keys={};document.exitPointerLock?.()} }
 document.querySelector('#continue-dialogue').addEventListener('click',startInteraction);document.querySelector('#close-dialogue').addEventListener('click',()=>{dialogue=null;document.querySelector('#dialogue').hidden=true});document.querySelector('#resume').addEventListener('click',()=>togglePause(false));document.querySelector('#reset-progress').addEventListener('click',()=>{progress=[0,0,0];money=850;syncUI();togglePause(false);say('Story progress reset.')});
-window.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright',' '].includes(k))e.preventDefault();keys[k]=true;if(k==='1'||k==='2'||k==='3')switchHero(Number(k)-1);if(k==='e'||k===' ')startInteraction();if(k==='escape'){if(dialogue){dialogue=null;document.querySelector('#dialogue').hidden=true}else togglePause()}});
+window.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright',' '].includes(k))e.preventDefault();keys[k]=true;if(k==='1'||k==='2'||k==='3')switchHero(Number(k)-1);if(k==='f'&&!e.repeat)toggleVehicle();if(k==='e'||k===' ')startInteraction();if(k==='escape'){if(dialogue){dialogue=null;document.querySelector('#dialogue').hidden=true}else togglePause()}});
 window.addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
 root.addEventListener('pointerdown',()=>{if(!paused&&!dialogue&&started)root.focus()});
 function drawMap(){mctx.clearRect(0,0,150,150);mctx.fillStyle='#15212a';mctx.fillRect(0,0,150,150);mctx.strokeStyle='#66747c';mctx.lineWidth=3;for(let n=0;n<9;n++){const p=10+n*16.3;mctx.beginPath();mctx.moveTo(p,0);mctx.lineTo(p,150);mctx.stroke();mctx.beginPath();mctx.moveTo(0,p);mctx.lineTo(150,p);mctx.stroke()}mctx.fillStyle='#8e9b92';buildings.forEach(b=>{const x=75+b.x*.34,z=75+b.z*.34;if(x>0&&x<150&&z>0&&z<150)mctx.fillRect(x-b.w*.12,z-b.d*.12,Math.max(1,b.w*.24),Math.max(1,b.d*.24))});const m=currentMission();if(m){mctx.fillStyle=storyData[activeHero].color;mctx.beginPath();mctx.arc(75+m.x*.34,75+m.z*.34,4,0,Math.PI*2);mctx.fill()}mctx.fillStyle='#fff';mctx.beginPath();mctx.moveTo(75+player.position.x*.34,75+player.position.z*.34);mctx.arc(75+player.position.x*.34,75+player.position.z*.34,3,0,Math.PI*2);mctx.fill()}
-function frame(){requestAnimationFrame(frame);const dt=Math.min(clock?clock.getDelta():.016,.045);if(!paused){const move=new THREE.Vector3();if(keys.w||keys.arrowup)move.z-=1;if(keys.s||keys.arrowdown)move.z+=1;if(keys.a||keys.arrowleft)move.x-=1;if(keys.d||keys.arrowright)move.x+=1;let walking=move.lengthSq()>0;if(walking){move.normalize();const run=keys.shift?10:5.4;const desired=Math.atan2(move.x,move.z);player.rotation.y=desired;const nx=player.position.x+move.x*run*dt,nz=player.position.z+move.z*run*dt;if(!collides(nx,player.position.z))player.position.x=THREE.MathUtils.clamp(nx,-184,184);if(!collides(player.position.x,nz))player.position.z=THREE.MathUtils.clamp(nz,-184,184);const swing=Math.sin(performance.now()*.012)*.45;heroParts[0].rotation.x=swing;heroParts[1].rotation.x=-swing;heroParts[2].rotation.x=-swing;heroParts[3].rotation.x=swing}else heroParts.forEach(p=>p.rotation.x=THREE.MathUtils.damp(p.rotation.x,0,8,dt));
+function frame(){requestAnimationFrame(frame);const dt=Math.min(clock?clock.getDelta():.016,.045);if(!paused){const move=new THREE.Vector3();
+ if(driving){
+  if(keys.w||keys.arrowup)driveSpeed=Math.min(driveSpeed+17*dt,27);else if(keys.s||keys.arrowdown)driveSpeed=Math.max(driveSpeed-23*dt,-9);else driveSpeed=THREE.MathUtils.damp(driveSpeed,0,1.8,dt);
+  const steer=(keys.a||keys.arrowleft?-1:0)+(keys.d||keys.arrowright?1:0);
+  if(Math.abs(driveSpeed)>.4)playerCar.rotation.y+=steer*1.65*dt*Math.sign(driveSpeed);
+  const dx=Math.sin(playerCar.rotation.y)*driveSpeed*dt,dz=Math.cos(playerCar.rotation.y)*driveSpeed*dt;
+  const nx=THREE.MathUtils.clamp(playerCar.position.x+dx,-184,184),nz=THREE.MathUtils.clamp(playerCar.position.z+dz,-184,184);
+  if(!collides(nx,playerCar.position.z)&&!collides(playerCar.position.x,nz)){playerCar.position.x=nx;playerCar.position.z=nz}else driveSpeed=0;
+  player.position.copy(playerCar.position);player.rotation.y=playerCar.rotation.y;
+ }else{
+  if(keys.w||keys.arrowup)move.z-=1;if(keys.s||keys.arrowdown)move.z+=1;if(keys.a||keys.arrowleft)move.x-=1;if(keys.d||keys.arrowright)move.x+=1;
+  const walking=move.lengthSq()>0;
+  if(walking){move.normalize();const run=keys.shift?10:5.4;const desired=Math.atan2(move.x,move.z);player.rotation.y=desired;const nx=player.position.x+move.x*run*dt,nz=player.position.z+move.z*run*dt;if(!collides(nx,player.position.z))player.position.x=THREE.MathUtils.clamp(nx,-184,184);if(!collides(player.position.x,nz))player.position.z=THREE.MathUtils.clamp(nz,-184,184);const swing=Math.sin(performance.now()*.012)*.45;heroParts[0].rotation.x=swing;heroParts[1].rotation.x=-swing;heroParts[2].rotation.x=-swing;heroParts[3].rotation.x=swing}else heroParts.forEach(p=>p.rotation.x=THREE.MathUtils.damp(p.rotation.x,0,8,dt));
+ }
  traffic.forEach(c=>{const u=c.userData;if(u.axis==='z'){c.position.z+=u.speed*u.sign*dt*12;if(c.position.z>182)c.position.z=-182;if(c.position.z< -182)c.position.z=182}else{c.position.x+=u.speed*u.sign*dt*12;if(c.position.x>182)c.position.x=-182;if(c.position.x< -182)c.position.x=182}});
  pedestrians.forEach(p=>{p.userData.phase+=dt*.8;p.position.x=p.userData.origin.x+Math.sin(p.userData.phase)*1.8;p.position.z=p.userData.origin.z+Math.cos(p.userData.phase*.7)*1.8;p.rotation.y=Math.sin(p.userData.phase)*.3});
- const target=new THREE.Vector3(player.position.x,player.position.y+2,player.position.z);const behind=new THREE.Vector3(-Math.sin(player.rotation.y)*11,7,Math.cos(player.rotation.y)*11);camera.position.lerp(target.clone().add(behind),1-Math.pow(.001,dt));camera.lookAt(target.clone().add(new THREE.Vector3(0,1,0)));
- const zone=zones.find(z=>Math.abs(player.position.x-(z.x+z.w/2))<z.w/2&&Math.abs(player.position.z-(z.z+z.d/2))<z.d/2);setText('location-tag',zone?zone.name:'PORT MERIDIAN');const m=currentMission();if(m){const d=Math.round(Math.hypot(player.position.x-m.x,player.position.z-m.z));setText('distance',d<8?'PRESS E · INTERACT':d+' M TO OBJECTIVE')}else setText('distance','CHAPTER COMPLETE');if(closeToMission()&&!dialogue&&toastTimer<=0)say('Press E to begin this story beat');if(toastTimer>0)toastTimer-=dt;landmarks.forEach(l=>{l.orb.rotation.y+=dt*.9;l.orb.position.y=5+Math.sin(performance.now()*.002)*.3;l.ring.rotation.z+=dt*.25})}
+ const target=new THREE.Vector3(player.position.x,player.position.y+2,player.position.z);const followDistance=driving?15:11;const behind=new THREE.Vector3(-Math.sin(player.rotation.y)*followDistance,driving?8:7,-Math.cos(player.rotation.y)*followDistance);camera.position.lerp(target.clone().add(behind),1-Math.pow(.001,dt));camera.lookAt(target.clone().add(new THREE.Vector3(0,1,0)));
+ const zone=zones.find(z=>Math.abs(player.position.x-(z.x+z.w/2))<z.w/2&&Math.abs(player.position.z-(z.z+z.d/2))<z.d/2);setText('location-tag',zone?zone.name:'PORT MERIDIAN');const m=currentMission();if(m){const d=Math.round(Math.hypot(player.position.x-m.x,player.position.z-m.z));setText('distance',d<8?(driving?'EXIT CAR WITH F · THEN PRESS E':'PRESS E · INTERACT'):d+' M TO OBJECTIVE')}else setText('distance','CHAPTER COMPLETE');if(closeToMission()&&!dialogue&&toastTimer<=0)say('Press E to begin this story beat');if(toastTimer>0)toastTimer-=dt;landmarks.forEach(l=>{l.orb.rotation.y+=dt*.9;l.orb.position.y=5+Math.sin(performance.now()*.002)*.3;l.ring.rotation.z+=dt*.25})}
  drawMap();renderer.render(scene,camera)}
 const clock=new THREE.Clock();
 window.addEventListener('resize',()=>{const w=root.clientWidth,h=root.clientHeight;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h);renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.8))});
