@@ -25,3 +25,10 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;lin
 #save-status{font-style:normal;color:var(--cyan);margin-left:8px}
 @media(max-width:850px){#vehicle-hud{right:10px;bottom:10px;min-width:160px;padding:8px 10px}}
 @media(max-width:540px){#vehicle-hud{bottom:165px;right:10px;min-width:145px}.speed-read strong{font-size:32px!important}}
+
+#choice-options{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+#choice-options[hidden]{display:none}
+#choice-options .choice-button{background:#142431;color:#e9f3f6;border:1px solid #8dd7d866;border-radius:5px;padding:10px 12px;font-size:9px;font-weight:800;letter-spacing:.4px;max-width:190px}
+#choice-options .choice-button:hover{border-color:var(--cyan);background:#1c3541}
+.dialogue-actions{flex-wrap:wrap}
+@media(max-width:540px){#choice-options{width:100%;justify-content:stretch}#choice-options .choice-button{flex:1;max-width:none}}
