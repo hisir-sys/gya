@@ -32,7 +32,7 @@ Each protagonist has three short story beats with dialogue and a cash reward. Sw
 ## Implemented
 - 3D third-person camera with pointer-locked mouse look, camera-relative on-foot movement, camera recentering, and High/Ultra/Performance graphics presets.
 - Higher render resolution, improved tone mapping, and a larger soft-shadow map in the High/Ultra presets.
-- Procedurally assembled city blocks, streets, windows, trees, waterfront-inspired colors, fog, lighting, and shadows.
+- Procedurally assembled city blocks with a Vice City-inspired golden-hour palette, warm/cool cinematic lighting, emissive neon shop signs, lit windows, palm trees, textured asphalt, double center lines, crosswalks, beach edge, oceanfront, sunset disc, fog, and shadows.
 - First drivable sports car with acceleration/braking, reverse, grip/handbrake tuning, collision response, enter/exit interaction, speed/gear HUD, generated engine/skid audio, and a vehicle-follow camera.
 - Procedurally articulated original character silhouettes with pivot-based limb motion and smoother turning/running.
 - District identity pass: facade accents, rooftop beacons, street lamps, and custom civic/freight/waterfront landmark silhouettes.
