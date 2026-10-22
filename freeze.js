@@ -13,7 +13,7 @@ const materials={ground:mat('#53645c'),road:mat('#293239'),sidewalk:mat('#89928b
 const ground=new THREE.Mesh(new THREE.PlaneGeometry(430,430),materials.ground);ground.rotation.x=-Math.PI/2;ground.position.y=-.16;ground.receiveShadow=true;scene.add(ground);
 const city=new THREE.Group();scene.add(city);const buildings=[],traffic=[],pedestrians=[],landmarks=[];
 const palette=['#4b5863','#59645f','#7b7468','#495b66','#6b6660','#596b6a','#7b8585','#6b5f61','#536a78'];
-const buildingMats=palette.map(c=>mat(c,.9,.03));const windowMaterials=[mat('#9db9bc',.4,.15),mat('#273c49',.4,.15),windowMaterials[2]];
+const buildingMats=palette.map(c=>mat(c,.9,.03));const windowMaterials=[mat('#9db9bc',.4,.15),mat('#273c49',.4,.15),mat('#b8c7c4',.38,.12)];
 function box(parent,w,h,d,material,x,y,z,shadow=true){const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),material);mesh.position.set(x,y,z);mesh.castShadow=shadow;mesh.receiveShadow=true;parent.add(mesh);return mesh}
 function makeBuilding(x,z,w,d,h,idx){const g=new THREE.Group();g.position.set(x,0,z);city.add(g);const body=box(g,w,h,d,buildingMats[idx%buildingMats.length],0,h/2,0);buildings.push({x,z,w,d,h});const roof=box(g,w*.83,.35,d*.82,mat('#333c43'),0,h+.15,0,false);roof.castShadow=false;
  const rows=Math.max(2,Math.floor(h/4));for(let y=3;y<h-1;y+=Math.max(3.5,h/rows)){for(let xx=-w/2+2.5;xx<w/2-1.5;xx+=4.5){const win=box(g,1.35,1.45,.08,windowMaterials[idx%2],xx,y,d/2+.05,false);win.castShadow=false;const win2=box(g,1.35,1.45,.08,mat('#324957',.4,.15),xx,y,-d/2-.05,false);win2.rotation.y=Math.PI;win2.castShadow=false}}
