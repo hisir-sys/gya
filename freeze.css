@@ -37,3 +37,7 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;lin
 /* Collectible hunt HUD */
 .topstats span:last-child{color:#8df5e8}.topstats span:last-child b{color:#8df5e8}
 @media(max-width:850px){.topstats span:last-child{display:none}}
+
+/* Collectible hunt HUD */
+.topstats span:last-child{color:#8df5e8}.topstats span:last-child b{color:#8df5e8}
+@media(max-width:850px){.topstats span:last-child{display:none}}
