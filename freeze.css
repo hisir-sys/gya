@@ -34,3 +34,10 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;lin
 @media(max-width:540px){#choice-options{width:100%;justify-content:stretch}#choice-options .choice-button{flex:1;max-width:none}}
 
 #view-controls{position:absolute;left:50%;top:58px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;pointer-events:auto;z-index:2}#view-controls button{border:1px solid #ffffff28;border-radius:6px;background:#07101ac9;color:#f4f7fb;padding:8px 10px;font-size:8px;font-weight:800;letter-spacing:1px;backdrop-filter:blur(10px)}#view-controls button:hover{border-color:var(--gold);color:var(--gold)}#look-hint{position:absolute;left:50%;bottom:58px;transform:translateX(-50%);padding:7px 10px;background:#07101a9e;border:1px solid #ffffff1c;border-radius:6px;color:#e5ebf1;font-size:8px;letter-spacing:.8px;white-space:nowrap;pointer-events:none}@media(max-width:850px){#view-controls{top:42px}#look-hint{bottom:45px}}@media(max-width:540px){#view-controls{top:244px}#look-hint{bottom:45px;font-size:7px}}
+/* Collectible hunt HUD */
+.topstats span:last-child{color:#8df5e8}.topstats span:last-child b{color:#8df5e8}
+@media(max-width:850px){.topstats span:last-child{display:none}}
+
+/* Collectible hunt HUD */
+.topstats span:last-child{color:#8df5e8}.topstats span:last-child b{color:#8df5e8}
+@media(max-width:850px){.topstats span:last-child{display:none}}
