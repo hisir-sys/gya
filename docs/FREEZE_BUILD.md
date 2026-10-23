@@ -21,6 +21,7 @@ A playable, browser-based 3D vertical slice for deadline demonstration. It uses 
 - **1 / 2 / 3:** switch between Jax, Nia, and Eli, each with independent mission progress.
 - **Esc:** releases the mouse cursor; press Esc again when the cursor is released to pause/resume. Use the menu to reset progress.
 - **Graphics presets:** cycle High, Ultra, and Performance to trade image quality for frame rate. High is the default; Ultra uses a higher render scale and larger shadow map.
+- **Atmosphere toggle:** switch between Golden Hour and Neon Night, with coordinated sky/fog colors, ambient and directional lighting, exposure, and brighter emissive windows/neon signage.
 
 ## Three personal storylines
 - **Jax Mercer — The Long Way Home:** a courier delivery, a suspicious route change, and a choice about his future.
@@ -32,6 +33,7 @@ Each protagonist has three short story beats with dialogue and a cash reward. Sw
 ## Implemented
 - 3D third-person camera with pointer-locked mouse look, camera-relative on-foot movement, camera recentering, and High/Ultra/Performance graphics presets.
 - Higher render resolution, improved tone mapping, and a larger soft-shadow map in the High/Ultra presets.
+- One-click Golden Hour / Neon Night atmosphere toggle that updates the scene palette, fog, lighting, exposure, window glow, and neon sign intensity.
 - Procedurally assembled city blocks with a Vice City-inspired golden-hour palette, warm/cool cinematic lighting, emissive neon shop signs, lit windows, palm trees, textured asphalt, double center lines, crosswalks, beach edge, oceanfront, sunset disc, fog, and shadows.
 - First drivable sports car with acceleration/braking, reverse, grip/handbrake tuning, collision response, enter/exit interaction, speed/gear HUD, generated engine/skid audio, and a vehicle-follow camera.
 - Procedurally articulated original character silhouettes with pivot-based limb motion and smoother turning/running.
