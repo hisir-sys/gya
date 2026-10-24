@@ -43,3 +43,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 ## Presentation and persistence
 - [ ] **31 — Graphics preset:** Switch graphics quality and confirm the selected preset label updates.
 - [ ] **32 — Atmosphere toggle:** Switch between Golden Hour and Neon Night and confirm lighting, sky, and fog update.
+- [ ] **33 — Minimap:** Move around the city and confirm the minimap player marker updates with position.
