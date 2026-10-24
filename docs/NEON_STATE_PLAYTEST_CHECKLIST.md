@@ -34,3 +34,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **23 — Relic completion bonus:** Collect all twelve relics and verify the completion bonus is awarded only once.
 - [ ] **24 — Vehicle entry:** Enter the drivable car using the documented interaction and confirm the vehicle HUD appears.
 - [ ] **25 — Vehicle steering:** Steer left and right while driving and confirm the car turns smoothly.
+- [ ] **26 — Vehicle braking:** Use the handbrake/brake control and confirm the car slows without reversing unexpectedly.
