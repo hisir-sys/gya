@@ -38,3 +38,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **27 — Nitro activation:** While driving forward, hold Shift with throttle and confirm nitro fuel drains and speed increases.
 - [ ] **28 — Nitro recharge:** Stop boosting and confirm the nitro meter recharges over time.
 - [ ] **29 — Nitro restrictions:** Test nitro while reversing and while using the handbrake; confirm it does not boost in restricted states.
+- [ ] **30 — Vehicle exit:** Exit the vehicle and confirm on-foot controls return and the vehicle HUD hides.
