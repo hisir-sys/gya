@@ -33,3 +33,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **22 — Relic persistence:** Reload after collecting a relic and confirm it remains collected if save persistence is working.
 - [ ] **23 — Relic completion bonus:** Collect all twelve relics and verify the completion bonus is awarded only once.
 - [ ] **24 — Vehicle entry:** Enter the drivable car using the documented interaction and confirm the vehicle HUD appears.
+- [ ] **25 — Vehicle steering:** Steer left and right while driving and confirm the car turns smoothly.
