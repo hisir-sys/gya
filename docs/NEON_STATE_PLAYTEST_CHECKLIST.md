@@ -15,3 +15,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **08 — Camera mouse look:** Click the game viewport and move the mouse to verify camera look.
 - [ ] **09 — Cursor release:** Press Escape and confirm the pointer is released and the game pauses as expected.
 - [ ] **10 — Resume:** Resume after pausing and confirm movement and camera controls work again.
+- [ ] **11 — Protagonist switching:** Use keys 1, 2, and 3 and confirm each protagonist's name and mission update.
