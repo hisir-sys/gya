@@ -25,3 +25,6 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **16 — Mission reward:** Finish a mission and confirm the cash reward updates once, not repeatedly.
 - [ ] **17 — Mission progression:** Complete a story beat and confirm the next objective appears.
 - [ ] **18 — Story completion:** Complete all beats for one protagonist and confirm the completion message is clear.
+
+## Collectibles
+- [ ] **19 — Relic proximity:** Approach a neon relic and confirm the interaction hint appears only when close enough.
