@@ -36,3 +36,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **25 — Vehicle steering:** Steer left and right while driving and confirm the car turns smoothly.
 - [ ] **26 — Vehicle braking:** Use the handbrake/brake control and confirm the car slows without reversing unexpectedly.
 - [ ] **27 — Nitro activation:** While driving forward, hold Shift with throttle and confirm nitro fuel drains and speed increases.
+- [ ] **28 — Nitro recharge:** Stop boosting and confirm the nitro meter recharges over time.
