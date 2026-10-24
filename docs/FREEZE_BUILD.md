@@ -45,3 +45,10 @@ Each protagonist has three short story beats with dialogue and a cash reward. Sw
 
 ## Known limitations
 This is an early vertical slice, not a complete AAA-scale game. These are first-pass implementations for roadmap Phases 1–4, not full production completion. The character is still procedural geometry rather than a professionally rigged external model; the city is procedural rather than a handcrafted streamed world; and choices currently change rewards and persist decisions rather than unlocking fully different mission scenes. There is one usable car, no advanced vehicle simulation, interiors, voice acting, combat, police AI, cloud saves, or mobile touch controls. Traffic/pedestrians remain ambient decoration. The renderer requires WebGL and an internet connection for the Three.js CDN. Browser syntax checks pass, but real gameplay, audio balance, collision tuning, and save/load still need a hands-on browser playtest on the target computer.
+
+
+## Vehicle nitro boost
+- Enter the car with **F** and accelerate with **W**.
+- Hold **Shift + W** to spend nitro fuel and accelerate beyond the normal top speed.
+- Nitro drains while boosting and recharges automatically when you stop boosting; the vehicle HUD shows the current fuel percentage.
+- **Space** remains the handbrake. Nitro does not activate while the handbrake is held or when reversing.
