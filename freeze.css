@@ -41,3 +41,11 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;lin
 /* Collectible hunt HUD */
 .topstats span:last-child{color:#8df5e8}.topstats span:last-child b{color:#8df5e8}
 @media(max-width:850px){.topstats span:last-child{display:none}}
+
+/* Rechargeable nitro boost HUD */
+#vehicle-hud .nitro-read{grid-column:1 / -1;display:grid;gap:4px;min-width:96px;margin-top:2px}
+#vehicle-hud .nitro-read>span{display:flex;justify-content:space-between;font-size:8px;letter-spacing:1px;color:var(--muted)}
+#vehicle-hud .nitro-read>span b{color:#7cf5e9;font-size:9px}
+#vehicle-hud .nitro-track{height:5px;border-radius:99px;background:#ffffff1c;overflow:hidden}
+#vehicle-hud #nitro-fill{display:block;width:100%;height:100%;border-radius:99px;background:linear-gradient(90deg,#37b9d3,#8df5e8);box-shadow:0 0 10px #49e8df88;transition:width .08s linear}
+#vehicle-hud #vehicle-state{color:#8df5e8}
