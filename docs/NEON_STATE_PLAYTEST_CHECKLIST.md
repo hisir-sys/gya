@@ -4,3 +4,6 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 
 ## Core startup
 - [ ] **01 — Startup:** the page loads and the city appears without a JavaScript console error.
+
+## World and controls
+- [ ] **02 — WebGL support:** Confirm the browser supports WebGL and the renderer canvas is visible.
