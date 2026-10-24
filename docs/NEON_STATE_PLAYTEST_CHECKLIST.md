@@ -46,3 +46,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **33 — Minimap:** Move around the city and confirm the minimap player marker updates with position.
 - [ ] **34 — Location label:** Move through different city zones and confirm the location tag updates where zones are defined.
 - [ ] **35 — Save status:** Complete a mission or collect a relic and check that the save-status label reports the result.
+- [ ] **36 — Responsive viewport:** Resize the browser window and confirm the renderer and HUD remain usable without obvious overflow.
