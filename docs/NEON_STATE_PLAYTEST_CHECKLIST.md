@@ -21,3 +21,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **12 — Mission marker:** Find the glowing mission marker and confirm it follows the selected protagonist's current mission.
 - [ ] **13 — Mission proximity:** Press E far from a mission and confirm the game gives a helpful proximity hint.
 - [ ] **14 — Dialogue progression:** Approach a mission and advance each dialogue line with the interaction control.
+- [ ] **15 — Dialogue choices:** Reach a mission choice and verify both options can be selected.
