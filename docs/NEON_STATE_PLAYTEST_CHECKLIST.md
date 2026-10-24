@@ -23,3 +23,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **14 — Dialogue progression:** Approach a mission and advance each dialogue line with the interaction control.
 - [ ] **15 — Dialogue choices:** Reach a mission choice and verify both options can be selected.
 - [ ] **16 — Mission reward:** Finish a mission and confirm the cash reward updates once, not repeatedly.
+- [ ] **17 — Mission progression:** Complete a story beat and confirm the next objective appears.
