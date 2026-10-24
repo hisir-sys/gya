@@ -10,3 +10,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **03 — Loading overlay:** Confirm the loading overlay disappears after the city finishes initializing.
 - [ ] **04 — Initial HUD:** Check the protagonist name, role, mission title, cash, and relic counter are readable.
 - [ ] **05 — Keyboard movement:** Use W, A, S, and D to move; confirm movement responds in each direction.
+- [ ] **06 — Arrow-key movement:** Repeat movement with the arrow keys and confirm no key remains stuck.
