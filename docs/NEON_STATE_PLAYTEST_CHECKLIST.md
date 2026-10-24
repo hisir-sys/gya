@@ -14,3 +14,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **07 — Sprint:** Hold Shift while walking and confirm sprinting works without driving.
 - [ ] **08 — Camera mouse look:** Click the game viewport and move the mouse to verify camera look.
 - [ ] **09 — Cursor release:** Press Escape and confirm the pointer is released and the game pauses as expected.
+- [ ] **10 — Resume:** Resume after pausing and confirm movement and camera controls work again.
