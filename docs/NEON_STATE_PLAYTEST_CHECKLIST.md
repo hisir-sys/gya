@@ -39,3 +39,6 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **28 — Nitro recharge:** Stop boosting and confirm the nitro meter recharges over time.
 - [ ] **29 — Nitro restrictions:** Test nitro while reversing and while using the handbrake; confirm it does not boost in restricted states.
 - [ ] **30 — Vehicle exit:** Exit the vehicle and confirm on-foot controls return and the vehicle HUD hides.
+
+## Presentation and persistence
+- [ ] **31 — Graphics preset:** Switch graphics quality and confirm the selected preset label updates.
