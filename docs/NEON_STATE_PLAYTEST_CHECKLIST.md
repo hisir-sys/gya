@@ -31,3 +31,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 - [ ] **20 — Relic collection:** Collect one relic and confirm it disappears and the counter increments once.
 - [ ] **21 — Relic reward:** Collect a relic and confirm the cash reward is reflected in the HUD.
 - [ ] **22 — Relic persistence:** Reload after collecting a relic and confirm it remains collected if save persistence is working.
+- [ ] **23 — Relic completion bonus:** Collect all twelve relics and verify the completion bonus is awarded only once.
