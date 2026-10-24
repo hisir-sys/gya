@@ -28,3 +28,4 @@ Use this checklist with `python -m http.server 8000` and open `http://localhost:
 
 ## Collectibles
 - [ ] **19 — Relic proximity:** Approach a neon relic and confirm the interaction hint appears only when close enough.
+- [ ] **20 — Relic collection:** Collect one relic and confirm it disappears and the counter increments once.
