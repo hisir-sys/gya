@@ -45,3 +45,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **31 — Mouse look responsiveness:** Test quick and slow mouse movement in ULTRA and PERFORMANCE.
 - [ ] **32 — Minimap clarity:** Confirm the minimap remains sharp and readable at each preset.
 - [ ] **33 — HUD contrast:** Check HUD text remains readable against bright and dark parts of the world.
+- [ ] **34 — UI unaffected by quality:** Confirm changing the 3D quality preset does not blur or scale the HTML interface.
