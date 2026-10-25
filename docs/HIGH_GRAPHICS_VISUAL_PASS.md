@@ -63,3 +63,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **45 — Avatar lighting:** Inspect the player avatar in bright sunlight and shaded streets.
 - [ ] **46 — Mission marker contrast:** Confirm the active story marker is distinct from collectible markers.
 - [ ] **47 — Loading transition:** Reload and check the loading overlay fades out cleanly after startup.
+- [ ] **48 — Windowed desktop:** Test the build in a normal resizable desktop browser window.
