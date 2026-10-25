@@ -57,3 +57,6 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **41 — Pedestrian silhouettes:** Confirm pedestrians remain visible against sidewalks and building shadows.
 - [ ] **42 — Traffic readability:** Check traffic vehicles remain distinguishable from the road surface.
 - [ ] **43 — Relic visibility:** Confirm glowing relics remain noticeable against both day and night palettes.
+
+## Gameplay readability and hardware
+- [ ] **44 — Relic shimmer:** Watch a relic for thirty seconds and check that rotation remains smooth.
