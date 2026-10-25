@@ -34,3 +34,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 ## Sunset depth and atmosphere
 - [ ] **23 — Sunset disc:** Confirm the sunset disc is visible without distracting from the playable area.
 - [ ] **24 — Halo artifact check:** Look for obvious hard edges or depth-sorting artifacts around the sunset halo.
+- [ ] **25 — Dust in ULTRA:** Verify subtle atmospheric dust appears in ULTRA.
