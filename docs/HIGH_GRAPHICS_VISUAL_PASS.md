@@ -28,3 +28,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **18 — Golden Hour color:** Inspect warm sunset lighting on roads, buildings, and the beach.
 - [ ] **19 — Neon Night color:** Switch to Neon Night and confirm the sky and fog change to cooler colors.
 - [ ] **20 — Night window lights:** Confirm emissive window materials remain visible in Neon Night.
+- [ ] **21 — Neon sign glow:** Check that neon signs remain readable at medium and long distances.
