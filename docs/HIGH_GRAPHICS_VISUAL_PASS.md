@@ -9,3 +9,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **03 — EXTREME preset:** Verify EXTREME activates the largest configured shadow map and a 2.5 device-pixel-ratio cap.
 - [ ] **04 — PERFORMANCE preset:** Verify PERFORMANCE disables shadows and lowers the pixel-ratio cap for slower machines.
 - [ ] **05 — Preset labels:** Confirm the on-screen label always matches the active preset.
+- [ ] **06 — Preset cycle recovery:** Cycle through all four presets twice and confirm the order never gets stuck.
