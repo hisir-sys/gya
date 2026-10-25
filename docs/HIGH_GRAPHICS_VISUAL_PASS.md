@@ -53,3 +53,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **37 — Palm foliage:** Check palm leaves render without excessive flickering when moving the camera.
 - [ ] **38 — Building windows:** Inspect window rows for z-fighting, missing faces, or sudden material changes.
 - [ ] **39 — Sign readability:** Confirm neon signage stays legible without harsh overexposure.
+- [ ] **40 — Beach and sea:** Inspect the shoreline, seawall, and sea colors in both atmosphere modes.
