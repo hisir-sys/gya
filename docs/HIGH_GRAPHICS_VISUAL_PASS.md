@@ -17,3 +17,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **09 — No console errors:** Check the browser console for errors while changing each graphics preset.
 - [ ] **10 — Stable frame:** Walk around the city for two minutes and watch for severe hitching or freezing.
 - [ ] **11 — Shadow visibility:** Inspect building and palm shadows in HIGH and ULTRA.
+- [ ] **12 — Shadow quality:** Compare edges and self-shadow artifacts between ULTRA and EXTREME.
