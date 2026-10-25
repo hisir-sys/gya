@@ -6,3 +6,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 
 - [ ] **01 — Preset cycling:** click Graphics and confirm HIGH → ULTRA → EXTREME → PERFORMANCE → HIGH.
 - [ ] **02 — ULTRA preset:** Verify the pixel-ratio cap changes to the ULTRA profile and the canvas stays correctly sized.
+- [ ] **03 — EXTREME preset:** Verify EXTREME activates the largest configured shadow map and a 2.5 device-pixel-ratio cap.
