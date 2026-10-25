@@ -42,3 +42,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 
 ## Camera, world, and UI
 - [ ] **30 — Camera follow:** Run and drive around the city; confirm the camera follows without visible jitter.
+- [ ] **31 — Mouse look responsiveness:** Test quick and slow mouse movement in ULTRA and PERFORMANCE.
