@@ -21,3 +21,6 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **13 — Shadow recovery:** Switch to PERFORMANCE and back to ULTRA; confirm shadows return.
 - [ ] **14 — Camera clipping:** Look across the skyline and confirm distant buildings do not vanish too early.
 - [ ] **15 — Near clipping:** Move close to a building and check that nearby surfaces render normally.
+
+## Atmosphere and lighting
+- [ ] **16 — Fog at distance:** Check that distant blocks fade smoothly into the city atmosphere.
