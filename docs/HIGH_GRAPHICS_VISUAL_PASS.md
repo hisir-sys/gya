@@ -10,3 +10,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **04 — PERFORMANCE preset:** Verify PERFORMANCE disables shadows and lowers the pixel-ratio cap for slower machines.
 - [ ] **05 — Preset labels:** Confirm the on-screen label always matches the active preset.
 - [ ] **06 — Preset cycle recovery:** Cycle through all four presets twice and confirm the order never gets stuck.
+- [ ] **07 — Resize after preset:** Resize the browser after changing presets and check that the renderer remains aligned.
