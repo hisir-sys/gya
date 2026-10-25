@@ -38,3 +38,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **26 — Dust in EXTREME:** Verify the dust is slightly more visible in EXTREME without obscuring gameplay.
 - [ ] **27 — Dust in HIGH:** Verify the dust effect is hidden in HIGH for a lighter render workload.
 - [ ] **28 — Dust in PERFORMANCE:** Verify the dust effect is hidden in PERFORMANCE.
+- [ ] **29 — Dust motion:** Observe the skyline and confirm the dust field drifts subtly rather than spinning visibly.
