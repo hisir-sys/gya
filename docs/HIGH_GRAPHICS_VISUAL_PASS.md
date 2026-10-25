@@ -36,3 +36,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **24 — Halo artifact check:** Look for obvious hard edges or depth-sorting artifacts around the sunset halo.
 - [ ] **25 — Dust in ULTRA:** Verify subtle atmospheric dust appears in ULTRA.
 - [ ] **26 — Dust in EXTREME:** Verify the dust is slightly more visible in EXTREME without obscuring gameplay.
+- [ ] **27 — Dust in HIGH:** Verify the dust effect is hidden in HIGH for a lighter render workload.
