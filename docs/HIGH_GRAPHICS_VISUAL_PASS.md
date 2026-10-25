@@ -67,3 +67,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **49 — Fullscreen desktop:** Test browser fullscreen and verify the viewport fills correctly.
 - [ ] **50 — Integrated GPU safety:** On a lower-power machine, use PERFORMANCE and confirm the game remains usable.
 - [ ] **51 — GPU memory sanity:** Switch between presets repeatedly and check for growing memory use or crashes.
+- [ ] **52 — Thermal and fan check:** On a laptop, monitor temperature and fan noise during a short EXTREME session.
