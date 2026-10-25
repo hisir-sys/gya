@@ -12,3 +12,6 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **06 — Preset cycle recovery:** Cycle through all four presets twice and confirm the order never gets stuck.
 - [ ] **07 — Resize after preset:** Resize the browser after changing presets and check that the renderer remains aligned.
 - [ ] **08 — Initial preset:** Reload and confirm the initial preset label is HIGH.
+
+## Rendering stability
+- [ ] **09 — No console errors:** Check the browser console for errors while changing each graphics preset.
