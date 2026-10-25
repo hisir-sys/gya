@@ -64,3 +64,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **46 — Mission marker contrast:** Confirm the active story marker is distinct from collectible markers.
 - [ ] **47 — Loading transition:** Reload and check the loading overlay fades out cleanly after startup.
 - [ ] **48 — Windowed desktop:** Test the build in a normal resizable desktop browser window.
+- [ ] **49 — Fullscreen desktop:** Test browser fullscreen and verify the viewport fills correctly.
