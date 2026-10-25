@@ -56,3 +56,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **40 — Beach and sea:** Inspect the shoreline, seawall, and sea colors in both atmosphere modes.
 - [ ] **41 — Pedestrian silhouettes:** Confirm pedestrians remain visible against sidewalks and building shadows.
 - [ ] **42 — Traffic readability:** Check traffic vehicles remain distinguishable from the road surface.
+- [ ] **43 — Relic visibility:** Confirm glowing relics remain noticeable against both day and night palettes.
