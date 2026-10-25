@@ -62,3 +62,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **44 — Relic shimmer:** Watch a relic for thirty seconds and check that rotation remains smooth.
 - [ ] **45 — Avatar lighting:** Inspect the player avatar in bright sunlight and shaded streets.
 - [ ] **46 — Mission marker contrast:** Confirm the active story marker is distinct from collectible markers.
+- [ ] **47 — Loading transition:** Reload and check the loading overlay fades out cleanly after startup.
