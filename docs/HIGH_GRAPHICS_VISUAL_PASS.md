@@ -20,3 +20,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **12 — Shadow quality:** Compare edges and self-shadow artifacts between ULTRA and EXTREME.
 - [ ] **13 — Shadow recovery:** Switch to PERFORMANCE and back to ULTRA; confirm shadows return.
 - [ ] **14 — Camera clipping:** Look across the skyline and confirm distant buildings do not vanish too early.
+- [ ] **15 — Near clipping:** Move close to a building and check that nearby surfaces render normally.
