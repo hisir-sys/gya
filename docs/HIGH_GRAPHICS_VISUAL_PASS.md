@@ -1,0 +1,7 @@
+# Neon State — High Graphics Visual Pass
+
+This document tracks manual graphics checks for the 3D Freeze Build. These are test instructions, **not claims that the browser tests have passed**. Higher presets use more GPU memory and may reduce frame rate on integrated graphics.
+
+## Preset and performance checks
+
+- [ ] **01 — Preset cycling:** click Graphics and confirm HIGH → ULTRA → EXTREME → PERFORMANCE → HIGH.
