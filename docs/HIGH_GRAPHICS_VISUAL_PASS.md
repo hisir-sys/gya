@@ -60,3 +60,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 
 ## Gameplay readability and hardware
 - [ ] **44 — Relic shimmer:** Watch a relic for thirty seconds and check that rotation remains smooth.
+- [ ] **45 — Avatar lighting:** Inspect the player avatar in bright sunlight and shaded streets.
