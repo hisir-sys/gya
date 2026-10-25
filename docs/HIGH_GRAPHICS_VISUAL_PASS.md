@@ -47,3 +47,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **33 — HUD contrast:** Check HUD text remains readable against bright and dark parts of the world.
 - [ ] **34 — UI unaffected by quality:** Confirm changing the 3D quality preset does not blur or scale the HTML interface.
 - [ ] **35 — Vehicle reflections impression:** Inspect the car from multiple angles and note any material or lighting artifacts.
+- [ ] **36 — Road markings:** Check road center lines remain visible and do not flicker as the camera moves.
