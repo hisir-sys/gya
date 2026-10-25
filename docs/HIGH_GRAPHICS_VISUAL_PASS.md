@@ -44,3 +44,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **30 — Camera follow:** Run and drive around the city; confirm the camera follows without visible jitter.
 - [ ] **31 — Mouse look responsiveness:** Test quick and slow mouse movement in ULTRA and PERFORMANCE.
 - [ ] **32 — Minimap clarity:** Confirm the minimap remains sharp and readable at each preset.
+- [ ] **33 — HUD contrast:** Check HUD text remains readable against bright and dark parts of the world.
