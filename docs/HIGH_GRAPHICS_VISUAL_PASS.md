@@ -39,3 +39,6 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **27 — Dust in HIGH:** Verify the dust effect is hidden in HIGH for a lighter render workload.
 - [ ] **28 — Dust in PERFORMANCE:** Verify the dust effect is hidden in PERFORMANCE.
 - [ ] **29 — Dust motion:** Observe the skyline and confirm the dust field drifts subtly rather than spinning visibly.
+
+## Camera, world, and UI
+- [ ] **30 — Camera follow:** Run and drive around the city; confirm the camera follows without visible jitter.
