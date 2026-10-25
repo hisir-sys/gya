@@ -29,3 +29,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **19 — Neon Night color:** Switch to Neon Night and confirm the sky and fog change to cooler colors.
 - [ ] **20 — Night window lights:** Confirm emissive window materials remain visible in Neon Night.
 - [ ] **21 — Neon sign glow:** Check that neon signs remain readable at medium and long distances.
+- [ ] **22 — Exposure balance:** Confirm EXTREME does not wash out bright signs or turn dark streets completely black.
