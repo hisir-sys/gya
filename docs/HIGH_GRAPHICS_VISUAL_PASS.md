@@ -25,3 +25,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 ## Atmosphere and lighting
 - [ ] **16 — Fog at distance:** Check that distant blocks fade smoothly into the city atmosphere.
 - [ ] **17 — Fog preset change:** Cycle presets and confirm the fog density updates without a visual pop.
+- [ ] **18 — Golden Hour color:** Inspect warm sunset lighting on roads, buildings, and the beach.
