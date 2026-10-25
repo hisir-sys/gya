@@ -30,3 +30,6 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 - [ ] **20 — Night window lights:** Confirm emissive window materials remain visible in Neon Night.
 - [ ] **21 — Neon sign glow:** Check that neon signs remain readable at medium and long distances.
 - [ ] **22 — Exposure balance:** Confirm EXTREME does not wash out bright signs or turn dark streets completely black.
+
+## Sunset depth and atmosphere
+- [ ] **23 — Sunset disc:** Confirm the sunset disc is visible without distracting from the playable area.
