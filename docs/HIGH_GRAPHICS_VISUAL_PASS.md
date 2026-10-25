@@ -5,3 +5,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 ## Preset and performance checks
 
 - [ ] **01 — Preset cycling:** click Graphics and confirm HIGH → ULTRA → EXTREME → PERFORMANCE → HIGH.
+- [ ] **02 — ULTRA preset:** Verify the pixel-ratio cap changes to the ULTRA profile and the canvas stays correctly sized.
