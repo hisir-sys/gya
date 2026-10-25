@@ -15,3 +15,4 @@ This document tracks manual graphics checks for the 3D Freeze Build. These are t
 
 ## Rendering stability
 - [ ] **09 — No console errors:** Check the browser console for errors while changing each graphics preset.
+- [ ] **10 — Stable frame:** Walk around the city for two minutes and watch for severe hitching or freezing.
