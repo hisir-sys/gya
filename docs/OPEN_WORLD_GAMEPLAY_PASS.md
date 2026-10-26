@@ -29,3 +29,8 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 ## Known limits
 - This remains a procedural prototype: pedestrians are simple roaming figures, traffic is lightweight, and police behaviour is arcade-style rather than a full pathfinding simulation.
 - Browser/GPU playtesting is still required before calling the experience production-ready.
+
+
+## Detailed regression matrix
+
+- [ ] Startup: verify the city finishes loading and the loading overlay fades away.
