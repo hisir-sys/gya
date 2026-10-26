@@ -79,3 +79,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify sprint state is cleared when switching protagonists.
 - [ ] Sprint: verify the route is reachable on the existing road grid.
 - [ ] Sprint: verify a player who leaves the car cannot finish gates on foot.
+- [ ] Sprint: verify the sprint status returns to the idle prompt after completion.
