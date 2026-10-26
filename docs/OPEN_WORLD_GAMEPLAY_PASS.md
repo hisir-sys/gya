@@ -91,3 +91,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Map: verify all markers remain within the 150-by-150 canvas bounds.
 - [ ] Map: verify buildings and road lines remain legible beneath the markers.
 - [ ] Map: verify the map updates after checkpoint recovery.
+- [ ] Map: verify the map updates after switching protagonists.
