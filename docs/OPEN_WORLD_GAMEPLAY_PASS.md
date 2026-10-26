@@ -112,3 +112,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Performance: verify police pursuit does not cause obvious frame-rate spikes.
 - [ ] Performance: verify minimap updates do not allocate a new canvas each frame.
 - [ ] Performance: verify the game remains responsive after multiple sprint runs.
+- [ ] Performance: verify switching graphics presets does not reset the gameplay state.
