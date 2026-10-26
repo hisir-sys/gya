@@ -51,3 +51,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Driving: verify nitro recharges when boost is not active.
 - [ ] Driving: verify the speed readout never displays a negative speed value.
 - [ ] Driving: verify the gear readout switches between P, D and R sensibly.
+- [ ] Driving: verify car condition decreases after a building collision.
