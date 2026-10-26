@@ -106,3 +106,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Performance: verify pursuit uses only two extra police meshes.
 - [ ] Performance: verify no new animation loop is created per police car.
 - [ ] Performance: verify sprint gates are hidden when the sprint is inactive.
+- [ ] Performance: verify HIGH quality remains playable on an integrated GPU.
