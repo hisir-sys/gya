@@ -82,3 +82,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify the sprint status returns to the idle prompt after completion.
 - [ ] Sprint: verify cash HUD refreshes immediately after the payout.
 - [ ] Sprint: verify the minimap route marker stays inside the map canvas.
+- [ ] Sprint: verify the sprint can be started again after a completed run.
