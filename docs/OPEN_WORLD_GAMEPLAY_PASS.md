@@ -131,3 +131,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Accessibility: verify the sprint can be started with the T key without using the mouse.
 - [ ] Accessibility: verify buttons expose visible keyboard focus styling.
 - [ ] Accessibility: verify status text communicates wanted and sprint states without relying only on color.
+- [ ] Final regression: run through one full story mission after completing a street sprint.
