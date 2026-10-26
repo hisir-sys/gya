@@ -73,3 +73,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify the minimap marks the currently active gate.
 - [ ] Sprint: verify the race timer increases smoothly while active.
 - [ ] Sprint: verify the final gate completes the sprint.
+- [ ] Sprint: verify a successful finish awards cash exactly once.
