@@ -102,3 +102,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] UI: verify the new sprint button has a clear hover/focus state.
 - [ ] UI: verify all new HUD text meets contrast expectations in both atmospheres.
 - [ ] UI: verify the duplicate relic counter is no longer present in the header.
+- [ ] UI: verify the top bar remains responsive after the wanted label is added.
