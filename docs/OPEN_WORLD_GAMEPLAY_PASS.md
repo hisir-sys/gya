@@ -56,3 +56,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Wanted: verify a fast traffic impact raises the wanted meter by one step.
 - [ ] Wanted: verify the meter never exceeds five stars.
 - [ ] Wanted: verify a low-speed brush does not create a wanted level.
+- [ ] Wanted: verify police cars appear only while a wanted level is active.
