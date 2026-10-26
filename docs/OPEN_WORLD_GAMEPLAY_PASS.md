@@ -71,3 +71,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify gates must be collected in route order.
 - [ ] Sprint: verify each gate is hidden after it is passed.
 - [ ] Sprint: verify the minimap marks the currently active gate.
+- [ ] Sprint: verify the race timer increases smoothly while active.
