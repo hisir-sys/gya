@@ -46,3 +46,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Driving: verify entering the car hides the avatar without hiding the vehicle.
 - [ ] Driving: verify exiting the car places the avatar in a clear nearby spot.
 - [ ] Driving: verify steering works in both forward and reverse directions.
+- [ ] Driving: verify the handbrake reduces speed and allows a tight turn.
