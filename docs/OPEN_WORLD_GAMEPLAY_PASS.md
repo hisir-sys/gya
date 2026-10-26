@@ -76,3 +76,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify a successful finish awards cash exactly once.
 - [ ] Sprint: verify sprint completion refills nitro to 100 percent.
 - [ ] Sprint: verify cancelling a sprint hides every visible gate.
+- [ ] Sprint: verify sprint state is cleared when switching protagonists.
