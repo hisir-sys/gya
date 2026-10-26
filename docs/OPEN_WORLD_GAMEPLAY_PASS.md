@@ -35,3 +35,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 
 - [ ] Startup: verify the city finishes loading and the loading overlay fades away.
 - [ ] Startup: verify the game starts with zero wanted stars and no visible police cars.
+- [ ] Startup: verify the sprint gates remain hidden until a sprint is started.
