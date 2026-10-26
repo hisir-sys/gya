@@ -74,3 +74,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify the race timer increases smoothly while active.
 - [ ] Sprint: verify the final gate completes the sprint.
 - [ ] Sprint: verify a successful finish awards cash exactly once.
+- [ ] Sprint: verify sprint completion refills nitro to 100 percent.
