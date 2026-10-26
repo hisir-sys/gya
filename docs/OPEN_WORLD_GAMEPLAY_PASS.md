@@ -109,3 +109,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Performance: verify HIGH quality remains playable on an integrated GPU.
 - [ ] Performance: verify EXTREME quality still follows the existing preset cap.
 - [ ] Performance: verify renderer resizing still works after opening the sprint HUD.
+- [ ] Performance: verify police pursuit does not cause obvious frame-rate spikes.
