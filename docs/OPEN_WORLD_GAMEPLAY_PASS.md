@@ -78,3 +78,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify cancelling a sprint hides every visible gate.
 - [ ] Sprint: verify sprint state is cleared when switching protagonists.
 - [ ] Sprint: verify the route is reachable on the existing road grid.
+- [ ] Sprint: verify a player who leaves the car cannot finish gates on foot.
