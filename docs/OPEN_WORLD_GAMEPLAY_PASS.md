@@ -98,3 +98,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] UI: verify the race status does not overlap the objective card on desktop.
 - [ ] UI: verify the race status remains readable on mobile.
 - [ ] UI: verify vehicle condition is visible only with the driving HUD.
+- [ ] UI: verify the vehicle condition bar changes width as damage occurs.
