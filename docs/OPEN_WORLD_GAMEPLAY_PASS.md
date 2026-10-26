@@ -119,3 +119,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Recovery: verify switching heroes cancels the current street sprint.
 - [ ] Recovery: verify exiting the car cancels the current street sprint.
 - [ ] Recovery: verify cancelling a sprint never awards a completion reward.
+- [ ] Recovery: verify a failed or cancelled sprint can be started again.
