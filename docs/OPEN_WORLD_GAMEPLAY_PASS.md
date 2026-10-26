@@ -43,3 +43,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Startup: verify the controls remain responsive after the pointer is released.
 - [ ] Startup: verify the pause overlay prevents driving input from moving the car.
 - [ ] Startup: verify resuming from pause restores normal movement.
+- [ ] Driving: verify entering the car hides the avatar without hiding the vehicle.
