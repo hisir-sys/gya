@@ -88,3 +88,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Map: verify the player marker follows the player continuously.
 - [ ] Map: verify the mission marker remains visible during a sprint.
 - [ ] Map: verify the map redraw remains smooth with police active.
+- [ ] Map: verify all markers remain within the 150-by-150 canvas bounds.
