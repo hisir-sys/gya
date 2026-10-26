@@ -34,3 +34,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 ## Detailed regression matrix
 
 - [ ] Startup: verify the city finishes loading and the loading overlay fades away.
+- [ ] Startup: verify the game starts with zero wanted stars and no visible police cars.
