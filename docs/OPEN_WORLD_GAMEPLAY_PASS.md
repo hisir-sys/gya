@@ -122,3 +122,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Recovery: verify a failed or cancelled sprint can be started again.
 - [ ] Recovery: verify vehicle repair does not refill nitro unless sprint completion does.
 - [ ] Recovery: verify police pursuit does not block the pause menu.
+- [ ] Recovery: verify keyboard input is cleared after pointer lock is released.
