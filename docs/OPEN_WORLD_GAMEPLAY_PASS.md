@@ -40,3 +40,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Startup: verify the new HUD remains readable over bright sunset colors.
 - [ ] Startup: verify the new HUD remains readable in Neon Night mode.
 - [ ] Startup: verify the city can be entered after a browser refresh.
+- [ ] Startup: verify the controls remain responsive after the pointer is released.
