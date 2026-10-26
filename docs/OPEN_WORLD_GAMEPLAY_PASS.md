@@ -77,3 +77,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify sprint completion refills nitro to 100 percent.
 - [ ] Sprint: verify cancelling a sprint hides every visible gate.
 - [ ] Sprint: verify sprint state is cleared when switching protagonists.
+- [ ] Sprint: verify the route is reachable on the existing road grid.
