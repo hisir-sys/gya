@@ -130,3 +130,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Persistence: verify a wanted level does not become permanently stuck after reload.
 - [ ] Accessibility: verify the sprint can be started with the T key without using the mouse.
 - [ ] Accessibility: verify buttons expose visible keyboard focus styling.
+- [ ] Accessibility: verify status text communicates wanted and sprint states without relying only on color.
