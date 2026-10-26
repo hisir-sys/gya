@@ -125,3 +125,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Recovery: verify keyboard input is cleared after pointer lock is released.
 - [ ] Persistence: verify cash from a completed sprint is saved across reloads.
 - [ ] Persistence: verify existing story progress still loads after this update.
+- [ ] Persistence: verify relic collection and cash rewards remain intact.
