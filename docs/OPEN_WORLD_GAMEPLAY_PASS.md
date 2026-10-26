@@ -61,3 +61,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Wanted: verify police pursuit follows the on-foot player after exiting the car.
 - [ ] Wanted: verify distance from police allows the search to cool down.
 - [ ] Wanted: verify a pull-over reduces wanted level and applies a cash fine.
+- [ ] Wanted: verify cash cannot fall below zero after a fine.
