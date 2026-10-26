@@ -48,3 +48,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Driving: verify steering works in both forward and reverse directions.
 - [ ] Driving: verify the handbrake reduces speed and allows a tight turn.
 - [ ] Driving: verify nitro drains only while boosting forward.
+- [ ] Driving: verify nitro recharges when boost is not active.
