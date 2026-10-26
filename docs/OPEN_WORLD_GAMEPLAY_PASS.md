@@ -58,3 +58,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Wanted: verify a low-speed brush does not create a wanted level.
 - [ ] Wanted: verify police cars appear only while a wanted level is active.
 - [ ] Wanted: verify police vehicles steer toward the player instead of driving straight.
+- [ ] Wanted: verify police pursuit follows the on-foot player after exiting the car.
