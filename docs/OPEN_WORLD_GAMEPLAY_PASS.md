@@ -85,3 +85,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify the sprint can be started again after a completed run.
 - [ ] Map: verify police markers are red and distinguishable from the player marker.
 - [ ] Map: verify race gates use gold markers distinct from relic markers.
+- [ ] Map: verify the player marker follows the player continuously.
