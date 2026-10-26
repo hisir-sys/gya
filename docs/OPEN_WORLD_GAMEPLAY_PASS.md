@@ -64,3 +64,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Wanted: verify cash cannot fall below zero after a fine.
 - [ ] Wanted: verify losing the search hides police cars and clears the status label.
 - [ ] Sprint: verify the on-screen sprint button starts a sprint only while driving.
+- [ ] Sprint: verify pressing T starts the sprint from the driver's seat.
