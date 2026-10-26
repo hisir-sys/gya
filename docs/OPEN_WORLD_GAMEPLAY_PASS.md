@@ -114,3 +114,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Performance: verify the game remains responsive after multiple sprint runs.
 - [ ] Performance: verify switching graphics presets does not reset the gameplay state.
 - [ ] Recovery: verify a stalled vehicle cannot accelerate until repaired.
+- [ ] Recovery: verify R restores vehicle condition and zeroes residual speed.
