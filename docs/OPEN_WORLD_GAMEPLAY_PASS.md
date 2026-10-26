@@ -86,3 +86,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Map: verify police markers are red and distinguishable from the player marker.
 - [ ] Map: verify race gates use gold markers distinct from relic markers.
 - [ ] Map: verify the player marker follows the player continuously.
+- [ ] Map: verify the mission marker remains visible during a sprint.
