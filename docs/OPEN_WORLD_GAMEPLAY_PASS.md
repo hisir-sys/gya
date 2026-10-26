@@ -70,3 +70,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify driving through gate one reveals gate two.
 - [ ] Sprint: verify gates must be collected in route order.
 - [ ] Sprint: verify each gate is hidden after it is passed.
+- [ ] Sprint: verify the minimap marks the currently active gate.
