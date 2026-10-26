@@ -38,3 +38,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Startup: verify the sprint gates remain hidden until a sprint is started.
 - [ ] Startup: verify the default cash total and relic count render once each.
 - [ ] Startup: verify the new HUD remains readable over bright sunset colors.
+- [ ] Startup: verify the new HUD remains readable in Neon Night mode.
