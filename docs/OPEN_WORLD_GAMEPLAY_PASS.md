@@ -68,3 +68,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify pressing T again cancels an active sprint.
 - [ ] Sprint: verify only the first gate is visible at the start.
 - [ ] Sprint: verify driving through gate one reveals gate two.
+- [ ] Sprint: verify gates must be collected in route order.
