@@ -126,3 +126,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Persistence: verify cash from a completed sprint is saved across reloads.
 - [ ] Persistence: verify existing story progress still loads after this update.
 - [ ] Persistence: verify relic collection and cash rewards remain intact.
+- [ ] Persistence: verify sprint state intentionally resets after a page reload.
