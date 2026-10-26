@@ -93,3 +93,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Map: verify the map updates after checkpoint recovery.
 - [ ] Map: verify the map updates after switching protagonists.
 - [ ] Map: verify map drawing continues when wanted level returns to zero.
+- [ ] UI: verify wanted stars fit without covering the minimap on desktop.
