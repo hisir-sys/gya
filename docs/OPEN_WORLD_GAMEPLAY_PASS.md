@@ -117,3 +117,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Recovery: verify R restores vehicle condition and zeroes residual speed.
 - [ ] Recovery: verify checkpoint recovery keeps the selected protagonist active.
 - [ ] Recovery: verify switching heroes cancels the current street sprint.
+- [ ] Recovery: verify exiting the car cancels the current street sprint.
