@@ -95,3 +95,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Map: verify map drawing continues when wanted level returns to zero.
 - [ ] UI: verify wanted stars fit without covering the minimap on desktop.
 - [ ] UI: verify wanted stars fit on narrow mobile screens.
+- [ ] UI: verify the race status does not overlap the objective card on desktop.
