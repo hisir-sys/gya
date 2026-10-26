@@ -49,3 +49,16 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;lin
 #vehicle-hud .nitro-track{height:5px;border-radius:99px;background:#ffffff1c;overflow:hidden}
 #vehicle-hud #nitro-fill{display:block;width:100%;height:100%;border-radius:99px;background:linear-gradient(90deg,#37b9d3,#8df5e8);box-shadow:0 0 10px #49e8df88;transition:width .08s linear}
 #vehicle-hud #vehicle-state{color:#8df5e8}
+
+/* Open-world gameplay HUD: wanted stars, street sprint, and vehicle condition */
+#wanted-hud{position:absolute;top:64px;right:18px;min-width:170px;padding:10px 13px;display:grid;gap:4px;text-align:right;pointer-events:none}
+#wanted-stars{font:800 20px 'Barlow Condensed',sans-serif;letter-spacing:3px;color:#ffbf66;text-shadow:0 0 12px #ff8b4a88;white-space:nowrap}
+#wanted-caption{font-size:8px;letter-spacing:1.4px;color:var(--muted)}
+#race-status{position:absolute;left:50%;top:105px;transform:translateX(-50%);background:#08111cce;border:1px solid #ffca7040;border-radius:6px;padding:8px 12px;color:#ffcf82;font-size:9px;font-weight:800;letter-spacing:1px;pointer-events:none;white-space:nowrap}
+#vehicle-hud .car-health-read{grid-column:1/-1;display:grid;gap:4px;min-width:96px;margin-top:2px}
+#vehicle-hud .car-health-read>span{display:flex;justify-content:space-between;font-size:8px;letter-spacing:1px;color:var(--muted)}
+#vehicle-hud .car-health-read>span b{font-size:9px;color:#ffb2a5}
+#car-health-fill{display:block;width:100%;height:100%;border-radius:99px;background:linear-gradient(90deg,#e35d5d,#ffc17b);transition:width .12s linear}
+#view-controls button#sprint-toggle{border-color:#ffca7055;color:#ffcf82}
+@media(max-width:850px){#wanted-hud{top:78px;right:10px;min-width:130px}#race-status{top:86px;font-size:8px}}
+@media(max-width:540px){#wanted-hud{top:245px;right:10px;padding:6px 8px;min-width:112px}#wanted-stars{font-size:15px}#race-status{top:278px;max-width:80%;overflow:hidden;text-overflow:ellipsis}}
