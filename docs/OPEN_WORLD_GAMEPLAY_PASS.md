@@ -136,3 +136,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Final regression: switch all four graphics presets while vehicle damage is displayed.
 - [ ] Final regression: complete a sprint while nitro is partially depleted.
 - [ ] Final regression: drive from the central road to the waterfront without leaving the map bounds.
+- [ ] Final regression: check browser console and network panel for runtime or module-loading errors.
