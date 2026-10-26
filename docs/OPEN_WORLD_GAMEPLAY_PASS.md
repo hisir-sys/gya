@@ -118,3 +118,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Recovery: verify checkpoint recovery keeps the selected protagonist active.
 - [ ] Recovery: verify switching heroes cancels the current street sprint.
 - [ ] Recovery: verify exiting the car cancels the current street sprint.
+- [ ] Recovery: verify cancelling a sprint never awards a completion reward.
