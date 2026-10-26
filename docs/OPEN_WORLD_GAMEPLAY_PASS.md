@@ -92,3 +92,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Map: verify buildings and road lines remain legible beneath the markers.
 - [ ] Map: verify the map updates after checkpoint recovery.
 - [ ] Map: verify the map updates after switching protagonists.
+- [ ] Map: verify map drawing continues when wanted level returns to zero.
