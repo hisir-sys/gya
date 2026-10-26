@@ -66,3 +66,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Sprint: verify the on-screen sprint button starts a sprint only while driving.
 - [ ] Sprint: verify pressing T starts the sprint from the driver's seat.
 - [ ] Sprint: verify pressing T again cancels an active sprint.
+- [ ] Sprint: verify only the first gate is visible at the start.
