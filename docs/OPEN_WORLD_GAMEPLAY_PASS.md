@@ -133,3 +133,4 @@ This update pushes the original Port Meridian prototype toward a cinematic 1980s
 - [ ] Accessibility: verify status text communicates wanted and sprint states without relying only on color.
 - [ ] Final regression: run through one full story mission after completing a street sprint.
 - [ ] Final regression: switch Golden Hour and Neon Night during a police pursuit.
+- [ ] Final regression: switch all four graphics presets while vehicle damage is displayed.
