@@ -87,3 +87,8 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 
 /* Vice Coast port: 06 — Frosted purple HUD panels */
 .glass{background:linear-gradient(145deg,rgba(36,15,67,.88),rgba(13,10,34,.82));border-color:#ffffff29;box-shadow:0 16px 45px #0006,0 0 22px #b42cff0b;backdrop-filter:blur(18px) saturate(135%)}
+
+/* Vice Coast port: 07 — Character and mission cards */
+.hero-card,.objective{border-radius:12px;padding:16px;background:linear-gradient(140deg,#291447d9,#130c2ce8)}
+.glass h3,#cash-reward{color:#ff83b5}
+.glass p{color:#d6c9e4}
