@@ -62,3 +62,108 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;lin
 #view-controls button#sprint-toggle{border-color:#ffca7055;color:#ffcf82}
 @media(max-width:850px){#wanted-hud{top:78px;right:10px;min-width:130px}#race-status{top:86px;font-size:8px}}
 @media(max-width:540px){#wanted-hud{top:245px;right:10px;padding:6px 8px;min-width:112px}#wanted-stars{font-size:15px}#race-status{top:278px;max-width:80%;overflow:hidden;text-overflow:ellipsis}}
+
+/* Vice Coast port: 01 — Set Vice Coast neon palette */
+:root{color-scheme:dark;--gold:#ff5fa2;--cyan:#38e8ff;--muted:#b6abc9;--line:#ffffff26;--glass:rgba(24,8,50,.78)}
+html,body{background:#12082a;color:#fff7ff}
+#shell{background:#1a0d38;border-color:#ffffff2c}
+
+/* Vice Coast port: 02 — Add sunset page atmosphere */
+body{background:radial-gradient(ellipse at 50% -15%,#633078 0,transparent 52%),linear-gradient(145deg,#12082a,#09071b 70%);}
+
+/* Vice Coast port: 03 — Neon frame and depth */
+#shell{box-shadow:0 30px 100px #000b,0 0 0 1px #ff5fa21c,0 0 55px #b72aff16;border-radius:18px}
+.topbar{background:linear-gradient(90deg,#21103b,#150c2c 65%,#241039);border-bottom-color:#ff5fa22b}
+
+/* Vice Coast port: 04 — Vice Coast display typography */
+h1{font-family:'Barlow Condensed',sans-serif;text-shadow:0 0 24px #ff5fa244;letter-spacing:4px}
+h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
+.brand>span{color:var(--cyan);letter-spacing:2.2px}
+
+/* Vice Coast port: 05 — Neon top-stat hierarchy */
+.topstats span:first-child{color:var(--cyan);text-shadow:0 0 12px #38e8ff33}
+.topstats span:last-child{color:#ff86b9}
+.topstats b{color:#fff7ff}
+
+/* Vice Coast port: 06 — Frosted purple HUD panels */
+.glass{background:linear-gradient(145deg,rgba(36,15,67,.88),rgba(13,10,34,.82));border-color:#ffffff29;box-shadow:0 16px 45px #0006,0 0 22px #b42cff0b;backdrop-filter:blur(18px) saturate(135%)}
+
+/* Vice Coast port: 07 — Character and mission cards */
+.hero-card,.objective{border-radius:12px;padding:16px;background:linear-gradient(140deg,#291447d9,#130c2ce8)}
+.glass h3,#cash-reward{color:#ff83b5}
+.glass p{color:#d6c9e4}
+
+/* Vice Coast port: 08 — Interactive hero switch buttons */
+.hero-switch button{background:#ffffff08;border-color:#ffffff24;transition:background .18s,border-color .18s,color .18s,transform .18s}
+.hero-switch button:hover{border-color:var(--cyan);color:var(--cyan);background:#38e8ff12;transform:translateY(-1px)}
+.hero-switch button.selected{border-color:var(--gold);color:#ff9ac5;background:#ff5fa21a;box-shadow:inset 0 0 16px #ff5fa20b}
+
+/* Vice Coast port: 09 — Location pill and cyan beacon */
+#location-tag{background:#160a2de8;border-color:#ff5fa244;color:#ffe6f3;box-shadow:0 0 24px #ff5fa216;letter-spacing:2px}
+#location-tag i{background:var(--cyan);box-shadow:0 0 8px var(--cyan),0 0 18px #38e8ff99}
+
+/* Vice Coast port: 10 — Neon minimap frame */
+#minimap{background:#150a2de8;border-color:#38e8ff44;box-shadow:0 10px 35px #0008,0 0 18px #38e8ff12}
+#map{outline:1px solid #ffffff14;outline-offset:-1px}
+#minimap span{color:#7fefff}
+
+/* Vice Coast port: 11 — Mission toast styling */
+#toast{background:linear-gradient(100deg,#1b0c34f5,#100b25f5);border-color:#ff5fa266;color:#ffd5e7;box-shadow:0 8px 32px #0008,0 0 22px #ff5fa216}
+
+/* Vice Coast port: 12 — Dialogue and pause presentation */
+#dialogue,#pause{border-color:#ff5fa24d;background:linear-gradient(145deg,#281142f5,#100b26f5);box-shadow:0 25px 70px #0009,0 0 30px #a12aff18}
+.dialogue-head span{color:var(--cyan)}
+.dialogue-head button:hover{color:var(--gold)}
+
+/* Vice Coast port: 13 — Hot-pink loading indicator */
+#loading{background:radial-gradient(ellipse at center,#291344 0,#12082a 62%);color:#fff2fa}
+#loading small{color:#d6c4e5}
+.loader{border-color:#ffffff24;border-top-color:var(--gold);border-right-color:var(--cyan);box-shadow:0 0 22px #ff5fa222}
+
+/* Vice Coast port: 14 — Wanted stars with neon heat */
+#wanted-hud{background:linear-gradient(130deg,#210e3bd9,#100a26e8);border-color:#ff5fa255;box-shadow:0 10px 28px #0006,0 0 18px #ff5fa212}
+#wanted-stars{color:#ff80b7;text-shadow:0 0 12px #ff5fa2aa,0 0 24px #ff5fa244}
+#wanted-caption{color:#d9b9d8}
+
+/* Vice Coast port: 15 — Street sprint event treatment */
+#race-status{background:#170a2bed;border-color:#38e8ff66;color:#83f4ff;box-shadow:0 8px 25px #0007,0 0 20px #38e8ff16}
+#view-controls button#sprint-toggle{border-color:#ff5fa277;color:#ff9ac5;background:#1d0b35ed}
+
+/* Vice Coast port: 16 — Sports-car HUD and nitro bar */
+#vehicle-hud{background:linear-gradient(135deg,#291447ee,#100b25ed);border-color:#38e8ff55;box-shadow:0 12px 35px #0008,0 0 24px #38e8ff12}
+#vehicle-hud .speed-read strong{color:var(--gold);text-shadow:0 0 16px #ff5fa255}
+#vehicle-hud .vehicle-read span{color:var(--cyan)}
+#vehicle-hud .nitro-track{background:#ffffff20}
+#vehicle-hud #nitro-fill{background:linear-gradient(90deg,#ff5fa2,#38e8ff);box-shadow:0 0 12px #38e8ff88}
+
+/* Vice Coast port: 17 — Vehicle damage warning colors */
+#vehicle-hud .car-health-read>span b{color:#ff8eb7;text-shadow:0 0 10px #ff5fa233}
+#car-health-fill{background:linear-gradient(90deg,#ff477e,#ffadcf);box-shadow:0 0 10px #ff5fa244}
+#vehicle-state{ text-shadow:0 0 10px #38e8ff33 }
+
+/* Vice Coast port: 18 — Neon control bar interactions */
+#view-controls button{border-color:#ffffff30;background:#170a2de8;transition:transform .18s,border-color .18s,color .18s,box-shadow .18s}
+#view-controls button:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 18px #38e8ff1f;transform:translateY(-1px)}
+#view-controls button:active{transform:translateY(0) scale(.98)}
+
+/* Vice Coast port: 19 — Sunset gradient behind the city */
+#viewport{background:linear-gradient(180deg,#f77ab1 0%,#653a91 24%,#211541 48%,#101027 76%,#07101b 100%)}
+#viewport:focus-within{box-shadow:inset 0 0 0 1px #38e8ff16}
+
+/* Vice Coast port: 20 — Consistent hover glow for actions */
+#dialogue-actions button,#pause button{background:linear-gradient(100deg,#ff5fa2,#ff8dc0);color:#210b29;box-shadow:0 5px 18px #ff5fa22a;transition:filter .18s,transform .18s,box-shadow .18s}
+#dialogue-actions button:hover,#pause button:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 8px 22px #ff5fa244}
+#choice-options .choice-button:hover{border-color:var(--cyan);background:#21103d;color:#9bf6ff}
+
+/* Vice Coast port: 21 — Refine tablet and mobile HUD spacing */
+@media(max-width:850px){.topbar{background:linear-gradient(90deg,#21103b,#150c2c)}#hud{gap:8px}#wanted-hud{border-color:#ff5fa244}footer{border-top:1px solid #ffffff12}}
+@media(max-width:540px){#shell{background:#12082a}#viewport{background:linear-gradient(180deg,#f77ab1,#44265f 32%,#100b25 75%)}#location-tag{border-color:#38e8ff44}}
+
+/* Vice Coast port: 22 — Visible keyboard focus states */
+button:focus-visible,input:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+#view-controls button:focus-visible,#hero-switch button:focus-visible{box-shadow:0 0 0 3px #38e8ff25}
+::selection{background:#ff5fa255;color:#fff}
+
+/* Vice Coast port: 23 — Respect reduced-motion preferences */
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#12082a}::-webkit-scrollbar-thumb{background:#4d2867;border:2px solid #12082a;border-radius:99px}::-webkit-scrollbar-thumb:hover{background:#ff5fa2}
