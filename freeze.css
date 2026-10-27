@@ -124,3 +124,7 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 #wanted-hud{background:linear-gradient(130deg,#210e3bd9,#100a26e8);border-color:#ff5fa255;box-shadow:0 10px 28px #0006,0 0 18px #ff5fa212}
 #wanted-stars{color:#ff80b7;text-shadow:0 0 12px #ff5fa2aa,0 0 24px #ff5fa244}
 #wanted-caption{color:#d9b9d8}
+
+/* Vice Coast port: 15 — Street sprint event treatment */
+#race-status{background:#170a2bed;border-color:#38e8ff66;color:#83f4ff;box-shadow:0 8px 25px #0007,0 0 20px #38e8ff16}
+#view-controls button#sprint-toggle{border-color:#ff5fa277;color:#ff9ac5;background:#1d0b35ed}
