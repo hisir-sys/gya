@@ -140,3 +140,8 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 #vehicle-hud .car-health-read>span b{color:#ff8eb7;text-shadow:0 0 10px #ff5fa233}
 #car-health-fill{background:linear-gradient(90deg,#ff477e,#ffadcf);box-shadow:0 0 10px #ff5fa244}
 #vehicle-state{ text-shadow:0 0 10px #38e8ff33 }
+
+/* Vice Coast port: 18 — Neon control bar interactions */
+#view-controls button{border-color:#ffffff30;background:#170a2de8;transition:transform .18s,border-color .18s,color .18s,box-shadow .18s}
+#view-controls button:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 18px #38e8ff1f;transform:translateY(-1px)}
+#view-controls button:active{transform:translateY(0) scale(.98)}
