@@ -70,3 +70,7 @@ html,body{background:#12082a;color:#fff7ff}
 
 /* Vice Coast port: 02 — Add sunset page atmosphere */
 body{background:radial-gradient(ellipse at 50% -15%,#633078 0,transparent 52%),linear-gradient(145deg,#12082a,#09071b 70%);}
+
+/* Vice Coast port: 03 — Neon frame and depth */
+#shell{box-shadow:0 30px 100px #000b,0 0 0 1px #ff5fa21c,0 0 55px #b72aff16;border-radius:18px}
+.topbar{background:linear-gradient(90deg,#21103b,#150c2c 65%,#241039);border-bottom-color:#ff5fa22b}
