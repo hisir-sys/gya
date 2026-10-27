@@ -67,3 +67,6 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;lin
 :root{color-scheme:dark;--gold:#ff5fa2;--cyan:#38e8ff;--muted:#b6abc9;--line:#ffffff26;--glass:rgba(24,8,50,.78)}
 html,body{background:#12082a;color:#fff7ff}
 #shell{background:#1a0d38;border-color:#ffffff2c}
+
+/* Vice Coast port: 02 — Add sunset page atmosphere */
+body{background:radial-gradient(ellipse at 50% -15%,#633078 0,transparent 52%),linear-gradient(145deg,#12082a,#09071b 70%);}
