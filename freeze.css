@@ -101,3 +101,8 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 /* Vice Coast port: 09 — Location pill and cyan beacon */
 #location-tag{background:#160a2de8;border-color:#ff5fa244;color:#ffe6f3;box-shadow:0 0 24px #ff5fa216;letter-spacing:2px}
 #location-tag i{background:var(--cyan);box-shadow:0 0 8px var(--cyan),0 0 18px #38e8ff99}
+
+/* Vice Coast port: 10 — Neon minimap frame */
+#minimap{background:#150a2de8;border-color:#38e8ff44;box-shadow:0 10px 35px #0008,0 0 18px #38e8ff12}
+#map{outline:1px solid #ffffff14;outline-offset:-1px}
+#minimap span{color:#7fefff}
