@@ -114,3 +114,8 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 #dialogue,#pause{border-color:#ff5fa24d;background:linear-gradient(145deg,#281142f5,#100b26f5);box-shadow:0 25px 70px #0009,0 0 30px #a12aff18}
 .dialogue-head span{color:var(--cyan)}
 .dialogue-head button:hover{color:var(--gold)}
+
+/* Vice Coast port: 13 — Hot-pink loading indicator */
+#loading{background:radial-gradient(ellipse at center,#291344 0,#12082a 62%);color:#fff2fa}
+#loading small{color:#d6c4e5}
+.loader{border-color:#ffffff24;border-top-color:var(--gold);border-right-color:var(--cyan);box-shadow:0 0 22px #ff5fa222}
