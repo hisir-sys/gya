@@ -135,3 +135,8 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 #vehicle-hud .vehicle-read span{color:var(--cyan)}
 #vehicle-hud .nitro-track{background:#ffffff20}
 #vehicle-hud #nitro-fill{background:linear-gradient(90deg,#ff5fa2,#38e8ff);box-shadow:0 0 12px #38e8ff88}
+
+/* Vice Coast port: 17 — Vehicle damage warning colors */
+#vehicle-hud .car-health-read>span b{color:#ff8eb7;text-shadow:0 0 10px #ff5fa233}
+#car-health-fill{background:linear-gradient(90deg,#ff477e,#ffadcf);box-shadow:0 0 10px #ff5fa244}
+#vehicle-state{ text-shadow:0 0 10px #38e8ff33 }
