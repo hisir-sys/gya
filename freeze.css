@@ -158,3 +158,8 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 /* Vice Coast port: 21 — Refine tablet and mobile HUD spacing */
 @media(max-width:850px){.topbar{background:linear-gradient(90deg,#21103b,#150c2c)}#hud{gap:8px}#wanted-hud{border-color:#ff5fa244}footer{border-top:1px solid #ffffff12}}
 @media(max-width:540px){#shell{background:#12082a}#viewport{background:linear-gradient(180deg,#f77ab1,#44265f 32%,#100b25 75%)}#location-tag{border-color:#38e8ff44}}
+
+/* Vice Coast port: 22 — Visible keyboard focus states */
+button:focus-visible,input:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+#view-controls button:focus-visible,#hero-switch button:focus-visible{box-shadow:0 0 0 3px #38e8ff25}
+::selection{background:#ff5fa255;color:#fff}
