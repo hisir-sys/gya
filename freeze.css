@@ -119,3 +119,8 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 #loading{background:radial-gradient(ellipse at center,#291344 0,#12082a 62%);color:#fff2fa}
 #loading small{color:#d6c4e5}
 .loader{border-color:#ffffff24;border-top-color:var(--gold);border-right-color:var(--cyan);box-shadow:0 0 22px #ff5fa222}
+
+/* Vice Coast port: 14 — Wanted stars with neon heat */
+#wanted-hud{background:linear-gradient(130deg,#210e3bd9,#100a26e8);border-color:#ff5fa255;box-shadow:0 10px 28px #0006,0 0 18px #ff5fa212}
+#wanted-stars{color:#ff80b7;text-shadow:0 0 12px #ff5fa2aa,0 0 24px #ff5fa244}
+#wanted-caption{color:#d9b9d8}
