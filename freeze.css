@@ -149,3 +149,8 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 /* Vice Coast port: 19 — Sunset gradient behind the city */
 #viewport{background:linear-gradient(180deg,#f77ab1 0%,#653a91 24%,#211541 48%,#101027 76%,#07101b 100%)}
 #viewport:focus-within{box-shadow:inset 0 0 0 1px #38e8ff16}
+
+/* Vice Coast port: 20 — Consistent hover glow for actions */
+#dialogue-actions button,#pause button{background:linear-gradient(100deg,#ff5fa2,#ff8dc0);color:#210b29;box-shadow:0 5px 18px #ff5fa22a;transition:filter .18s,transform .18s,box-shadow .18s}
+#dialogue-actions button:hover,#pause button:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 8px 22px #ff5fa244}
+#choice-options .choice-button:hover{border-color:var(--cyan);background:#21103d;color:#9bf6ff}
