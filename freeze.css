@@ -62,3 +62,8 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;lin
 #view-controls button#sprint-toggle{border-color:#ffca7055;color:#ffcf82}
 @media(max-width:850px){#wanted-hud{top:78px;right:10px;min-width:130px}#race-status{top:86px;font-size:8px}}
 @media(max-width:540px){#wanted-hud{top:245px;right:10px;padding:6px 8px;min-width:112px}#wanted-stars{font-size:15px}#race-status{top:278px;max-width:80%;overflow:hidden;text-overflow:ellipsis}}
+
+/* Vice Coast port: 01 — Set Vice Coast neon palette */
+:root{color-scheme:dark;--gold:#ff5fa2;--cyan:#38e8ff;--muted:#b6abc9;--line:#ffffff26;--glass:rgba(24,8,50,.78)}
+html,body{background:#12082a;color:#fff7ff}
+#shell{background:#1a0d38;border-color:#ffffff2c}
