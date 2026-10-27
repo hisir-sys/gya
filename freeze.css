@@ -163,3 +163,7 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 button:focus-visible,input:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 #view-controls button:focus-visible,#hero-switch button:focus-visible{box-shadow:0 0 0 3px #38e8ff25}
 ::selection{background:#ff5fa255;color:#fff}
+
+/* Vice Coast port: 23 — Respect reduced-motion preferences */
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#12082a}::-webkit-scrollbar-thumb{background:#4d2867;border:2px solid #12082a;border-radius:99px}::-webkit-scrollbar-thumb:hover{background:#ff5fa2}
