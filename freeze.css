@@ -109,3 +109,8 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 
 /* Vice Coast port: 11 — Mission toast styling */
 #toast{background:linear-gradient(100deg,#1b0c34f5,#100b25f5);border-color:#ff5fa266;color:#ffd5e7;box-shadow:0 8px 32px #0008,0 0 22px #ff5fa216}
+
+/* Vice Coast port: 12 — Dialogue and pause presentation */
+#dialogue,#pause{border-color:#ff5fa24d;background:linear-gradient(145deg,#281142f5,#100b26f5);box-shadow:0 25px 70px #0009,0 0 30px #a12aff18}
+.dialogue-head span{color:var(--cyan)}
+.dialogue-head button:hover{color:var(--gold)}
