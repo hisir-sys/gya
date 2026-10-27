@@ -51,3 +51,9 @@ This is a deadline demo build, not a finished GTA-scale game. The 3D city uses p
 ## Development workflow
 
 The original 2D prototype remains available in `index.html`; the 3D freeze build is in `freeze.html` and `freeze.js`. Keep future gameplay work in focused feature branches and merge only after checking the actual browser build.
+
+## Vice Coast visual edition
+
+The 3D Freeze Build uses a neon-noir coastal presentation inspired by the supplied Vice Coast concept: a hot-pink and cyan accent palette, sunset framing, frosted purple HUD panels, and matching mission, wanted-level, street-sprint, and vehicle overlays. The existing current-branch gameplay runtime is preserved rather than replaced with an older prototype copy, so its relic hunt, nitro, wanted system, vehicle condition, and street sprint remain wired to their existing controls.
+
+The city, characters, story, and visual direction are original. This is a browser-based prototype, not a complete commercial open-world game and not an implementation of GTA or Rockstar assets.
