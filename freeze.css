@@ -128,3 +128,10 @@ h1 b{color:var(--gold);text-shadow:0 0 18px #ff5fa277}
 /* Vice Coast port: 15 — Street sprint event treatment */
 #race-status{background:#170a2bed;border-color:#38e8ff66;color:#83f4ff;box-shadow:0 8px 25px #0007,0 0 20px #38e8ff16}
 #view-controls button#sprint-toggle{border-color:#ff5fa277;color:#ff9ac5;background:#1d0b35ed}
+
+/* Vice Coast port: 16 — Sports-car HUD and nitro bar */
+#vehicle-hud{background:linear-gradient(135deg,#291447ee,#100b25ed);border-color:#38e8ff55;box-shadow:0 12px 35px #0008,0 0 24px #38e8ff12}
+#vehicle-hud .speed-read strong{color:var(--gold);text-shadow:0 0 16px #ff5fa255}
+#vehicle-hud .vehicle-read span{color:var(--cyan)}
+#vehicle-hud .nitro-track{background:#ffffff20}
+#vehicle-hud #nitro-fill{background:linear-gradient(90deg,#ff5fa2,#38e8ff);box-shadow:0 0 12px #38e8ff88}
