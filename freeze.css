@@ -257,3 +257,6 @@ canvas#world{max-width:100%;max-height:100%}#viewport{contain:layout paint style
 
 /* Fullscreen + graphics pass: 30 — Make HUD layers handle tall phone viewports */
 @media(max-height:650px) and (min-width:851px){.topbar{min-height:52px;padding:6px 18px}footer{min-height:30px;padding:4px 14px;font-size:8px}#hud{gap:6px;top:10px;left:10px}.hero-card,.objective{padding:10px}.glass p{margin:5px 0 8px}#view-controls{top:42px}}
+
+/* Fullscreen + graphics pass: 31 — Adapt full-screen controls on tablets */
+@media(max-width:1100px){.topstats{gap:12px}.topbar{padding-left:16px;padding-right:16px}#hud{width:230px}#minimap{width:140px}}
