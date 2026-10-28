@@ -188,3 +188,6 @@ footer{flex:0 0 auto;min-height:42px;padding:8px 18px;background:#100921e8;borde
 
 /* Fullscreen + graphics pass: 07 — Keep HUD panels above the city canvas */
 #hud,#minimap,#location-tag,#wanted-hud,#race-status,#toast,#dialogue,#pause,#vehicle-hud,#look-hint{z-index:2}#loading{z-index:10}
+
+/* Fullscreen + graphics pass: 08 — Improve contrast for floating HUD surfaces */
+.glass{background:linear-gradient(145deg,rgba(34,13,59,.9),rgba(11,9,31,.86));border-color:#ffffff30;box-shadow:0 18px 45px #0007,0 0 24px #ff5fa20b;backdrop-filter:blur(20px) saturate(145%)}
