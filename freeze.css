@@ -254,3 +254,6 @@ canvas#world{max-width:100%;max-height:100%}#viewport{contain:layout paint style
 
 /* Fullscreen + graphics pass: 29 — Improve touch hit targets for controls */
 #view-controls button{min-height:34px;padding:9px 12px}#hero-switch button{min-height:34px}#dialogue-actions button,#pause button{min-height:38px}
+
+/* Fullscreen + graphics pass: 30 — Make HUD layers handle tall phone viewports */
+@media(max-height:650px) and (min-width:851px){.topbar{min-height:52px;padding:6px 18px}footer{min-height:30px;padding:4px 14px;font-size:8px}#hud{gap:6px;top:10px;left:10px}.hero-card,.objective{padding:10px}.glass p{margin:5px 0 8px}#view-controls{top:42px}}
