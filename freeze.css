@@ -239,3 +239,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 24 — Improve heading rhythm across screen sizes */
 .glass h2,.glass h3{line-height:1.08}.glass h2{font-size:clamp(21px,1.7vw,29px)}.glass h3{font-size:clamp(18px,1.35vw,23px)}
+
+/* Fullscreen + graphics pass: 25 — Smooth graphics and atmosphere controls */
+#view-controls button{border-color:#ffffff35;box-shadow:0 5px 18px #0005;transition:transform .18s,border-color .18s,color .18s,background .18s,box-shadow .18s}#view-controls button:hover{box-shadow:0 8px 22px #0007,0 0 18px #38e8ff18}
