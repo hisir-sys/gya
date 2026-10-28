@@ -200,3 +200,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 11 — Add cinematic edge vignette */
  #viewport:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at center,transparent 48%,rgba(7,3,20,.22) 100%);box-shadow:inset 0 0 100px #09051d40}
+
+/* Fullscreen + graphics pass: 12 — Add a subtle pink horizon bloom */
+#viewport{background:radial-gradient(ellipse at 50% 0%,#ff8db82b,transparent 50%),linear-gradient(180deg,#f77ab1,#653a91 24%,#211541 54%,#101027 80%,#07101b)}
