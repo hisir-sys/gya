@@ -236,3 +236,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 23 — Refine mission card information hierarchy */
 .objective-foot{border-top-color:#ffffff22;color:#b9aacd}.objective-foot span:first-child{color:#38e8ff}.objective-foot #cash-reward{color:#ff8fbe}
+
+/* Fullscreen + graphics pass: 24 — Improve heading rhythm across screen sizes */
+.glass h2,.glass h3{line-height:1.08}.glass h2{font-size:clamp(21px,1.7vw,29px)}.glass h3{font-size:clamp(18px,1.35vw,23px)}
