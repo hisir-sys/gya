@@ -251,3 +251,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 28 — Keep canvas crisp without overflowing */
 canvas#world{max-width:100%;max-height:100%}#viewport{contain:layout paint style}
+
+/* Fullscreen + graphics pass: 29 — Improve touch hit targets for controls */
+#view-controls button{min-height:34px;padding:9px 12px}#hero-switch button{min-height:34px}#dialogue-actions button,#pause button{min-height:38px}
