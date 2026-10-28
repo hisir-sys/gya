@@ -224,3 +224,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 19 — Improve pause overlay focus */
 #pause{border-color:#38e8ff55;box-shadow:0 28px 90px #000c,0 0 36px #38e8ff14}#pause h2{letter-spacing:2px;text-shadow:0 0 18px #ff5fa233}
+
+/* Fullscreen + graphics pass: 20 — Give speed readout a luminous edge */
+#vehicle-hud .speed-read strong{text-shadow:0 0 14px #ff5fa266,0 0 30px #ff5fa222}#vehicle-hud .speed-read small{color:#c9b8dc}
