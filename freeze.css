@@ -206,3 +206,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 13 — Keep pointer-lock hints readable */
 #look-hint{background:linear-gradient(100deg,#160a2de8,#0c1027e8);border-color:#38e8ff44;color:#baf7ff;box-shadow:0 6px 24px #0007;z-index:3}
+
+/* Fullscreen + graphics pass: 14 — Add neon outline to minimap */
+#minimap{border:1px solid #38e8ff55;box-shadow:0 12px 32px #0008,0 0 18px #38e8ff12,inset 0 0 0 1px #ffffff08}#map{filter:saturate(1.18) contrast(1.04)}
