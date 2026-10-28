@@ -302,3 +302,6 @@ button:focus-visible,input:focus-visible{outline:2px solid #a4f8ff;outline-offse
 
 /* Fullscreen + graphics pass: 45 — Add performance-friendly effects on low-motion devices */
 @media(prefers-reduced-motion:reduce){#viewport:after{box-shadow:none;background:linear-gradient(180deg,#09051d08,#09051d18)}.glass{backdrop-filter:blur(8px)}}
+
+/* Fullscreen + graphics pass: 46 — Stabilize viewport sizing during browser chrome changes */
+@supports(height:100dvh){#shell{height:100dvh}#viewport{min-height:0} @media(max-width:850px){#shell{height:100dvh}#viewport{min-height:0}}}
