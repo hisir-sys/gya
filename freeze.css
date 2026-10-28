@@ -209,3 +209,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 14 — Add neon outline to minimap */
 #minimap{border:1px solid #38e8ff55;box-shadow:0 12px 32px #0008,0 0 18px #38e8ff12,inset 0 0 0 1px #ffffff08}#map{filter:saturate(1.18) contrast(1.04)}
+
+/* Fullscreen + graphics pass: 15 — Make wanted stars more cinematic */
+#wanted-hud{border-color:#ff5fa266;box-shadow:0 10px 30px #0008,0 0 22px #ff5fa21c}#wanted-stars{letter-spacing:4px;text-shadow:0 0 8px #ff5fa2bb,0 0 22px #ff5fa266}
