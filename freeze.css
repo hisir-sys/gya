@@ -290,3 +290,6 @@ canvas#world{max-width:100%;max-height:100%}#viewport{contain:layout paint style
 
 /* Fullscreen + graphics pass: 41 — Add extra contrast to focus rings */
 button:focus-visible,input:focus-visible{outline:2px solid #a4f8ff;outline-offset:3px;box-shadow:0 0 0 5px #38e8ff20}
+
+/* Fullscreen + graphics pass: 42 — Avoid accidental text selection while playing */
+#viewport,#view-controls,#hud,#minimap,#wanted-hud,#race-status,#vehicle-hud,#toast,#look-hint{-webkit-user-select:none;user-select:none}input{user-select:auto}
