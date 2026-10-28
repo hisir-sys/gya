@@ -245,3 +245,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 26 — Add a clearer fullscreen active indicator */
 #shell:fullscreen #fullscreen-toggle{border-color:#ff5fa2;color:#ffc1dc;background:#ff5fa21c}#shell:fullscreen #fullscreen-toggle:after{content:' · ON';font-size:8px}
+
+/* Fullscreen + graphics pass: 27 — Ensure browser fullscreen also fills every pixel */
+#shell:fullscreen{width:100vw;height:100vh;height:100dvh;max-width:none;min-height:0;border:0;border-radius:0}#shell:fullscreen #viewport{min-height:0;flex:1 1 auto}
