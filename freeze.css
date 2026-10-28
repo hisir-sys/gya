@@ -212,3 +212,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 15 — Make wanted stars more cinematic */
 #wanted-hud{border-color:#ff5fa266;box-shadow:0 10px 30px #0008,0 0 22px #ff5fa21c}#wanted-stars{letter-spacing:4px;text-shadow:0 0 8px #ff5fa2bb,0 0 22px #ff5fa266}
+
+/* Fullscreen + graphics pass: 16 — Give sprint status an event-marker glow */
+#race-status{border-color:#38e8ff77;color:#a4f8ff;box-shadow:0 10px 30px #0008,0 0 24px #38e8ff1c;backdrop-filter:blur(14px)}
