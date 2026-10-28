@@ -182,3 +182,6 @@ footer{flex:0 0 auto;min-height:42px;padding:8px 18px;background:#100921e8;borde
 
 /* Fullscreen + graphics pass: 05 — Give the fullscreen button a clear visual state */
 #view-controls button#fullscreen-toggle{border-color:#38e8ff88;color:#9bf6ff;background:linear-gradient(120deg,#172144f2,#251039f2);box-shadow:0 0 20px #38e8ff12}#view-controls button#fullscreen-toggle:hover{border-color:#ff5fa2;color:#ffb3d2;box-shadow:0 0 24px #ff5fa22a}
+
+/* Fullscreen + graphics pass: 06 — Allow control bar wrapping on narrow screens */
+#view-controls{max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center;gap:7px;z-index:5}#view-controls button{white-space:nowrap}
