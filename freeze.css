@@ -266,3 +266,6 @@ canvas#world{max-width:100%;max-height:100%}#viewport{contain:layout paint style
 
 /* Fullscreen + graphics pass: 33 — Protect HUD from phone notches */
 @supports(padding:max(0px)){.topbar{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}footer{padding-bottom:max(6px,env(safe-area-inset-bottom))}#hud{left:max(10px,env(safe-area-inset-left))}#minimap{right:max(10px,env(safe-area-inset-right))}}
+
+/* Fullscreen + graphics pass: 34 — Stack control bar cleanly on small phones */
+@media(max-width:540px){#view-controls{top:calc(205px + env(safe-area-inset-top,0px));width:calc(100% - 16px);gap:5px}#view-controls button{font-size:7px;padding:8px 9px;min-height:30px}#viewport{height:auto;min-height:0}#wanted-hud{top:calc(255px + env(safe-area-inset-top,0px))}}
