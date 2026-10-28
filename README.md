@@ -57,3 +57,8 @@ The original 2D prototype remains available in `index.html`; the 3D freeze build
 The 3D Freeze Build uses a neon-noir coastal presentation inspired by the supplied Vice Coast concept: a hot-pink and cyan accent palette, sunset framing, frosted purple HUD panels, and matching mission, wanted-level, street-sprint, and vehicle overlays. The existing current-branch gameplay runtime is preserved rather than replaced with an older prototype copy, so its relic hunt, nitro, wanted system, vehicle condition, and street sprint remain wired to their existing controls.
 
 The city, characters, story, and visual direction are original. This is a browser-based prototype, not a complete commercial open-world game and not an implementation of GTA or Rockstar assets.
+
+
+## Fullscreen and graphics update
+
+The 3D Freeze Build now uses a viewport-filling layout and includes a fullscreen toggle in the in-game controls. The HUD, wanted indicator, minimap, sprint display, and vehicle readouts have been tuned for a high-contrast neon-noir presentation across desktop and mobile aspect ratios. The graphics preset selector still provides PERFORMANCE, HIGH, ULTRA, and EXTREME profiles; use PERFORMANCE or HIGH on integrated graphics and increase quality only if frame rate remains smooth. Fullscreen requests depend on browser support and user interaction. Visual changes are syntax-checked in CI, but actual GPU performance must be measured on the target machine.

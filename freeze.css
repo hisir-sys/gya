@@ -167,3 +167,141 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--cyan);outline-o
 /* Vice Coast port: 23 — Respect reduced-motion preferences */
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#12082a}::-webkit-scrollbar-thumb{background:#4d2867;border:2px solid #12082a;border-radius:99px}::-webkit-scrollbar-thumb:hover{background:#ff5fa2}
+
+/* Fullscreen + graphics pass: 01 — Make the game shell fill the browser */
+html,body{width:100%;height:100%;min-height:100%;margin:0;padding:0;overflow:hidden}body{display:block}#shell{width:100vw;max-width:none;height:100vh;height:100dvh;min-height:100vh;min-height:100dvh;border-radius:0;border:0;display:flex;flex-direction:column;box-shadow:none}
+
+/* Fullscreen + graphics pass: 02 — Let the 3D viewport own remaining space */
+#viewport{height:auto;min-height:0;flex:1 1 auto;isolation:isolate}#viewport canvas#world{position:absolute;inset:0;width:100%;height:100%;display:block}#viewport:has(canvas#world:hover){cursor:crosshair}
+
+/* Fullscreen + graphics pass: 03 — Keep the top bar compact in full screen */
+.topbar{flex:0 0 auto;min-height:64px;padding:10px 22px;background:linear-gradient(100deg,#24103b,#130b2b 58%,#201039);backdrop-filter:blur(18px);border-bottom:1px solid #ff5fa244}
+
+/* Fullscreen + graphics pass: 04 — Anchor footer without shrinking the scene */
+footer{flex:0 0 auto;min-height:42px;padding:8px 18px;background:#100921e8;border-top:1px solid #38e8ff22;backdrop-filter:blur(14px)}
+
+/* Fullscreen + graphics pass: 05 — Give the fullscreen button a clear visual state */
+#view-controls button#fullscreen-toggle{border-color:#38e8ff88;color:#9bf6ff;background:linear-gradient(120deg,#172144f2,#251039f2);box-shadow:0 0 20px #38e8ff12}#view-controls button#fullscreen-toggle:hover{border-color:#ff5fa2;color:#ffb3d2;box-shadow:0 0 24px #ff5fa22a}
+
+/* Fullscreen + graphics pass: 06 — Allow control bar wrapping on narrow screens */
+#view-controls{max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center;gap:7px;z-index:5}#view-controls button{white-space:nowrap}
+
+/* Fullscreen + graphics pass: 07 — Keep HUD panels above the city canvas */
+#hud,#minimap,#location-tag,#wanted-hud,#race-status,#toast,#dialogue,#pause,#vehicle-hud,#look-hint{z-index:2}#loading{z-index:10}
+
+/* Fullscreen + graphics pass: 08 — Improve contrast for floating HUD surfaces */
+.glass{background:linear-gradient(145deg,rgba(34,13,59,.9),rgba(11,9,31,.86));border-color:#ffffff30;box-shadow:0 18px 45px #0007,0 0 24px #ff5fa20b;backdrop-filter:blur(20px) saturate(145%)}
+
+/* Fullscreen + graphics pass: 09 — Strengthen the neon brand glow */
+h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #0008}h1 b{color:#ff78b2;text-shadow:0 0 12px #ff5fa277,0 0 28px #ff5fa233}
+
+/* Fullscreen + graphics pass: 10 — Sharpen location and objective labels */
+#location-tag{border-color:#38e8ff66;box-shadow:0 8px 28px #0008,0 0 20px #38e8ff15;color:#fff1f9}#location-tag i{box-shadow:0 0 8px #38e8ff,0 0 20px #38e8ff99}
+
+/* Fullscreen + graphics pass: 11 — Add cinematic edge vignette */
+ #viewport:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at center,transparent 48%,rgba(7,3,20,.22) 100%);box-shadow:inset 0 0 100px #09051d40}
+
+/* Fullscreen + graphics pass: 12 — Add a subtle pink horizon bloom */
+#viewport{background:radial-gradient(ellipse at 50% 0%,#ff8db82b,transparent 50%),linear-gradient(180deg,#f77ab1,#653a91 24%,#211541 54%,#101027 80%,#07101b)}
+
+/* Fullscreen + graphics pass: 13 — Keep pointer-lock hints readable */
+#look-hint{background:linear-gradient(100deg,#160a2de8,#0c1027e8);border-color:#38e8ff44;color:#baf7ff;box-shadow:0 6px 24px #0007;z-index:3}
+
+/* Fullscreen + graphics pass: 14 — Add neon outline to minimap */
+#minimap{border:1px solid #38e8ff55;box-shadow:0 12px 32px #0008,0 0 18px #38e8ff12,inset 0 0 0 1px #ffffff08}#map{filter:saturate(1.18) contrast(1.04)}
+
+/* Fullscreen + graphics pass: 15 — Make wanted stars more cinematic */
+#wanted-hud{border-color:#ff5fa266;box-shadow:0 10px 30px #0008,0 0 22px #ff5fa21c}#wanted-stars{letter-spacing:4px;text-shadow:0 0 8px #ff5fa2bb,0 0 22px #ff5fa266}
+
+/* Fullscreen + graphics pass: 16 — Give sprint status an event-marker glow */
+#race-status{border-color:#38e8ff77;color:#a4f8ff;box-shadow:0 10px 30px #0008,0 0 24px #38e8ff1c;backdrop-filter:blur(14px)}
+
+/* Fullscreen + graphics pass: 17 — Upgrade toast typography and depth */
+#toast{border-color:#ff5fa277;background:linear-gradient(100deg,#230c3cf5,#100b27f5);color:#ffe4f0;box-shadow:0 12px 34px #0009,0 0 22px #ff5fa21a;letter-spacing:.15px}
+
+/* Fullscreen + graphics pass: 18 — Make dialogue feel like a story card */
+#dialogue{border:1px solid #ff5fa266;box-shadow:0 25px 75px #000b,0 0 32px #ff5fa21b}#dialogue p{font-size:clamp(12px,1vw,14px);line-height:1.8;color:#f0e5f6}
+
+/* Fullscreen + graphics pass: 19 — Improve pause overlay focus */
+#pause{border-color:#38e8ff55;box-shadow:0 28px 90px #000c,0 0 36px #38e8ff14}#pause h2{letter-spacing:2px;text-shadow:0 0 18px #ff5fa233}
+
+/* Fullscreen + graphics pass: 20 — Give speed readout a luminous edge */
+#vehicle-hud .speed-read strong{text-shadow:0 0 14px #ff5fa266,0 0 30px #ff5fa222}#vehicle-hud .speed-read small{color:#c9b8dc}
+
+/* Fullscreen + graphics pass: 21 — Improve nitro and damage track visibility */
+#vehicle-hud .nitro-track{height:6px;background:#ffffff20;border:1px solid #ffffff10}#vehicle-hud #nitro-fill{background:linear-gradient(90deg,#ff5fa2 0%,#b86aff 48%,#38e8ff 100%);box-shadow:0 0 12px #38e8ff88}
+
+/* Fullscreen + graphics pass: 22 — Clarify active hero selection */
+.hero-switch button.selected{border-color:#ff5fa2;color:#ff9fc8;background:linear-gradient(130deg,#ff5fa222,#38e8ff0a);box-shadow:inset 0 0 16px #ff5fa20d,0 0 12px #ff5fa211}
+
+/* Fullscreen + graphics pass: 23 — Refine mission card information hierarchy */
+.objective-foot{border-top-color:#ffffff22;color:#b9aacd}.objective-foot span:first-child{color:#38e8ff}.objective-foot #cash-reward{color:#ff8fbe}
+
+/* Fullscreen + graphics pass: 24 — Improve heading rhythm across screen sizes */
+.glass h2,.glass h3{line-height:1.08}.glass h2{font-size:clamp(21px,1.7vw,29px)}.glass h3{font-size:clamp(18px,1.35vw,23px)}
+
+/* Fullscreen + graphics pass: 25 — Smooth graphics and atmosphere controls */
+#view-controls button{border-color:#ffffff35;box-shadow:0 5px 18px #0005;transition:transform .18s,border-color .18s,color .18s,background .18s,box-shadow .18s}#view-controls button:hover{box-shadow:0 8px 22px #0007,0 0 18px #38e8ff18}
+
+/* Fullscreen + graphics pass: 26 — Add a clearer fullscreen active indicator */
+#shell:fullscreen #fullscreen-toggle{border-color:#ff5fa2;color:#ffc1dc;background:#ff5fa21c}#shell:fullscreen #fullscreen-toggle:after{content:' · ON';font-size:8px}
+
+/* Fullscreen + graphics pass: 27 — Ensure browser fullscreen also fills every pixel */
+#shell:fullscreen{width:100vw;height:100vh;height:100dvh;max-width:none;min-height:0;border:0;border-radius:0}#shell:fullscreen #viewport{min-height:0;flex:1 1 auto}
+
+/* Fullscreen + graphics pass: 28 — Keep canvas crisp without overflowing */
+canvas#world{max-width:100%;max-height:100%}#viewport{contain:layout paint style}
+
+/* Fullscreen + graphics pass: 29 — Improve touch hit targets for controls */
+#view-controls button{min-height:34px;padding:9px 12px}#hero-switch button{min-height:34px}#dialogue-actions button,#pause button{min-height:38px}
+
+/* Fullscreen + graphics pass: 30 — Make HUD layers handle tall phone viewports */
+@media(max-height:650px) and (min-width:851px){.topbar{min-height:52px;padding:6px 18px}footer{min-height:30px;padding:4px 14px;font-size:8px}#hud{gap:6px;top:10px;left:10px}.hero-card,.objective{padding:10px}.glass p{margin:5px 0 8px}#view-controls{top:42px}}
+
+/* Fullscreen + graphics pass: 31 — Adapt full-screen controls on tablets */
+@media(max-width:1100px){.topstats{gap:12px}.topbar{padding-left:16px;padding-right:16px}#hud{width:230px}#minimap{width:140px}}
+
+/* Fullscreen + graphics pass: 32 — Use viewport-safe mobile dimensions */
+@media(max-width:850px){body{padding:0;display:block}#shell{width:100vw;height:100vh;height:100dvh;min-height:0;border-radius:0}#viewport{height:auto;min-height:0;flex:1 1 auto}}
+
+/* Fullscreen + graphics pass: 33 — Protect HUD from phone notches */
+@supports(padding:max(0px)){.topbar{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}footer{padding-bottom:max(6px,env(safe-area-inset-bottom))}#hud{left:max(10px,env(safe-area-inset-left))}#minimap{right:max(10px,env(safe-area-inset-right))}}
+
+/* Fullscreen + graphics pass: 34 — Stack control bar cleanly on small phones */
+@media(max-width:540px){#view-controls{top:calc(205px + env(safe-area-inset-top,0px));width:calc(100% - 16px);gap:5px}#view-controls button{font-size:7px;padding:8px 9px;min-height:30px}#viewport{height:auto;min-height:0}#wanted-hud{top:calc(255px + env(safe-area-inset-top,0px))}}
+
+/* Fullscreen + graphics pass: 35 — Add subtle cyan edge lighting to fullscreen HUD */
+#hud .glass{box-shadow:0 16px 42px #0008,0 0 18px #38e8ff08}#hud .hero-card{border-left:2px solid #ff5fa255}#hud .objective{border-left:2px solid #38e8ff55}
+
+/* Fullscreen + graphics pass: 36 — Increase contrast on small HUD captions */
+.glass small,.glass label{color:#c9b7dc;letter-spacing:1.15px}.glass .objective-foot{font-size:9px}.topstats{color:#d5c4e4}
+
+/* Fullscreen + graphics pass: 37 — Add a clean border treatment for game status */
+#vehicle-hud,#wanted-hud,#minimap,#race-status{outline:1px solid #ffffff05;outline-offset:-3px}#vehicle-hud{border-color:#38e8ff55}
+
+/* Fullscreen + graphics pass: 38 — Make controls readable over bright scenes */
+#view-controls button,#look-hint{background-color:rgba(13,7,32,.9);text-shadow:0 1px 2px #0008}#view-controls button{backdrop-filter:blur(14px) saturate(140%)}
+
+/* Fullscreen + graphics pass: 39 — Refine fullscreen title bar spacing */
+@media(min-width:851px){.brand{min-width:180px}.topstats{justify-content:flex-end;flex-wrap:wrap}.topbar{gap:18px}}
+
+/* Fullscreen + graphics pass: 40 — Improve landscape mobile composition */
+@media(max-height:520px) and (max-width:850px){.topbar{min-height:44px;padding-top:4px;padding-bottom:4px}h1{font-size:23px}.brand>span{font-size:7px}.topstats{font-size:7px}#hud{top:6px;grid-template-columns:1fr 1fr;width:min(420px,58vw)}.hero-card,.objective{min-height:0;padding:8px}.glass p{font-size:9px;line-height:1.4;margin:4px 0 6px}#view-controls{top:48px}#minimap{bottom:8px;width:92px}#vehicle-hud{bottom:8px}footer{min-height:24px;padding:3px 8px}}
+
+/* Fullscreen + graphics pass: 41 — Add extra contrast to focus rings */
+button:focus-visible,input:focus-visible{outline:2px solid #a4f8ff;outline-offset:3px;box-shadow:0 0 0 5px #38e8ff20}
+
+/* Fullscreen + graphics pass: 42 — Avoid accidental text selection while playing */
+#viewport,#view-controls,#hud,#minimap,#wanted-hud,#race-status,#vehicle-hud,#toast,#look-hint{-webkit-user-select:none;user-select:none}input{user-select:auto}
+
+/* Fullscreen + graphics pass: 43 — Keep overlay buttons above visual effects */
+#view-controls,#dialogue,#pause{z-index:6}#toast{z-index:4}#look-hint{z-index:3}#viewport:after{z-index:1}#viewport canvas#world{z-index:0}
+
+/* Fullscreen + graphics pass: 44 — Make fullscreen state styling target document fullscreen */
+:fullscreen #shell{width:100vw;height:100vh;height:100dvh;max-width:none;min-height:0;border:0;border-radius:0} :fullscreen #fullscreen-toggle{border-color:#ff5fa2;color:#ffc1dc;background:#ff5fa21c}
+
+/* Fullscreen + graphics pass: 45 — Add performance-friendly effects on low-motion devices */
+@media(prefers-reduced-motion:reduce){#viewport:after{box-shadow:none;background:linear-gradient(180deg,#09051d08,#09051d18)}.glass{backdrop-filter:blur(8px)}}
+
+/* Fullscreen + graphics pass: 46 — Stabilize viewport sizing during browser chrome changes */
+@supports(height:100dvh){#shell{height:100dvh}#viewport{min-height:0} @media(max-width:850px){#shell{height:100dvh}#viewport{min-height:0}}}
