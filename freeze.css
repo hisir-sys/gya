@@ -203,3 +203,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 12 — Add a subtle pink horizon bloom */
 #viewport{background:radial-gradient(ellipse at 50% 0%,#ff8db82b,transparent 50%),linear-gradient(180deg,#f77ab1,#653a91 24%,#211541 54%,#101027 80%,#07101b)}
+
+/* Fullscreen + graphics pass: 13 — Keep pointer-lock hints readable */
+#look-hint{background:linear-gradient(100deg,#160a2de8,#0c1027e8);border-color:#38e8ff44;color:#baf7ff;box-shadow:0 6px 24px #0007;z-index:3}
