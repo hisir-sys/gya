@@ -215,3 +215,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 16 — Give sprint status an event-marker glow */
 #race-status{border-color:#38e8ff77;color:#a4f8ff;box-shadow:0 10px 30px #0008,0 0 24px #38e8ff1c;backdrop-filter:blur(14px)}
+
+/* Fullscreen + graphics pass: 17 — Upgrade toast typography and depth */
+#toast{border-color:#ff5fa277;background:linear-gradient(100deg,#230c3cf5,#100b27f5);color:#ffe4f0;box-shadow:0 12px 34px #0009,0 0 22px #ff5fa21a;letter-spacing:.15px}
