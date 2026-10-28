@@ -293,3 +293,6 @@ button:focus-visible,input:focus-visible{outline:2px solid #a4f8ff;outline-offse
 
 /* Fullscreen + graphics pass: 42 — Avoid accidental text selection while playing */
 #viewport,#view-controls,#hud,#minimap,#wanted-hud,#race-status,#vehicle-hud,#toast,#look-hint{-webkit-user-select:none;user-select:none}input{user-select:auto}
+
+/* Fullscreen + graphics pass: 43 — Keep overlay buttons above visual effects */
+#view-controls,#dialogue,#pause{z-index:6}#toast{z-index:4}#look-hint{z-index:3}#viewport:after{z-index:1}#viewport canvas#world{z-index:0}
