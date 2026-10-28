@@ -170,3 +170,6 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--cyan);outline-o
 
 /* Fullscreen + graphics pass: 01 — Make the game shell fill the browser */
 html,body{width:100%;height:100%;min-height:100%;margin:0;padding:0;overflow:hidden}body{display:block}#shell{width:100vw;max-width:none;height:100vh;height:100dvh;min-height:100vh;min-height:100dvh;border-radius:0;border:0;display:flex;flex-direction:column;box-shadow:none}
+
+/* Fullscreen + graphics pass: 02 — Let the 3D viewport own remaining space */
+#viewport{height:auto;min-height:0;flex:1 1 auto;isolation:isolate}#viewport canvas#world{position:absolute;inset:0;width:100%;height:100%;display:block}#viewport:has(canvas#world:hover){cursor:crosshair}
