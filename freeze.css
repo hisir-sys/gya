@@ -287,3 +287,6 @@ canvas#world{max-width:100%;max-height:100%}#viewport{contain:layout paint style
 
 /* Fullscreen + graphics pass: 40 — Improve landscape mobile composition */
 @media(max-height:520px) and (max-width:850px){.topbar{min-height:44px;padding-top:4px;padding-bottom:4px}h1{font-size:23px}.brand>span{font-size:7px}.topstats{font-size:7px}#hud{top:6px;grid-template-columns:1fr 1fr;width:min(420px,58vw)}.hero-card,.objective{min-height:0;padding:8px}.glass p{font-size:9px;line-height:1.4;margin:4px 0 6px}#view-controls{top:48px}#minimap{bottom:8px;width:92px}#vehicle-hud{bottom:8px}footer{min-height:24px;padding:3px 8px}}
+
+/* Fullscreen + graphics pass: 41 — Add extra contrast to focus rings */
+button:focus-visible,input:focus-visible{outline:2px solid #a4f8ff;outline-offset:3px;box-shadow:0 0 0 5px #38e8ff20}
