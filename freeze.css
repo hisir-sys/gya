@@ -197,3 +197,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 10 — Sharpen location and objective labels */
 #location-tag{border-color:#38e8ff66;box-shadow:0 8px 28px #0008,0 0 20px #38e8ff15;color:#fff1f9}#location-tag i{box-shadow:0 0 8px #38e8ff,0 0 20px #38e8ff99}
+
+/* Fullscreen + graphics pass: 11 — Add cinematic edge vignette */
+ #viewport:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at center,transparent 48%,rgba(7,3,20,.22) 100%);box-shadow:inset 0 0 100px #09051d40}
