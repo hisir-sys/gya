@@ -296,3 +296,6 @@ button:focus-visible,input:focus-visible{outline:2px solid #a4f8ff;outline-offse
 
 /* Fullscreen + graphics pass: 43 — Keep overlay buttons above visual effects */
 #view-controls,#dialogue,#pause{z-index:6}#toast{z-index:4}#look-hint{z-index:3}#viewport:after{z-index:1}#viewport canvas#world{z-index:0}
+
+/* Fullscreen + graphics pass: 44 — Make fullscreen state styling target document fullscreen */
+:fullscreen #shell{width:100vw;height:100vh;height:100dvh;max-width:none;min-height:0;border:0;border-radius:0} :fullscreen #fullscreen-toggle{border-color:#ff5fa2;color:#ffc1dc;background:#ff5fa21c}
