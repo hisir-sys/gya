@@ -299,3 +299,6 @@ button:focus-visible,input:focus-visible{outline:2px solid #a4f8ff;outline-offse
 
 /* Fullscreen + graphics pass: 44 — Make fullscreen state styling target document fullscreen */
 :fullscreen #shell{width:100vw;height:100vh;height:100dvh;max-width:none;min-height:0;border:0;border-radius:0} :fullscreen #fullscreen-toggle{border-color:#ff5fa2;color:#ffc1dc;background:#ff5fa21c}
+
+/* Fullscreen + graphics pass: 45 — Add performance-friendly effects on low-motion devices */
+@media(prefers-reduced-motion:reduce){#viewport:after{box-shadow:none;background:linear-gradient(180deg,#09051d08,#09051d18)}.glass{backdrop-filter:blur(8px)}}
