@@ -185,3 +185,6 @@ footer{flex:0 0 auto;min-height:42px;padding:8px 18px;background:#100921e8;borde
 
 /* Fullscreen + graphics pass: 06 — Allow control bar wrapping on narrow screens */
 #view-controls{max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center;gap:7px;z-index:5}#view-controls button{white-space:nowrap}
+
+/* Fullscreen + graphics pass: 07 — Keep HUD panels above the city canvas */
+#hud,#minimap,#location-tag,#wanted-hud,#race-status,#toast,#dialogue,#pause,#vehicle-hud,#look-hint{z-index:2}#loading{z-index:10}
