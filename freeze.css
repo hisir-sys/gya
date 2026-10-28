@@ -275,3 +275,6 @@ canvas#world{max-width:100%;max-height:100%}#viewport{contain:layout paint style
 
 /* Fullscreen + graphics pass: 36 — Increase contrast on small HUD captions */
 .glass small,.glass label{color:#c9b7dc;letter-spacing:1.15px}.glass .objective-foot{font-size:9px}.topstats{color:#d5c4e4}
+
+/* Fullscreen + graphics pass: 37 — Add a clean border treatment for game status */
+#vehicle-hud,#wanted-hud,#minimap,#race-status{outline:1px solid #ffffff05;outline-offset:-3px}#vehicle-hud{border-color:#38e8ff55}
