@@ -221,3 +221,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 18 — Make dialogue feel like a story card */
 #dialogue{border:1px solid #ff5fa266;box-shadow:0 25px 75px #000b,0 0 32px #ff5fa21b}#dialogue p{font-size:clamp(12px,1vw,14px);line-height:1.8;color:#f0e5f6}
+
+/* Fullscreen + graphics pass: 19 — Improve pause overlay focus */
+#pause{border-color:#38e8ff55;box-shadow:0 28px 90px #000c,0 0 36px #38e8ff14}#pause h2{letter-spacing:2px;text-shadow:0 0 18px #ff5fa233}
