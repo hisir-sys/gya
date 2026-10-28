@@ -176,3 +176,6 @@ html,body{width:100%;height:100%;min-height:100%;margin:0;padding:0;overflow:hid
 
 /* Fullscreen + graphics pass: 03 — Keep the top bar compact in full screen */
 .topbar{flex:0 0 auto;min-height:64px;padding:10px 22px;background:linear-gradient(100deg,#24103b,#130b2b 58%,#201039);backdrop-filter:blur(18px);border-bottom:1px solid #ff5fa244}
+
+/* Fullscreen + graphics pass: 04 — Anchor footer without shrinking the scene */
+footer{flex:0 0 auto;min-height:42px;padding:8px 18px;background:#100921e8;border-top:1px solid #38e8ff22;backdrop-filter:blur(14px)}
