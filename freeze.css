@@ -218,3 +218,6 @@ h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #00
 
 /* Fullscreen + graphics pass: 17 — Upgrade toast typography and depth */
 #toast{border-color:#ff5fa277;background:linear-gradient(100deg,#230c3cf5,#100b27f5);color:#ffe4f0;box-shadow:0 12px 34px #0009,0 0 22px #ff5fa21a;letter-spacing:.15px}
+
+/* Fullscreen + graphics pass: 18 — Make dialogue feel like a story card */
+#dialogue{border:1px solid #ff5fa266;box-shadow:0 25px 75px #000b,0 0 32px #ff5fa21b}#dialogue p{font-size:clamp(12px,1vw,14px);line-height:1.8;color:#f0e5f6}
