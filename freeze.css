@@ -194,3 +194,6 @@ footer{flex:0 0 auto;min-height:42px;padding:8px 18px;background:#100921e8;borde
 
 /* Fullscreen + graphics pass: 09 — Strengthen the neon brand glow */
 h1{font-size:clamp(26px,2.4vw,38px);text-shadow:0 0 18px #ff5fa22b,0 2px 4px #0008}h1 b{color:#ff78b2;text-shadow:0 0 12px #ff5fa277,0 0 28px #ff5fa233}
+
+/* Fullscreen + graphics pass: 10 — Sharpen location and objective labels */
+#location-tag{border-color:#38e8ff66;box-shadow:0 8px 28px #0008,0 0 20px #38e8ff15;color:#fff1f9}#location-tag i{box-shadow:0 0 8px #38e8ff,0 0 20px #38e8ff99}
