@@ -310,3 +310,6 @@ button:focus-visible,input:focus-visible{outline:2px solid #a4f8ff;outline-offse
 /* Camera zoom readout */
 #camera-zoom-level{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:0 10px;border:1px solid #ffffff28;border-radius:6px;background:#07101ac9;color:var(--cyan);font-size:8px;font-weight:800;letter-spacing:1px;white-space:nowrap;backdrop-filter:blur(10px)}
 @media(max-width:850px){#view-controls{max-width:calc(100% - 18px);flex-wrap:wrap;justify-content:center}#camera-zoom-level{min-height:28px}}
+
+#performance-readout{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:0 10px;border:1px solid #ffffff28;border-radius:6px;background:#07101ac9;color:#b9c8d7;font-size:8px;font-weight:800;letter-spacing:1px;white-space:nowrap;font-variant-numeric:tabular-nums;backdrop-filter:blur(10px)}
+@media(max-width:850px){#performance-readout{min-height:28px}}
