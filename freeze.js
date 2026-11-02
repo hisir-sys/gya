@@ -121,7 +121,7 @@ for(let i=0;i<18;i++)makePed(i);
 const zones=[{name:'OLD MARKET',x:-180,z:-180,w:120,d:120},{name:'DOWNTOWN',x:-45,z:-45,w:100,d:100},{name:'FREIGHT QUARTER',x:-170,z:-100,w:90,d:110},{name:'WATERFRONT',x:70,z:35,w:100,d:100},{name:'UPTOWN',x:45,z:-150,w:100,d:100},{name:'CENTRAL GARDEN',x:-75,z:70,w:100,d:100},{name:'MARINA PROMENADE',x:118,z:-70,w:58,d:86},{name:'ARTS DISTRICT',x:-158,z:48,w:58,d:78},{name:'HILLSIDE',x:150,z:-160,w:58,d:58}];
 const discoveredDistricts=new Set();let activeDistrict='';
 addDistrictFeature(126,-126,'tower','#f08fbc');addDistrictFeature(-126,84,'beacon','#78e3d7');addDistrictFeature(84,-168,'gantry','#f2c56f');
-function discoverDistrict(zone){if(!zone||zone.name===activeDistrict)return;activeDistrict=zone.name;if(!discoveredDistricts.has(zone.name)){discoveredDistricts.add(zone.name);const reward=100;money+=reward;setText('cash','
+function discoverDistrict(zone){if(!zone||zone.name===activeDistrict)return;activeDistrict=zone.name;if(!discoveredDistricts.has(zone.name)){discoveredDistricts.add(zone.name);const reward=100;money+=reward;setText('cash','$'+money);say('DISTRICT DISCOVERED · '+zone.name+' · +$'+reward);saveGame()}setText('location-tag',zone.name)}
 function collides(x,z,pad=1.1){return buildings.some(b=>Math.abs(x-b.x)<b.w/2+pad&&Math.abs(z-b.z)<b.d/2+pad)}
 function closeToMission(){const m=currentMission();return m&&Math.hypot(player.position.x-m.x,player.position.z-m.z)<8}
 function nearestRelic(){let best=null,bestD=5.2;for(const r of relics){if(r.collected)continue;const d=Math.hypot(player.position.x-r.x,player.position.z-r.z);if(d<bestD){best=r;bestD=d}}return best}
