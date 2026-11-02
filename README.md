@@ -71,3 +71,14 @@ The 3D Freeze Build now uses a viewport-filling layout and includes a fullscreen
 ## Current gameplay improvements
 
 The current build includes a live objective compass, a heading-aware minimap player marker, stamina-limited running with automatic recovery, safer vehicle recovery after collisions, a story-interaction check that requires exiting the car, and automatic local saves when the page is hidden or closed. When the browser tab becomes hidden, the game pauses to prevent unattended simulation from continuing.
+
+
+## Phase 5–6: City exploration and pedestrian life
+
+- Explore three additional named districts: Marina Promenade, Arts District, and Hillside, each with a distinct skyline feature and a one-time discovery reward.
+- District discoveries are saved in the browser-local game save alongside story and relic progress.
+- Pedestrians now roam around their home areas, choose new nearby destinations, avoid building collisions, and move away when the player approaches too quickly or drives nearby.
+- Walk up calmly to a pedestrian and press **E** to hear a short local conversation. A contextual prompt appears when someone is close enough to talk to.
+- Story-marker interactions take priority over ambient conversations, and relic collection keeps its existing priority.
+
+These are lightweight prototype behaviours; they are not a full navigation mesh, pathfinding system, or simulated city schedule. Browser playtesting is still needed to tune pedestrian density, movement, and district boundaries.
