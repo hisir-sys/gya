@@ -16,7 +16,7 @@ const requiredIds = [
   'waypoint-arrow', 'waypoint-distance', 'stamina-value', 'stamina-fill',
   'vehicle-hud', 'car-health', 'car-health-fill', 'nitro-fill',
   'dialogue', 'choice-options', 'pause', 'save-status',
-  'graphics-toggle', 'atmosphere-toggle', 'fullscreen-toggle',
+  'graphics-toggle', 'atmosphere-toggle', 'fullscreen-toggle', 'npc-hint',
 ];
 for (const id of requiredIds) {
   assert(ids.includes(id), `Missing required HUD element #${id}`);
@@ -32,6 +32,15 @@ assert.match(js, /pagehide/, 'Progress should save when the page is hidden or cl
 assert.match(js, /waypoint-distance/, 'Objective distance must be wired to the compass');
 assert.match(js, /stamina-fill/, 'Sprint stamina must update the HUD');
 assert.match(js, /collisionCooldown/, 'Vehicle impacts must be rate-limited');
+assert.match(js, /MARINA PROMENADE/, 'The Marina district must be discoverable');
+assert.match(js, /ARTS DISTRICT/, 'The Arts district must be discoverable');
+assert.match(js, /HILLSIDE/, 'The Hillside district must be discoverable');
+assert.match(js, /discoveredDistricts/, 'District discovery must persist locally');
+assert.match(js, /function nearestPedestrian\(/, 'Nearby pedestrians must be discoverable for interaction');
+assert.match(js, /function talkToPedestrian\(/, 'Pedestrians must have a conversation action');
+assert.match(js, /state:'WANDER'/, 'Pedestrians must have an autonomous movement state');
+assert.match(js, /const startled=distance<8/, 'Pedestrians must react to nearby player movement');
+assert.match(js, /npc-hint/, 'Nearby pedestrian interaction prompt must be wired');
 assert.match(css, /#waypoint-compass/, 'Objective compass needs styling');
 assert.match(css, /#stamina-hud/, 'Stamina HUD needs styling');
 assert.match(css, /#vehicle-hud\.low-health/, 'Critical vehicle damage needs visual feedback');
