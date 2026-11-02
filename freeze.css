@@ -315,3 +315,18 @@ button:focus-visible,input:focus-visible{outline:2px solid #a4f8ff;outline-offse
 @media(max-width:850px){#performance-readout{min-height:28px}}
 
 #touch-controls{display:none;position:absolute;inset:auto 12px 18px 12px;z-index:5;justify-content:space-between;align-items:end;gap:14px;pointer-events:none;touch-action:none}#touch-controls button{pointer-events:auto;min-width:42px;min-height:42px;border:1px solid #ffffff48;border-radius:12px;background:#07101ad9;color:#f5f7fa;font-size:12px;font-weight:800;box-shadow:0 5px 18px #0008;backdrop-filter:blur(12px);touch-action:none;user-select:none;-webkit-user-select:none}#touch-controls button:active{background:#e8bd70;color:#17120b;border-color:#ffe1a5}.touch-pad{display:grid;gap:5px}.touch-pad>button{justify-self:center}.touch-pad>div{display:flex;gap:5px}.touch-actions{display:grid;grid-template-columns:repeat(2,auto);gap:6px}.touch-actions button{font-size:9px!important;padding:0 8px}@media(pointer:coarse){#touch-controls{display:flex}#look-hint{display:none}#viewport{touch-action:pan-y}#touch-controls button{min-width:46px;min-height:46px}}@media(pointer:coarse) and (max-width:540px){#touch-controls{inset:auto 8px 12px 8px}.touch-actions{gap:5px}.touch-pad button{min-width:44px;min-height:44px}}
+
+
+/* Gameplay HUD: objective compass and stamina feedback */
+#waypoint-compass{position:absolute;top:18px;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:11px;min-width:126px;padding:9px 14px;border:1px solid #38e8ff55;border-radius:12px;background:linear-gradient(120deg,#100b27e8,#21103de8);box-shadow:0 8px 26px #0007,0 0 18px #38e8ff12;backdrop-filter:blur(14px);pointer-events:none;color:#f7efff}
+#waypoint-arrow{display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;color:#62f3ed;font-size:22px;text-shadow:0 0 12px #38e8ff99;transition:transform .12s linear}
+#waypoint-compass span:last-child{display:grid;gap:2px}
+#waypoint-compass small,#stamina-hud small{font-size:7px;letter-spacing:1.2px;color:#b9aacd;font-weight:800}
+#waypoint-distance{font-size:12px;letter-spacing:.8px;color:#fff}
+#stamina-hud{position:absolute;left:18px;bottom:18px;z-index:3;width:154px;padding:9px 11px;border:1px solid #ffffff28;border-radius:10px;background:#100b27e8;box-shadow:0 8px 24px #0007;backdrop-filter:blur(12px);pointer-events:none}
+#stamina-hud>div:first-child{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+#stamina-value{font-size:9px;color:#9bf6ff;font-variant-numeric:tabular-nums}
+.stamina-track{height:5px;overflow:hidden;border-radius:99px;background:#ffffff22}
+#stamina-fill{display:block;width:100%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#38e8ff,#79f2d0);box-shadow:0 0 10px #38e8ff88;transition:width .12s linear}
+@media(max-width:850px){#waypoint-compass{top:8px;min-width:112px;padding:7px 10px}#stamina-hud{left:10px;bottom:88px;width:126px;padding:7px 9px}}
+@media(max-width:540px){#waypoint-compass{top:calc(8px + env(safe-area-inset-top,0px));left:auto;right:10px;transform:none;min-width:100px}#stamina-hud{bottom:82px;left:8px;width:112px}#waypoint-compass small,#stamina-hud small{font-size:6px}}
