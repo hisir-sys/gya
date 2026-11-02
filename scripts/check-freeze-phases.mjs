@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+const game = readFileSync(new URL('../freeze.js', import.meta.url), 'utf8');
+const page = readFileSync(new URL('../freeze.html', import.meta.url), 'utf8');
+const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
+assert.match(game, /pace\*=THREE\.MathUtils\.clamp\(\(gap-2\)\/8,\.12,1\)/, 'traffic should slow behind same-lane vehicles');
+assert.match(game, /completedContracts/, 'contract completion should be persisted');
+assert.match(game, /MARINA PARCEL RUN/);
+assert.match(game, /ARTS DISTRICT SUPPLY/);
+assert.match(game, /HILLSIDE SERVICE CALL/);
+assert.match(game, /k==='y'/, 'Y should start a city contract');
+assert.match(page, /CITY CONTRACT/, 'controls should explain city contracts');
+assert.match(game, /CITYWIDE RESPONSE/, 'wanted HUD should expose dispatch tiers');
+assert.match(game, /emissiveIntensity=pulse\?2\.8:\.15/, 'patrol lights should alternate');
+assert.match(readme, /Phases 7–9/);
+console.log('Neon State Phase 7–9 smoke checks passed.');
