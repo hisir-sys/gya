@@ -18,10 +18,14 @@ If the 3D canvas does not load, check the browser console and confirm that WebGL
 | Key | Action |
 |---|---|
 | WASD / arrow keys | Move around the city |
-| Shift | Run |
+| Shift | Sprint (stamina-limited) / nitro while driving |
 | E / Space | Start or continue the current story interaction |
 | 1 / 2 / 3 | Switch protagonists |
 | Esc | Pause / resume |
+| F | Enter / exit the gold sports car |
+| T | Start / cancel a street sprint |
+| R | Recover at the current story checkpoint |
+| Mouse wheel / + / - | Camera zoom |
 
 ## Three personal storylines
 
@@ -46,7 +50,7 @@ Open `index.html` to play the original 2D sandbox. It includes a large procedura
 
 ## Known limitations
 
-This is a deadline demo build, not a finished GTA-scale game. The 3D city uses procedural primitive geometry; traffic and pedestrians are ambient decoration. The 3D slice does not yet include vehicle driving, combat, police AI, interiors, voice acting, branching choices, cloud saves, or mobile touch controls. Its renderer needs WebGL and internet access for the Three.js CDN. Interactive browser testing on the final presentation computer is still required.
+This is an evolving browser prototype, not a finished commercial open-world game. The city uses procedural primitive geometry; traffic and pedestrians are lightweight ambient simulation, and police pursuit is an early gameplay system rather than a full traffic-aware AI. There are no interiors, voice acting, online multiplayer, or cloud saves. Browser storage is local to the current browser profile. The renderer needs WebGL and internet access for the Three.js CDN. Actual browser, GPU, and touchscreen playtesting on target devices is still required.
 
 ## Development workflow
 
@@ -62,3 +66,8 @@ The city, characters, story, and visual direction are original. This is a browse
 ## Fullscreen and graphics update
 
 The 3D Freeze Build now uses a viewport-filling layout and includes a fullscreen toggle in the in-game controls. The HUD, wanted indicator, minimap, sprint display, and vehicle readouts have been tuned for a high-contrast neon-noir presentation across desktop and mobile aspect ratios. The graphics preset selector still provides PERFORMANCE, HIGH, ULTRA, and EXTREME profiles; use PERFORMANCE or HIGH on integrated graphics and increase quality only if frame rate remains smooth. Fullscreen requests depend on browser support and user interaction. Visual changes are syntax-checked in CI, but actual GPU performance must be measured on the target machine.
+
+
+## Current gameplay improvements
+
+The current build includes a live objective compass, a heading-aware minimap player marker, stamina-limited running with automatic recovery, safer vehicle recovery after collisions, a story-interaction check that requires exiting the car, and automatic local saves when the page is hidden or closed. When the browser tab becomes hidden, the game pauses to prevent unattended simulation from continuing.
