@@ -25,3 +25,5 @@ jobs:
         run: node --check audio.js
       - name: Check 3D freeze-build module syntax
         run: node --check --input-type=module < freeze.js
+      - name: Run 3D gameplay HUD smoke checks
+        run: node tests/freeze-smoke.mjs
