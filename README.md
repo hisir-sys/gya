@@ -90,3 +90,11 @@ These are lightweight prototype behaviours; they are not a full navigation mesh,
 - **Phase 9 — dispatch presentation:** wanted-level labels now communicate patrol, active-response, and citywide-response tiers. The expanded patrol fleet uses alternating red/blue emergency lights while active. Existing non-violent contact and citation behaviour is retained.
 
 The new contracts share the existing route checkpoint visuals with street sprints. This keeps the prototype lightweight and avoids introducing a second route-rendering system. Static checks cover the new control, save fields, route definitions, and dispatch presentation; in-browser traffic spacing, route navigation, and graphics still need hands-on playtesting.
+
+## Phases 10–12: progression, accessibility, and performance
+
+- **Phase 10 — vehicle progression:** press **G** while on foot (or use the touch garage button) to open the garage. Engine, handling, and armor each have three permanent upgrade levels purchased with in-game cash. Engine upgrades improve acceleration and top speed, handling upgrades improve steering response, and armor reduces collision damage while increasing the vehicle's repair capacity. Upgrade levels are stored in the existing local save.
+- **Phase 11 — settings and accessibility:** graphics quality, atmosphere, volume, and reduced-motion preference are stored locally. The Settings control toggles reduced motion; it suppresses atmospheric particle effects and reduces interface transitions. The volume slider remains available in the vehicle HUD.
+- **Phase 12 — performance and recovery:** the minimap is capped at 10 updates per second, adaptive render scaling now responds across all graphics presets, and WebGL context loss/restoration is handled without continuing to render into a lost context. Contract checkpoint markers follow the active contract route on the minimap.
+
+These are browser-local prototype systems. Garage upgrades do not change the story or affect other players. Automated CI checks validate syntax and key integration hooks; real device/GPU profiling and gameplay balance checks still require playtesting.

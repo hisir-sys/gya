@@ -14,5 +14,5 @@ jobs:
           node-version: 20
       - name: Check 3D game module syntax
         run: node --input-type=module --check < freeze.js
-      - name: Check Phase 7–9 gameplay hooks
+      - name: Check Phase 7–12 gameplay hooks
         run: node scripts/check-freeze-phases.mjs
