@@ -14,3 +14,18 @@ assert.match(game, /CITYWIDE RESPONSE/, 'wanted HUD should expose dispatch tiers
 assert.match(game, /emissiveIntensity=pulse\?2\.8:\.15/, 'patrol lights should alternate');
 assert.match(readme, /Phases 7–9/);
 console.log('Neon State Phase 7–9 smoke checks passed.');
+
+assert.match(game, /garageUpgrades,graphicsSettings/, 'upgrades and settings should persist');
+assert.match(game, /k==='g'&&!e.repeat/, 'G should open the garage');
+assert.match(game, /garageUpgrades\.engine\*\.12/, 'engine level should improve acceleration');
+assert.match(game, /garageUpgrades\.handling\*\.13/, 'handling level should improve steering');
+assert.match(game, /garageUpgrades\.armor\*\.12/, 'armor level should reduce collision damage');
+assert.match(game, /mapUpdateClock>=\.1/, 'minimap should update at a capped cadence');
+assert.match(game, /webglcontextrestored/, 'WebGL context restoration should be handled');
+assert.match(game, /fps<32\?Math\.max\(\.65,adaptiveScale-\.08\)/, 'adaptive scale should respond to low FPS');
+assert.match(game, /raceState\?\.route\|\|raceRoute/, 'contract minimap should use active route');
+assert.match(page, /garage-panel/, 'garage UI should exist');
+assert.match(page, /data-touch-action="garage"/, 'touch users should have garage access');
+assert.match(page, /id="settings-toggle"/, 'settings control should exist');
+assert.match(css, /#shell\.reduced-motion/, 'reduced-motion styles should exist');
+console.log('Neon State Phase 7–12 smoke checks passed.');
