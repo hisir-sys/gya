@@ -344,6 +344,6 @@ button:focus-visible,input:focus-visible{outline:2px solid #a4f8ff;outline-offse
 /* Phase 13–14: service hubs and vehicle showroom */
 .vehicle-picker{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 10px;padding-top:12px;border-top:1px solid #ffffff20}
 .vehicle-picker small{flex-basis:100%;color:#b9c8dc;letter-spacing:1px;font-size:9px}
-.vehicle-picker button{flex:1 1 30%;min-width:90px;padding:9px 7px;border:1px solid #38e8ff55;border-radius:8px;background:#17213a;color:#d9faff;font:700 10px inherit;cursor:pointer}
+.vehicle-picker button{flex:1 1 30%;min-width:90px;padding:9px 7px;border:1px solid #38e8ff55;border-radius:8px;background:#17213a;color:#d9faff;font-family:inherit;font-size:10px;font-weight:700;cursor:pointer}
 .vehicle-picker button:hover,.vehicle-picker button:focus-visible{border-color:#ff5fa2;color:#ffc0dc;box-shadow:0 0 14px #ff5fa222;outline:none}
 .vehicle-picker button.selected{border-color:#ff5fa2;background:#ff5fa222;color:#ffc0dc}
