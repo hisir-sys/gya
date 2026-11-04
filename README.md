@@ -85,9 +85,9 @@ These are lightweight prototype behaviours; they are not a full navigation mesh,
 
 ## Phases 7–9: living traffic, city contracts, and public-safety response
 
-- **Phase 7 — traffic behaviour:** ambient cars now reduce speed when following another vehicle in the same lane and change direction when their route is blocked by a building. The existing player-car collision and vehicle-condition systems remain in place.
-- **Phase 8 — city contracts:** on foot, press **Y** to accept the next available parcel or service route. Follow its checkpoints through Marina, the Arts District, or Hillside to earn the listed reward. Each of the three contracts can be completed once; completion is saved locally. Press **T** to cancel an active route, or use the existing street sprint while driving.
-- **Phase 9 — dispatch presentation:** wanted-level labels now communicate patrol, active-response, and citywide-response tiers. The expanded patrol fleet uses alternating red/blue emergency lights while active. Existing non-violent contact and citation behaviour is retained.
+- **Phase 7 — traffic behaviour:** ambient cars slow for same-lane traffic and for the player's car when it is moving ahead in their lane. Vehicles also change direction when their route is blocked by a building. Existing collision damage and vehicle-condition systems remain active.
+- **Phase 8 — city contracts:** on foot, press **Y** to accept the next available parcel or service route. Complete all checkpoints in Marina, the Arts District, or Hillside. Contracts can be completed once and are saved locally. A clean run earns a 20% delivery bonus; a traffic collision removes that bonus. Press **T** to cancel an active route.
+- **Phase 9 — dispatch response:** the first wanted alert places patrol cars around the player's current position. Response speed increases with wanted level, and officers can issue a non-violent citation on foot or in a vehicle. Patrol, active-response, and citywide-response labels communicate escalation; losing contact still allows the search to cool down.
 
 The new contracts share the existing route checkpoint visuals with street sprints. This keeps the prototype lightweight and avoids introducing a second route-rendering system. Static checks cover the new control, save fields, route definitions, and dispatch presentation; in-browser traffic spacing, route navigation, and graphics still need hands-on playtesting.
 
