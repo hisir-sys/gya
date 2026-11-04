@@ -4,6 +4,8 @@ const game = readFileSync(new URL('../freeze.js', import.meta.url), 'utf8');
 const page = readFileSync(new URL('../freeze.html', import.meta.url), 'utf8');
 const readme = readFileSync(new URL('../README.md', import.meta.url), 'utf8');
 const css = readFileSync(new URL('../freeze.css', import.meta.url), 'utf8');
+assert.equal((game.match(/addEventListener\('webglcontextlost'/g) || []).length, 1, 'WebGL context loss should have one recovery handler');
+assert.equal((game.match(/addEventListener\('webglcontextrestored'/g) || []).length, 1, 'WebGL context restore should have one recovery handler');
 assert.match(game, /playerGap>0&&playerGap<16/, 'traffic should slow for the player car in its lane');
 assert.match(game, /cleanBonus=isContract&&incidentsAtFinish===0/, 'clean city contracts should earn a bonus');
 assert.match(game, /const firstAlert=wantedLevel===0/, 'first wanted alert should position patrol cars');
