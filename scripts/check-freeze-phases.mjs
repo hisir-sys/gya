@@ -35,3 +35,20 @@ assert.match(page, /data-touch-action="garage"/, 'touch users should have garage
 assert.match(page, /id="settings-toggle"/, 'settings control should exist');
 assert.match(css, /#shell\.reduced-motion/, 'reduced-motion styles should exist');
 console.log('Neon State Phase 7–12 smoke checks passed.');
+
+assert.match(game, /function buildCityServices\(/, 'Phase 13 city services should be built');
+assert.match(game, /function nearestCityService\(/, 'Phase 13 service proximity should be checked');
+assert.match(game, /function useCityService\(/, 'Phase 13 service interactions should be available');
+assert.match(game, /MARINA MOTOR WORKS/);
+assert.match(game, /PALM FUEL & MARKET/);
+assert.match(game, /ARTS CORNER CAFE/);
+assert.match(game, /vehicleCatalog/);
+assert.match(game, /SPORT:\{label:'SPORT COUPE'/);
+assert.match(game, /SEDAN:\{label:'CITY SEDAN'/);
+assert.match(game, /SUV:\{label:'COASTAL SUV'/);
+assert.match(game, /selectedVehicle,updatedAt/, 'Selected vehicle must persist');
+assert.match(page, /data-vehicle="SPORT"/);
+assert.match(page, /data-vehicle="SEDAN"/);
+assert.match(page, /data-vehicle="SUV"/);
+assert.match(css, /\.vehicle-picker/);
+console.log('Neon State Phase 13–14 smoke checks passed.');
