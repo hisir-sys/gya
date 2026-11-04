@@ -98,3 +98,11 @@ The new contracts share the existing route checkpoint visuals with street sprint
 - **Phase 12 — performance and recovery:** the minimap is capped at 10 updates per second, adaptive render scaling now responds across all graphics presets, and WebGL context loss/restoration is handled without continuing to render into a lost context. Contract checkpoint markers follow the active contract route on the minimap.
 
 These are browser-local prototype systems. Garage upgrades do not change the story or affect other players. Automated CI checks validate syntax and key integration hooks; real device/GPU profiling and gameplay balance checks still require playtesting.
+
+
+## Phases 13–14: city services and vehicle selection
+
+- **Phase 13 — city destinations:** Port Meridian now has four service stops: Marina Motor Works (vehicle repair), Palm Fuel & Market (nitro refill), Neon Customs (return to the sports coupe), and Arts Corner Cafe (a small cash reward). Walk into the marked service area and press **E**. Service markers are built from lightweight scene geometry and do not replace story, relic, or pedestrian interactions.
+- **Phase 14 — vehicle expansion:** the garage now offers a sports coupe, city sedan, and coastal SUV. Select a vehicle while on foot; the choice is saved locally. The variants use distinct body proportions, paint, wheel sizes, acceleration, top speed, and steering response. The existing engine/handling upgrades continue to apply to each vehicle.
+
+The vehicle selector is a prototype fleet, not a claim of full vehicle physics or a large commercial vehicle roster. Browser, keyboard, controller, mobile, and GPU playtesting are still required.
