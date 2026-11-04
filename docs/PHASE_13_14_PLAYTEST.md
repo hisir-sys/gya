@@ -6,7 +6,7 @@
 - [ ] Damage the player vehicle first; confirm repair restores its health to 100% and the service cost is reflected in cash.
 - [ ] Visit Palm Fuel & Market with reduced nitro; confirm nitro refills to 100%.
 - [ ] Visit Neon Customs in a sedan or SUV; confirm the sports coupe is selected and remains drivable.
-- [ ] Visit Arts Corner Cafe; confirm the one-time interaction grants the documented cash reward (repeat interactions are currently repeatable).
+- [ ] Visit Arts Corner Cafe; confirm the first interaction grants $75 and later visits do not repeat the reward, including after reload.
 - [ ] Confirm service interactions do not steal priority from relic collection or story markers.
 - [ ] Confirm each service is reachable on foot and does not spawn inside a building.
 
