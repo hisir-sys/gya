@@ -147,7 +147,109 @@ function toggleVehicle(){
  driving=true;avatar.visible=false;player.position.copy(playerCar.position);initAudio();say('Vehicle entered · WASD drive · SPACE handbrake · F exit'); 
 }
 function startInteraction(){if(paused)return;if(driving){say('Exit the vehicle with F before starting a story interaction');return}if(dialogue){if(dialogue.choosing)return;dialogue.index++;if(dialogue.index>=dialogue.lines.length){dialogue.choosing=true;showDialogue();return}showDialogue();return}const relic=nearestRelic();if(relic){collectRelic(relic);return}const m=currentMission();if(m&&closeToMission()){dialogue={index:0,lines:m.lines,speaker:m.speaker,hero:activeHero,missionIndex:progress[activeHero],choosing:false};showDialogue();return}const nearbyPed=nearestPedestrian();if(nearbyPed){talkToPedestrian(nearbyPed);return}if(!m){say('This chapter is complete. Switch protagonists for another story.');return}say('Move closer to the glowing story marker.')}
-function setWanted(level,reason='CITY DISTURBANCE'){const next=THREE.MathUtils.clamp(level,0,5);if(next>wantedLevel){const firstAlert=wantedLevel===0;wantedLevel=next;wantedCooldown=24;if(firstAlert){const focus=driving?playerCar.position:player.position;policeCars.forEach((cop,i)=>{cop.visible=wantedLevel>0;if(!cop.visible)return;const pulse=Math.sin(performance.now()*.014+cop.userData.phase)>0;cop.userData.blue.emissiveIntensity=pulse?2.8:.15;cop.userData.red.emissiveIntensity=pulse?.15:2.8;const focus=driving?playerCar.position:player.position;const angle=Math.atan2(focus.x-cop.position.x,focus.z-cop.position.z);const distance=Math.hypot(focus.x-cop.position.x,focus.z-cop.position.z);if(distance>5.5){const responseSpeed=3.2+wantedLevel*1.15;const step=Math.min(distance-5.5,responseSpeed*dt);cop.position.x+=Math.sin(angle)*step;cop.position.z+=Math.cos(angle)*step;cop.rotation.y=angle}else if(distance<=5.5&&wantedCooldown<=0){wantedCooldown=10;const fine=100*wantedLevel;money=Math.max(0,money-fine);setText('cash',String.fromCharCode(36)+money);wantedLevel=Math.max(0,wantedLevel-1);updateWantedUI();if(driving)driveSpeed*=.55;say('POLICE CONTACT · '+String.fromCharCode(36)+fine+' CITATION · SEARCH LEVEL REDUCED');saveGame()}});if(wantedLevel>0&&wantedCooldown<=0&&!policeCars.some(c=>c.visible&&Math.hypot(c.position.x-(driving?playerCar.position.x:player.position.x),c.position.z-(driving?playerCar.position.z:player.position.z))<24)){wantedLevel=Math.max(0,wantedLevel-1);wantedCooldown=8;updateWantedUI();if(!wantedLevel){policeCars.forEach(c=>c.visible=false);say('POLICE SEARCH LOST')}}updateRace(dt);
+function setWanted(level,reason='CITY DISTURBANCE'){
+ const next=THREE.MathUtils.clamp(level,0,5);
+ if(next>wantedLevel){
+  const firstAlert=wantedLevel===0;
+  wantedLevel=next;
+  wantedCooldown=24;
+  if(firstAlert){
+   const focus=driving?playerCar.position:player.position;
+   policeCars.forEach((cop,i)=>{
+    const angle=i*Math.PI/2;
+    cop.position.set(THREE.MathUtils.clamp(focus.x+Math.sin(angle)*30,-180,180),0,THREE.MathUtils.clamp(focus.z+Math.cos(angle)*30,-180,180));
+    cop.visible=true;
+   });
+  }
+  say('WANTED LEVEL '+wantedLevel+' / 5 · '+reason);
+ }else wantedLevel=next;
+ updateWantedUI();
+}
+function updateWantedUI(){
+ const stars=document.querySelector('#wanted-stars');
+ if(stars)stars.textContent='★'.repeat(wantedLevel)+'☆'.repeat(5-wantedLevel);
+ const label=document.querySelector('#wanted-label');
+ if(label)label.textContent=wantedLevel?(wantedLevel>=4?'CITYWIDE RESPONSE · '+wantedLevel+' / 5':wantedLevel>=2?'ACTIVE RESPONSE · '+wantedLevel+' / 5':'PATROL ALERT · '+wantedLevel+' / 5'):'NO ACTIVE PURSUIT';
+}
+function beginStreetSprint(){
+ if(!driving){say('Enter your gold sports car first · press F');return}
+ if(raceState){say('Route already active · follow the glowing gates');return}
+ raceState={next:0,elapsed:0,type:'sprint',route:raceRoute,reward:0};
+ raceGates.forEach((g,i)=>{g.position.set(raceRoute[i].x,.25,raceRoute[i].z);g.visible=i===0});
+ say('STREET SPRINT STARTED · FOLLOW THE GOLD GATES');
+}
+function beginCityContract(){
+ if(paused||driving||raceState)return;
+ const index=contractRoutes.findIndex((c,i)=>!completedContracts.includes(i));
+ if(index<0){say('ALL CITY CONTRACTS COMPLETE · THANK YOU, PORT MERIDIAN');return}
+ const job=contractRoutes[index];
+ raceState={next:0,elapsed:0,type:'contract',route:job.route,reward:job.reward,contractIndex:index,incidents:0};
+ raceGates.forEach((g,i)=>{g.position.set(job.route[i]?.x??0,.25,job.route[i]?.z??0);g.visible=i===0});
+ setText('race-status','CITY CONTRACT · '+job.name);
+ say('CONTRACT ACCEPTED · '+job.name+' · FOLLOW THE ROUTE');
+}
+function updateRace(dt){
+ if(!raceState)return;
+ raceState.elapsed+=dt;
+ const route=raceState.route||raceRoute;
+ const target=route[raceState.next];
+ const focus=raceState.type==='contract'?player.position:playerCar.position;
+ if(target&&Math.hypot(focus.x-target.x,focus.z-target.z)<7){
+  raceGates[raceState.next].visible=false;
+  raceState.next++;
+  if(raceState.next>=route.length){
+   const seconds=raceState.elapsed;
+   const isContract=raceState.type==='contract';
+   const incidentsAtFinish=raceState.incidents||0;
+   const cleanBonus=isContract&&incidentsAtFinish===0?Math.round(raceState.reward*.2):0;
+   const reward=isContract?raceState.reward+cleanBonus:Math.max(450,Math.round(1100-seconds*4));
+   money+=reward;
+   if(isContract)completedContracts.push(raceState.contractIndex);else nitroFuel=100;
+   raceState=null;
+   raceGates.forEach(g=>g.visible=false);
+   setText('cash',String.fromCharCode(36)+money);
+   setText('race-status','T · START STREET SPRINT');
+   saveGame();
+   const resultText=isContract
+    ?'CITY CONTRACT COMPLETE · '+seconds.toFixed(1)+'s · +'+String.fromCharCode(36)+reward+(cleanBonus?' · CLEAN DELIVERY BONUS +'+String.fromCharCode(36)+cleanBonus:' · INCIDENTS '+incidentsAtFinish)
+    :'STREET SPRINT COMPLETE · '+seconds.toFixed(1)+'s · +'+String.fromCharCode(36)+reward+' · NITRO REFILLED';
+   say(resultText);
+  }else{
+   raceGates.forEach((g,i)=>{g.visible=i===raceState.next});
+   say('CHECKPOINT '+raceState.next+' / '+route.length);
+  }
+ }
+ setText('race-status',raceState?(raceState.type==='contract'?'CONTRACT ':'SPRINT ')+(raceState.next+1)+'/'+(raceState.route||raceRoute).length+' · '+raceState.elapsed.toFixed(1)+'s':'T · START STREET SPRINT');
+}
+function finishMission(choice){
+ if(!dialogue)return;
+ const hero=dialogue.hero,missionIndex=dialogue.missionIndex,m=storyData[hero].missions[missionIndex];
+ if(!m)return;
+ const bonus=(hero===0&&choice===1)||(hero===1&&choice===1)||(hero===2&&choice===0);
+ const reward=Math.round(m.reward*(bonus?1.25:1));
+ decisions[hero][missionIndex]=choice;
+ progress[hero]=Math.max(progress[hero],missionIndex+1);
+ money+=reward;
+ dialogue=null;
+ document.querySelector('#dialogue').hidden=true;
+ document.querySelector('#choice-options').hidden=true;
+ document.querySelector('#continue-dialogue').hidden=false;
+ syncUI();
+ saveGame();
+ say((progress[hero]>=3?'CHAPTER COMPLETE':'CHOICE RECORDED')+' · +'+String.fromCharCode(36)+reward);
+}
+function showDialogue(){
+ if(!dialogue)return;
+ setText('speaker',dialogue.speaker);
+ setText('dialogue-line',dialogue.lines[Math.min(dialogue.index,dialogue.lines.length-1)]);
+ const choices=document.querySelector('#choice-options'),next=document.querySelector('#continue-dialogue');
+ if(dialogue.choosing){
+  const prompts=[['Keep the delivery moving','Protect the source'],['Publish the evidence','Verify one last detail'],['Split the credit','Demand accountability']][dialogue.hero];
+  setText('choice-a',prompts[0]);setText('choice-b',prompts[1]);choices.hidden=false;next.hidden=true;
+ }else{choices.hidden=true;next.hidden=false}
+ document.querySelector('#dialogue').hidden=false;
+}
+
  pedestrians.forEach(p=>{const u=p.userData;u.phase+=dt*.8;if(u.talkCooldown>0)u.talkCooldown-=dt;const focus=driving?playerCar.position:player.position,dx=p.position.x-focus.x,dz=p.position.z-focus.z,distance=Math.hypot(dx,dz);const startled=distance<8&&(driving||keys.shift||distance<2.3);if(startled){u.state='AVOID';const length=Math.max(.001,distance);const speed=driving?4.4:3.1;const nx=p.position.x+(dx/length)*speed*dt,nz=p.position.z+(dz/length)*speed*dt;if(!collides(nx,p.position.z,.45))p.position.x=nx;if(!collides(p.position.x,nz,.45))p.position.z=nz;p.rotation.y=Math.atan2(-dx,-dz)}else{if(u.state==='AVOID'){u.state='WANDER';u.goal.set(u.origin.x+Math.sin(u.phase*1.7)*7,0,u.origin.z+Math.cos(u.phase*1.3)*7)}const gx=u.goal.x-p.position.x,gz=u.goal.z-p.position.z,gd=Math.hypot(gx,gz);if(gd<1.2){u.goal.set(u.origin.x+Math.sin(u.phase*1.9+1)*8,0,u.origin.z+Math.cos(u.phase*1.4+2)*8)}else{const speed=u.state==='WANDER'?1.15:1.0,nx=p.position.x+gx/gd*speed*dt,nz=p.position.z+gz/gd*speed*dt;if(!collides(nx,p.position.z,.4))p.position.x=nx;if(!collides(p.position.x,nz,.4))p.position.z=nz;p.rotation.y=Math.atan2(gx,gz)}}});
  const target=new THREE.Vector3(player.position.x,player.position.y+(driving?1.9:1.8),player.position.z);const followDistance=(driving?13.5:8.5)*cameraZoom;const viewYaw=cameraYaw;const horizontal=followDistance*Math.cos(cameraPitch);const behind=new THREE.Vector3(Math.sin(viewYaw)*horizontal,Math.max(2.2,driving?4.4:3.2)+Math.sin(cameraPitch)*followDistance,Math.cos(viewYaw)*horizontal);camera.position.lerp(target.clone().add(behind),1-Math.pow(.00015,dt));camera.lookAt(target.clone().add(new THREE.Vector3(0,1.05,0)));
  const nearbyNpc=nearestPedestrian();const npcHint=document.querySelector('#npc-hint');if(npcHint){npcHint.hidden=!nearbyNpc||driving;npcHint.textContent=nearbyNpc?'E · TALK TO '+nearbyNpc.userData.name:''}const zone=zones.find(z=>Math.abs(player.position.x-(z.x+z.w/2))<z.w/2&&Math.abs(player.position.z-(z.z+z.d/2))<z.d/2);if(zone)discoverDistrict(zone);else{activeDistrict='';setText('location-tag','PORT MERIDIAN');}const m=currentMission();if(m){const dx=m.x-player.position.x,dz=m.z-player.position.z,d=Math.round(Math.hypot(dx,dz));setText('distance',d<8?(driving?'EXIT CAR WITH F · THEN PRESS E':'PRESS E · INTERACT'):d+' M TO OBJECTIVE');setText('waypoint-distance',d+' M');const arrow=document.querySelector('#waypoint-arrow');if(arrow)arrow.style.transform='rotate('+((Math.atan2(dx,dz)-player.rotation.y)*180/Math.PI)+'deg)'}else{setText('distance','CHAPTER COMPLETE');setText('waypoint-distance','STORY COMPLETE');const arrow=document.querySelector('#waypoint-arrow');if(arrow)arrow.style.transform='rotate(0deg)'}if(closeToMission()&&!dialogue&&toastTimer<=0)say('Press E to begin this story beat');if(toastTimer>0)toastTimer-=dt;landmarks.forEach(l=>{l.orb.rotation.y+=dt*.9;l.orb.position.y=5+Math.sin(performance.now()*.002)*.3;l.ring.rotation.z+=dt*.25});relics.forEach(r=>{if(!r.collected){r.gem.rotation.y+=dt*1.8;r.gem.rotation.x+=dt*.55;r.group.position.y=.9+Math.sin(performance.now()*.003+r.id)*.16;r.ring.rotation.z+=dt*.65}});const nearRelic=nearestRelic();if(nearRelic&&!dialogue&&toastTimer<=0)say('NEON RELIC NEARBY · PRESS E TO COLLECT')}
