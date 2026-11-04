@@ -7,7 +7,7 @@ const css = readFileSync(new URL('../freeze.css', import.meta.url), 'utf8');
 assert.match(game, /playerGap>0&&playerGap<16/, 'traffic should slow for the player car in its lane');
 assert.match(game, /cleanBonus=isContract&&incidentsAtFinish===0/, 'clean city contracts should earn a bonus');
 assert.match(game, /const firstAlert=wantedLevel===0/, 'first wanted alert should position patrol cars');
-assert.match(game, /distance<=5\\.5&&wantedCooldown<=0/, 'police contact should work on foot and in vehicles');
+assert.match(game, /distance<=5\.5&&wantedCooldown<=0/, 'police contact should work on foot and in vehicles');
 assert.match(game, /completedContracts/, 'contract completion should be persisted');
 assert.match(game, /MARINA PARCEL RUN/);
 assert.match(game, /ARTS DISTRICT SUPPLY/);
