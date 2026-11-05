@@ -106,3 +106,12 @@ These are browser-local prototype systems. Garage upgrades do not change the sto
 - **Phase 14 — vehicle expansion:** the garage now offers a sports coupe, city sedan, and coastal SUV. Select a vehicle while on foot; the choice is saved locally. The variants use distinct body proportions, paint, wheel sizes, acceleration, top speed, and steering response. The existing engine/handling upgrades continue to apply to each vehicle.
 
 The vehicle selector is a prototype fleet, not a claim of full vehicle physics or a large commercial vehicle roster. Browser, keyboard, controller, mobile, and GPU playtesting are still required.
+
+
+## Phases 15–16: mission journal and audio controls
+
+- **Phase 15 — mission journal:** press **J** or use JOURNAL to review all three protagonists, chapter completion, current/locked story beats, saved dialogue choices, cash, relics, city contracts, and discovered districts. The journal reads the same local campaign state as the HUD and does not create a second save source.
+- **Phase 16 — audio controls:** SOUND toggles game audio on/off and the existing SFX slider controls the master level for engine, skid, and short story/relic/service cues. Mute and volume are saved locally. Browser audio still requires a user interaction before playback.
+- Repair now checks that the player has the full $100 service fee before restoring vehicle condition; it no longer silently grants free repairs to players with insufficient cash.
+
+Automated checks cover journal wiring, saved audio state, selector synchronization, and repair affordability. Real browser audio-device, keyboard, and mobile playtesting remains required.
