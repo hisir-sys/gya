@@ -59,3 +59,19 @@ assert.match(css, /#stamina-hud/, 'Stamina HUD needs styling');
 assert.match(css, /#vehicle-hud\.low-health/, 'Critical vehicle damage needs visual feedback');
 
 console.log(`Neon State smoke checks passed: ${ids.length} unique IDs and ${requiredIds.length} required HUD elements.`);
+
+
+assert(ids.includes('journal-panel'), 'Mission journal panel must exist');
+assert(ids.includes('journal-content'), 'Mission journal content host must exist');
+assert(ids.includes('journal-toggle'), 'Journal toggle must exist');
+assert(ids.includes('sound-toggle'), 'Sound toggle must exist');
+assert.match(html, /JOURNAL · J/, 'Journal keyboard shortcut must be visible');
+assert.match(js, /function renderJournal\(/, 'Journal must render campaign state');
+assert.match(js, /function toggleJournal\(/, 'Journal must open and close');
+assert.match(js, /decisions\[index\]\[missionIndex\]/, 'Journal must show saved story choices');
+assert.match(js, /function playUiCue\(/, 'Gameplay events must have short audio cues');
+assert.match(js, /audioMuted,updatedAt:Date\.now\(\)/, 'Audio mute state must persist');
+assert.match(js, /audioMuted\?0:Number\(document\.querySelector\('#volume'\)/, 'Mute must silence engine and skid mix');
+assert.match(js, /data-vehicle.*selectedVehicle|dataset\.vehicle===selectedVehicle/, 'Garage must show the selected vehicle');
+assert.match(js, /if\(money<100\).*NOT ENOUGH CASH/s, 'Repair service must enforce its $100 cost');
+console.log('Neon State Phase 15–16 smoke checks passed.');
