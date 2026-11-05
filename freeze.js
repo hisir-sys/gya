@@ -175,7 +175,8 @@ function useCityService(service){
  if(!service)return;
  if(service.kind==='repair'){
   if(carHealth>=maxCarHealth()){say('MARINA MOTOR WORKS · Your vehicle is already in top condition');return}
-  carHealth=maxCarHealth();setText('car-health','100%');const fill=document.querySelector('#car-health-fill');if(fill)fill.style.width='100%';document.querySelector('#vehicle-hud')?.classList.remove('low-health');if(money<100){say('MARINA MOTOR WORKS · REPAIR COSTS $100 · NOT ENOUGH CASH');return}money-=100;playUiCue('service');say('MARINA MOTOR WORKS · VEHICLE RESTORED · SERVICE $100');
+  if(money<100){say('MARINA MOTOR WORKS · REPAIR COSTS $100 · NOT ENOUGH CASH');return}
+  carHealth=maxCarHealth();setText('car-health','100%');const fill=document.querySelector('#car-health-fill');if(fill)fill.style.width='100%';document.querySelector('#vehicle-hud')?.classList.remove('low-health');money-=100;playUiCue('service');say('MARINA MOTOR WORKS · VEHICLE RESTORED · SERVICE $100');
  }else if(service.kind==='fuel'){
   nitroFuel=100;setText('nitro-value','100%');setText('nitro-fill','');const fill=document.querySelector('#nitro-fill');if(fill)fill.style.width='100%';say('PALM FUEL & MARKET · NITRO REFILLED');
  }else if(service.kind==='customs'){
