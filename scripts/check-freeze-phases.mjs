@@ -46,10 +46,24 @@ assert.match(game, /vehicleCatalog/);
 assert.match(game, /SPORT:\{label:'SPORT COUPE'/);
 assert.match(game, /SEDAN:\{label:'CITY SEDAN'/);
 assert.match(game, /SUV:\{label:'COASTAL SUV'/);
-assert.match(game, /selectedVehicle,completedServices,updatedAt/, 'Selected vehicle and one-time service rewards must persist');
+assert.match(game, /selectedVehicle,completedServices,audioMuted,updatedAt/, 'Selected vehicle and one-time service rewards must persist');
 assert.match(game, /completedServices.includes\(service.name\)/, 'Cafe reward must not be repeatable');
 assert.match(page, /data-vehicle="SPORT"/);
 assert.match(page, /data-vehicle="SEDAN"/);
 assert.match(page, /data-vehicle="SUV"/);
 assert.match(css, /\.vehicle-picker/);
 console.log('Neon State Phase 13–14 smoke checks passed.');
+
+
+assert.match(game, /function renderJournal\(/, 'Phase 15 journal renderer should exist');
+assert.match(game, /function toggleJournal\(/, 'Phase 15 journal toggle should exist');
+assert.match(game, /completedContracts\.length\+'\/'\+contractRoutes\.length/, 'Journal should summarize contracts');
+assert.match(game, /k==='j'&&!e\.repeat/, 'J should toggle the journal');
+assert.match(page, /id="journal-panel"/, 'Journal panel should be present');
+assert.match(page, /id="journal-toggle"/, 'Journal control should be present');
+assert.match(css, /#journal-panel/, 'Journal panel should be styled');
+assert.match(game, /function playUiCue\(/, 'Phase 16 event audio cues should exist');
+assert.match(game, /audioMuted,updatedAt:Date\.now\(\)/, 'Mute preference should persist');
+assert.match(game, /if\(money<100\).*NOT ENOUGH CASH/s, 'Repair should require the service fee');
+assert.match(page, /id="sound-toggle"/, 'Sound toggle should be present');
+console.log('Neon State Phase 15–16 integration checks passed.');
