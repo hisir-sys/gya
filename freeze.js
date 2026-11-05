@@ -186,15 +186,16 @@ function useCityService(service){
  if(!service)return;
  if(service.kind==='repair'){
   if(carHealth>=maxCarHealth()){say('MARINA MOTOR WORKS · Your vehicle is already in top condition');return}
-  carHealth=maxCarHealth();setText('car-health','100%');const fill=document.querySelector('#car-health-fill');if(fill)fill.style.width='100%';document.querySelector('#vehicle-hud')?.classList.remove('low-health');money=Math.max(0,money-100);say('MARINA MOTOR WORKS · VEHICLE RESTORED · SERVICE $100');
+  if(money<100){say('MARINA MOTOR WORKS · REPAIR COSTS $100 · NOT ENOUGH CASH');return}
+  carHealth=maxCarHealth();setText('car-health','100%');const fill=document.querySelector('#car-health-fill');if(fill)fill.style.width='100%';document.querySelector('#vehicle-hud')?.classList.remove('low-health');money-=100;playUiCue('service');say('MARINA MOTOR WORKS · VEHICLE RESTORED · SERVICE $100');
  }else if(service.kind==='fuel'){
-  nitroFuel=100;setText('nitro-value','100%');setText('nitro-fill','');const fill=document.querySelector('#nitro-fill');if(fill)fill.style.width='100%';say('PALM FUEL & MARKET · NITRO REFILLED');
+  nitroFuel=100;setText('nitro-value','100%');const fill=document.querySelector('#nitro-fill');if(fill)fill.style.width='100%';say('PALM FUEL & MARKET · NITRO REFILLED');playUiCue('service');
  }else if(service.kind==='customs'){
   if(selectedVehicle==='SPORT'){say('NEON CUSTOMS · Your sports coupe is already tuned');return}
-  selectedVehicle='SPORT';replacePlayerVehicle();say('NEON CUSTOMS · SPORTS COUPE SELECTED');
+  selectedVehicle='SPORT';replacePlayerVehicle();say('NEON CUSTOMS · SPORTS COUPE SELECTED');playUiCue('service');
  }else{
   if(completedServices.includes(service.name)){say('ARTS CORNER CAFE · Thanks for visiting again');return}
-  completedServices.push(service.name);money+=75;say('ARTS CORNER CAFE · Thanks for stopping by · +$75');
+  completedServices.push(service.name);money+=75;playUiCue('service');say('ARTS CORNER CAFE · Thanks for stopping by · +$75');
  }
  syncUI();saveGame();
 }
