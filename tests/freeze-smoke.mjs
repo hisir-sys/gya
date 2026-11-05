@@ -48,7 +48,7 @@ assert.match(js, /function makePlayerCar\(type=selectedVehicle\)/, 'Phase 14 mus
 assert.match(js, /SPORT:\{label:'SPORT COUPE'/, 'Sports coupe must remain available');
 assert.match(js, /SEDAN:\{label:'CITY SEDAN'/, 'City sedan must be available');
 assert.match(js, /SUV:\{label:'COASTAL SUV'/, 'Coastal SUV must be available');
-assert.match(js, /selectedVehicle,completedServices,updatedAt/, 'Selected vehicle must persist in the local save');
+assert.match(js, /selectedVehicle,completedServices,audioMuted,updatedAt/, 'Selected vehicle must persist in the local save');
 assert.match(html, /data-vehicle="SEDAN"/, 'Garage must expose the sedan selector');
 assert.match(html, /data-vehicle="SUV"/, 'Garage must expose the SUV selector');
 assert.match(css, /\.vehicle-picker/, 'Vehicle selector needs responsive styling');
