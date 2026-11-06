@@ -13,7 +13,7 @@ async function loadThree(){
 loadThree().then(THREE=>{
 (() => {
 'use strict';
-const root=document.querySelector('#viewport'),map=document.querySelector('#map'),mctx=map.getContext('2d');
+const root=document.querySelector('#viewport'),map=document.querySelector('#map'),mctx=map.getContext('2d'),fullscreenButton=document.querySelector('#fullscreen-toggle');
 const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'high-performance'});
 let graphicsQuality='HIGH';renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.25));renderer.setSize(root.clientWidth,root.clientHeight);renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.shadowMap.autoUpdate=true;renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;renderer.info.autoReset=true;renderer.domElement.id='world';root.prepend(renderer.domElement);renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();contextLost=true;togglePause(true);say('Graphics paused · browser is restoring the 3D context')});renderer.domElement.addEventListener('webglcontextrestored',()=>{contextLost=false;renderer.setSize(root.clientWidth,root.clientHeight);applyGraphicsQuality();say('Graphics restored · return to the city')});
 const scene=new THREE.Scene();scene.background=new THREE.Color('#e5a6a2');scene.fog=new THREE.FogExp2('#c69da9',.0031);let atmosphereMode='GOLDEN HOUR';
