@@ -399,3 +399,15 @@ body{display:block;place-items:initial}
  #location-tag{top:148px;left:8px;transform:none}
  #race-status{top:180px}#toast{bottom:125px;max-width:92%}
 }
+
+/* Kolkata edition: heritage stone, tram green, warm amber and full-screen scene. */
+:root{--cyan:#8ec7b0;--pink:#e5b85c}
+html,body,#shell,#viewport{background:#172a28}
+#loading{background:linear-gradient(180deg,#172a2a,#263b35);color:#f2e8d3}
+#loading strong{color:#f1d18a}
+#location-tag,#waypoint-compass{background:rgba(20,35,31,.88);border-color:#c5a96c;color:#f5e9cf}
+#view-controls button,#minimap,#vehicle-hud,#stamina-hud{background:rgba(25,37,32,.88);border-color:#c5b68d}
+#hud .hero-card,#hud .objective{background:rgba(35,43,36,.82);border-color:#c7b68d}
+#hud .objective-foot span:first-child,#waypoint-arrow{color:#e8c56f}
+#vehicle-hud .speed-read strong,#cash{color:#f0ce78}
+#touch-controls button{background:rgba(25,37,32,.92);border-color:#c5b68d}
