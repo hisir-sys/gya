@@ -213,3 +213,38 @@ export function enhanceAvatar(THREE, avatar, shirtColor, box, mat) {
   const hairline = new THREE.Mesh(new THREE.SphereGeometry(.35, 18, 10, 0, Math.PI * 2, 0, Math.PI * .25), pants);
   hairline.position.set(0, 2.77, .02); avatar.add(hairline);
 }
+
+export async function loadPolyHavenStreetEnvironment(THREE, scene, renderer) {
+  try {
+    const { RGBELoader } = await import('three/addons/loaders/RGBELoader.js');
+    const loader = new RGBELoader();
+    loader.setDataType(THREE.HalfFloatType);
+    const url = 'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/urban_street_01_1k.hdr';
+    return await new Promise(resolve => {
+      loader.load(url, texture => {
+        try {
+          const pmrem = new THREE.PMREMGenerator(renderer);
+          const target = pmrem.fromEquirectangular(texture);
+          const previous = scene.environment;
+          scene.environment = target.texture;
+          scene.userData.polyHavenEnvironment = target;
+          texture.dispose();
+          pmrem.dispose();
+          if (previous?.dispose) previous.dispose();
+          document.documentElement.dataset.environmentLighting = 'polyhaven-urban-street-01';
+          resolve(true);
+        } catch (error) {
+          console.warn('Poly Haven HDRI processing failed; keeping procedural lighting', error);
+          texture.dispose();
+          resolve(false);
+        }
+      }, undefined, error => {
+        console.info('Optional Poly Haven HDRI unavailable; keeping procedural lighting', error);
+        resolve(false);
+      });
+    });
+  } catch (error) {
+    console.info('Optional HDR loader unavailable; keeping procedural lighting', error);
+    return false;
+  }
+}
