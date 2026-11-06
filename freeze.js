@@ -32,7 +32,34 @@ function makeBuilding(x,z,w,d,h,idx){const g=new THREE.Group();g.position.set(x,
  if(h>25&&idx%2===0){const antenna=box(g,.16,3.2,.16,mat('#202a32',.7,.2),w*.22,h+1.8,d*.18,false);antenna.castShadow=false;const beacon=new THREE.Mesh(new THREE.SphereGeometry(.22,8,6),new THREE.MeshStandardMaterial({color:'#ff766f',emissive:'#b82222',emissiveIntensity:1.4}));beacon.position.set(w*.22,h+3.5,d*.18);g.add(beacon)}
  if(idx%4===1){for(let bx=-w*.32;bx<w*.35;bx+=w*.32){const balcony=box(g,1.7,.12,.62,mat('#303b43',.8,.15),bx,Math.min(h-2,11),d/2+.22,false);balcony.castShadow=false}}
 }
-function addTree(x,z){const g=new THREE.Group();g.position.set(x,0,z);city.add(g);const trunk=new THREE.Mesh(new THREE.CylinderGeometry(.2,.38,6.4,10),mat('#705044',.92));trunk.position.set(0,3.1,0);trunk.rotation.z=.055;trunk.castShadow=true;trunk.receiveShadow=true;g.add(trunk);const frondPositions=[],frondNormals=[],frondIndices=[];for(let n=0;n<8;n++){const angle=n*Math.PI/4,dx=Math.cos(angle),dz=Math.sin(angle);const baseX=dx*.12,baseZ=dz*.12;for(let side of [-1,1]){const start=frondPositions.length/3;for(let j=0;j<=10;j++){const t=j/10,reach=4.7*t,drop=1.65*t*t,spread=side*(.12+Math.sin(t*Math.PI)*.34);const cx=baseX+dx*reach-dx*spread*.15,cz=baseZ+dz*reach-dz*spread*.15,cy=5.95-drop;const width=.06*(1-t)+.012;frondPositions.push(cx-dz*width,cy,cz+dx*width,cx+dz*width,cy+.035,cz-dx*width);if(j>0){const a=start+(j-1)*2,b=a+1,c=start+j*2,d=c+1;frondIndices.push(a,b,c,b,d,c)}}for(let j=1;j<10;j++){const t=j/10,reach=4.7*t,drop=1.65*t*t,leafLength=(.95*(1-t)+.18),cx=baseX+dx*reach,cz=baseZ+dz*reach,cy=5.95-drop;for(let sideSign of [-1,1]){const px=cx+(-dz*sideSign)*leafLength,pz=cz+(dx*sideSign)*leafLength,tipY=cy-.48*(1-t);const k=frondPositions.length/3;frondPositions.push(cx,cy,cz,px,tipY,pz,cx+dx*.12,cy-.04,cz+dz*.12);frondIndices.push(k,k+1,k+2)}}}const foliageGeometry=new THREE.BufferGeometry();foliageGeometry.setAttribute('position',new THREE.Float32BufferAttribute(frondPositions,3));foliageGeometry.setIndex(frondIndices);foliageGeometry.computeVertexNormals();const foliage=new THREE.Mesh(foliageGeometry,new THREE.MeshStandardMaterial({color:'#246b52',roughness:.9,side:THREE.DoubleSide}));foliage.position.y=.1;foliage.castShadow=true;foliage.receiveShadow=true;g.add(foliage);const coconuts=new THREE.Mesh(new THREE.SphereGeometry(.19,8,6),mat('#5b3828',.9));for(let n=0;n<4;n++){const a=n*Math.PI/2;coconuts.position.set(Math.cos(a)*.3,5.8,Math.sin(a)*.3);const nut=coconuts.clone();g.add(nut)}}
+function addTree(x,z){
+ const g=new THREE.Group();g.position.set(x,0,z);city.add(g);
+ const trunk=new THREE.Mesh(new THREE.CylinderGeometry(.2,.38,6.4,10),mat('#705044',.92));trunk.position.set(0,3.1,0);trunk.rotation.z=.055;trunk.castShadow=true;trunk.receiveShadow=true;g.add(trunk);
+ const positions=[],indices=[];
+ for(let n=0;n<8;n++){
+  const angle=n*Math.PI/4,dx=Math.cos(angle),dz=Math.sin(angle);
+  const start=positions.length/3;
+  for(let j=0;j<=10;j++){
+   const t=j/10,reach=4.7*t,drop=1.65*t*t,width=.06*(1-t)+.012;
+   const cx=dx*(.12+reach),cz=dz*(.12+reach),cy=5.95-drop;
+   positions.push(cx-dz*width,cy,cz+dx*width,cx+dz*width,cy+.035,cz-dx*width);
+   if(j>0){const p=start+(j-1)*2,q=p+1,r=start+j*2,v=r+1;indices.push(p,q,r,q,v,r)}
+  }
+  for(const side of [-1,1]){
+   for(let j=1;j<10;j++){
+    const t=j/10,reach=4.7*t,drop=1.65*t*t,len=.95*(1-t)+.18;
+    const cx=dx*(.12+reach),cz=dz*(.12+reach),cy=5.95-drop;
+    const px=cx-dz*side*len,pz=cz+dx*side*len,k=positions.length/3;
+    positions.push(cx,cy,cz,px,cy-.48*(1-t),pz,cx+dx*.12,cy-.04,cz+dz*.12);
+    indices.push(k,k+1,k+2)
+   }
+  }
+ }
+ const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));geometry.setIndex(indices);geometry.computeVertexNormals();
+ const foliage=new THREE.Mesh(geometry,new THREE.MeshStandardMaterial({color:'#246b52',roughness:.9,side:THREE.DoubleSide}));foliage.position.y=.1;foliage.castShadow=true;foliage.receiveShadow=true;g.add(foliage);
+ const nutMaterial=mat('#5b3828',.9);
+ for(let n=0;n<4;n++){const angle=n*Math.PI/2,nut=new THREE.Mesh(new THREE.SphereGeometry(.19,8,6),nutMaterial);nut.position.set(Math.cos(angle)*.3,5.8,Math.sin(angle)*.3);g.add(nut)}
+}
 for(let gx=-4;gx<4;gx++)for(let gz=-4;gz<4;gz++){
  const x=gx*42+21,z=gz*42+21;const w=23+(Math.abs(gx*7+gz*3)%6),d=23+(Math.abs(gz*5+gx*2)%7),h=12+((Math.abs(gx*11+gz*17)%8)*3.3);
  makeBuilding(x,z,w,d,h,Math.abs(gx*3+gz*7));
