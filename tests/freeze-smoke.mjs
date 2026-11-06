@@ -90,3 +90,7 @@ assert.match(js, /addLocalVehicle\(.*'auto'/, 'Kolkata auto-rickshaws must be re
 assert.match(js, /sleeperMat/, 'The local tram corridor must have rail sleepers');
 assert.match(js, /neon-state-kolkata-v1/, 'Kolkata map progress must use a versioned save key');
 console.log('Kolkata offline world checks passed.');
+
+assert.match(js, /function applyKolkataAtmosphere\(/, 'Kolkata must provide local day, golden-hour and night lighting modes');
+assert.match(js, /const modes=\['DAYLIGHT','GOLDEN HOUR','NEON NIGHT'\]/, 'Atmosphere control must cycle day, dusk and night');
+console.log('Kolkata day/night lighting checks passed.');
