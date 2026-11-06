@@ -16,7 +16,7 @@ const requiredIds = [
   'waypoint-arrow', 'waypoint-distance', 'stamina-value', 'stamina-fill',
   'vehicle-hud', 'car-health', 'car-health-fill', 'nitro-fill',
   'dialogue', 'choice-options', 'pause', 'save-status',
-  'graphics-toggle', 'atmosphere-toggle', 'fullscreen-toggle', 'npc-hint',
+  'graphics-toggle', 'atmosphere-toggle', 'weather-toggle', 'fullscreen-toggle', 'npc-hint',
 ];
 for (const id of requiredIds) {
   assert(ids.includes(id), `Missing required HUD element #${id}`);
@@ -94,3 +94,19 @@ console.log('Kolkata offline world checks passed.');
 assert.match(js, /function applyKolkataAtmosphere\(/, 'Kolkata must provide local day, golden-hour and night lighting modes');
 assert.match(js, /const modes=\['DAYLIGHT','GOLDEN HOUR','NEON NIGHT'\]/, 'Atmosphere control must cycle day, dusk and night');
 console.log('Kolkata day/night lighting checks passed.');
+
+assert.match(js, /Procedural HDR-style image-based lighting/, 'Scene must build an offline image-based environment for PBR reflections');
+assert.match(js, /PMREMGenerator/, 'Environment lighting must be prefiltered for physically based materials');
+assert.match(js, /clearcoat/, 'Vehicle paint must use a clearcoat physical material');
+assert.match(js, /shadow:3072/, 'Extreme graphics preset must offer a high-resolution shadow map');
+assert.match(js, /shadow:2048/, 'Ultra graphics preset must offer a high-resolution shadow map');
+console.log('Neon State PBR and image-based lighting checks passed.');
+
+assert.match(html, /id="weather-toggle"/, 'Weather control must be available in the HUD');
+assert.match(js, /createWeatherSystem/, 'Optional weather runtime must be connected');
+assert.match(js, /weatherSystem\?\.update\(dt,player\.position\)/, 'Weather particles must follow the active player position');
+assert.match(js, /createPerformanceMonitor/, 'GPU telemetry must be connected to the renderer');
+assert.match(js, /performanceMonitor\?\.endFrame\(frameDelta\)/, 'GPU telemetry must sample completed render frames');
+assert.match(js, /dataset\.graphicsQuality=graphicsQuality/, 'Active graphics preset must be exposed for diagnostics');
+assert.match(html, /WEATHER · CLEAR/, 'Weather control must start in the safe clear-weather state');
+console.log('Neon State weather and GPU telemetry wiring checks passed.');
