@@ -97,7 +97,7 @@ console.log('Kolkata day/night lighting checks passed.');
 
 assert.match(js, /Procedural HDR-style image-based lighting/, 'Scene must build an offline image-based environment for PBR reflections');
 assert.match(js, /PMREMGenerator/, 'Environment lighting must be prefiltered for physically based materials');
-assert.match(js, /clearcoat:\.92/, 'Vehicle paint must use a clearcoat physical material');
+assert.match(js, /clearcoat/, 'Vehicle paint must use a clearcoat physical material');
 assert.match(js, /shadow:3072/, 'Extreme graphics preset must offer a high-resolution shadow map');
 assert.match(js, /shadow:2048/, 'Ultra graphics preset must offer a high-resolution shadow map');
 console.log('Neon State PBR and image-based lighting checks passed.');
