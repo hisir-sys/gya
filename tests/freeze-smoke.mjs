@@ -141,3 +141,15 @@ assert.match(html, /three\/addons\//, 'Three.js addon imports must resolve throu
 assert.match(visual, /urban_street_01_1k\.hdr/, 'Photographic HDRI must use the CC0 Poly Haven street environment');
 assert.match(visual, /procedural lighting/, 'HDRI failure must preserve procedural lighting fallback');
 console.log('Neon State HDR environment lighting checks passed.');
+
+
+const cinematic = await readFile(new URL('../neon-cinematic-world.js', import.meta.url), 'utf8');
+assert.match(js, /import\('\.\/neon-cinematic-world\.js'\)/, 'Cinematic city pass must load optionally');
+assert.match(js, /installCinematicWorldPass\?\.\(THREE,city,buildings,renderer\)/, 'Cinematic city pass must run after city construction');
+assert.match(cinematic, /Both long side walls get windows/, 'Previously blank side walls must receive window grids');
+assert.match(cinematic, /Rear wall windows/, 'Rear building facades must receive window grids');
+assert.match(cinematic, /new THREE\.InstancedMesh/, 'Cinematic facade additions must use instancing');
+assert.match(cinematic, /plasterBump/, 'Building masses must receive PBR surface relief');
+assert.match(cinematic, /Rooftop water tanks/, 'Building roofs must receive rooftop utility details');
+assert.match(cinematic, /Aged asphalt response/, 'Existing road meshes must receive the aged asphalt material pass');
+console.log('Neon State cinematic facade and surface checks passed.');
