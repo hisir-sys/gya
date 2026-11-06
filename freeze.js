@@ -127,15 +127,27 @@ function updateAudio(){if(!audioContext||!engineOsc)return;const speed=Math.abs(
 const player=new THREE.Group();scene.add(player);let avatar=new THREE.Group();player.add(avatar);let heroParts=[];
 function buildAvatar(color){
  avatar.clear();heroParts=[];
- const skin=mat('#c99d7d',.8),shirt=mat(color,.52,.08),pants=mat('#252d38',.85),shoe=mat('#111820',.75),hair=mat('#24252a',.9),trim=mat('#d9d5c9',.6,.05),eye=mat('#111820',.5);
- box(avatar,.92,1.05,.52,shirt,0,1.68,0);box(avatar,.98,.16,.55,trim,0,1.2,0,false);box(avatar,.23,.34,.25,skin,0,2.35,0);
- const head=new THREE.Mesh(new THREE.SphereGeometry(.34,18,14),skin);head.position.set(0,2.62,0);head.castShadow=true;avatar.add(head);
- const hairCap=new THREE.Mesh(new THREE.SphereGeometry(.345,16,8,0,Math.PI*2,0,Math.PI*.52),hair);hairCap.position.set(0,2.72,-.025);avatar.add(hairCap);
- box(avatar,.12,.055,.035,eye,-.13,2.62,.3,false);box(avatar,.12,.055,.035,eye,.13,2.62,.3,false);box(avatar,.18,.3,.62,shirt,0,1.7,-.31,false);box(avatar,.1,.66,.06,trim,0,1.68,.29,false);box(avatar,.5,.68,.22,mat('#27313b',.9),0,1.72,-.39,false);
- const armL=new THREE.Group(),armR=new THREE.Group();armL.position.set(-.53,2.05,0);armR.position.set(.53,2.05,0);avatar.add(armL,armR);
- box(armL,.27,.84,.29,shirt,0,-.42,0);box(armL,.24,.2,.25,skin,0,-.91,.015,false);box(armR,.27,.84,.29,shirt,0,-.42,0);box(armR,.24,.2,.25,skin,0,-.91,.015,false);
- const legL=new THREE.Group(),legR=new THREE.Group();legL.position.set(-.25,1.18,0);legR.position.set(.25,1.18,0);avatar.add(legL,legR);
- box(legL,.34,.78,.35,pants,0,-.39,0);box(legR,.34,.78,.35,pants,0,-.39,0);box(legL,.38,.2,.55,shoe,0,-.84,.09);box(legR,.38,.2,.55,shoe,0,-.84,.09);
+ const skin=mat('#c99d7d',.82),shirt=mat(color,.58,.04),pants=mat('#252d38',.88),shoe=mat('#111820',.78),hair=mat('#24252a',.95),trim=mat('#d9d5c9',.65,.04),eye=mat('#111820',.5);
+ const torso=new THREE.Mesh(new THREE.CapsuleGeometry(.39,.72,5,12),shirt);torso.position.set(0,1.72,0);torso.castShadow=true;avatar.add(torso);
+ const collar=new THREE.Mesh(new THREE.CylinderGeometry(.16,.19,.13,12),trim);collar.position.y=2.12;avatar.add(collar);
+ const neck=new THREE.Mesh(new THREE.CylinderGeometry(.105,.12,.22,10),skin);neck.position.y=2.32;avatar.add(neck);
+ const head=new THREE.Mesh(new THREE.SphereGeometry(.32,20,16),skin);head.position.set(0,2.57,0);head.castShadow=true;avatar.add(head);
+ const hairCap=new THREE.Mesh(new THREE.SphereGeometry(.33,18,10,0,Math.PI*2,0,Math.PI*.56),hair);hairCap.position.set(0,2.68,-.025);avatar.add(hairCap);
+ const earL=new THREE.Mesh(new THREE.SphereGeometry(.075,8,6),skin),earR=earL.clone();earL.position.set(-.31,2.56,0);earR.position.set(.31,2.56,0);avatar.add(earL,earR);
+ box(avatar,.105,.045,.035,eye,-.12,2.58,.285,false);box(avatar,.105,.045,.035,eye,.12,2.58,.285,false);
+ const armL=new THREE.Group(),armR=new THREE.Group();armL.position.set(-.46,2.02,0);armR.position.set(.46,2.02,0);avatar.add(armL,armR);
+ for(const arm of [armL,armR]){
+  const sleeve=new THREE.Mesh(new THREE.CylinderGeometry(.145,.12,.58,10),shirt);sleeve.position.y=-.29;sleeve.castShadow=true;arm.add(sleeve);
+  const forearm=new THREE.Mesh(new THREE.CylinderGeometry(.105,.115,.32,10),skin);forearm.position.y=-.72;forearm.castShadow=true;arm.add(forearm);
+  const hand=new THREE.Mesh(new THREE.SphereGeometry(.105,10,8),skin);hand.position.y=-.9;arm.add(hand);
+ }
+ const legL=new THREE.Group(),legR=new THREE.Group();legL.position.set(-.22,1.2,0);legR.position.set(.22,1.2,0);avatar.add(legL,legR);
+ for(const leg of [legL,legR]){
+  const thigh=new THREE.Mesh(new THREE.CylinderGeometry(.17,.145,.58,10),pants);thigh.position.y=-.31;thigh.castShadow=true;leg.add(thigh);
+  const shin=new THREE.Mesh(new THREE.CylinderGeometry(.13,.115,.38,10),pants);shin.position.y=-.76;shin.castShadow=true;leg.add(shin);
+  const boot=new THREE.Mesh(new THREE.BoxGeometry(.3,.18,.48),shoe);boot.position.set(0,-.98,.09);boot.castShadow=true;leg.add(boot);
+ }
+ const belt=new THREE.Mesh(new THREE.CylinderGeometry(.39,.39,.11,16),trim);belt.position.y=1.25;avatar.add(belt);
  heroParts=[armL,armR,legL,legR];avatar.position.y=0;avatar.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});
 }
 buildAvatar(storyData[0].color);
