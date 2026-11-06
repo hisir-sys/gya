@@ -134,3 +134,10 @@ assert.match(js, /u\.armL\.rotation\.x/, 'Pedestrian walking animation must driv
 assert.match(visual, /new THREE\.CapsuleGeometry\(\.34, \.66/, 'Player torso must use smooth anatomical geometry');
 assert.match(visual, /pivot\.clear\(\)/, 'Player limb pivots must retain animation while replacing block meshes');
 console.log('Neon State vehicle and character geometry checks passed.');
+
+assert.match(js, /loadPolyHavenStreetEnvironment/, 'Optional photographic HDR environment must be wired into the scene');
+assert.match(js, /proceduralEnvironmentTarget/, 'Procedural environment must be retained for safe resource replacement');
+assert.match(html, /three\/addons\//, 'Three.js addon imports must resolve through the import map');
+assert.match(visual, /urban_street_01_1k\.hdr/, 'Photographic HDRI must use the CC0 Poly Haven street environment');
+assert.match(visual, /procedural lighting/, 'HDRI failure must preserve procedural lighting fallback');
+console.log('Neon State HDR environment lighting checks passed.');
