@@ -48,7 +48,8 @@ export function upgradeCityVisuals(THREE, city, buildings, renderer) {
       if (material.isMeshStandardMaterial || material.isMeshPhysicalMaterial) {
         material.roughness = Math.max(material.roughness ?? .7, .62);
         if (material.color && material.color.r > .2 && material.color.g > .2 && material.color.b > .2 &&
-            object.geometry?.type === 'BoxGeometry' && object.scale.y > 5) {
+            object.geometry?.type === 'BoxGeometry' && (object.geometry.parameters?.height || 0) > 8 && (object.geometry.parameters?.width || 0) > 10) {
+          material.map = plasterMap;
           material.bumpMap = plasterBump;
           material.bumpScale = .035;
         }
