@@ -163,22 +163,53 @@ export function enhanceAvatar(THREE, avatar, shirtColor, box, mat) {
   avatar.userData.realisticPass = true;
   const skin = new THREE.MeshStandardMaterial({ color: '#b98263', roughness: .78 });
   const shirt = new THREE.MeshStandardMaterial({ color: shirtColor || '#4c7081', roughness: .88 });
-  const dark = new THREE.MeshStandardMaterial({ color: '#20252b', roughness: .84 });
-  const collar = new THREE.MeshStandardMaterial({ color: '#d2c5ac', roughness: .8 });
-  // Layered collar, cuffs, belt, shoulder seams and shoe soles provide readable human proportions.
-  box(avatar, .42, .13, .42, collar, 0, 2.18, .02, false);
-  box(avatar, .94, .09, .55, dark, 0, 1.18, 0, false);
-  box(avatar, .96, .075, .57, collar, 0, 1.12, 0, false);
+  const pants = new THREE.MeshStandardMaterial({ color: '#26303a', roughness: .9 });
+  const shoe = new THREE.MeshStandardMaterial({ color: '#171b20', roughness: .72 });
+  const seam = new THREE.MeshStandardMaterial({ color: '#d5c7ad', roughness: .82 });
+  // Preserve the four original pivot groups so the existing walk/run animation still drives the limbs.
+  const pivots = avatar.children.filter(child => child.isGroup);
+  avatar.children.filter(child => child.isMesh && child.geometry?.type === 'BoxGeometry').forEach(mesh => { mesh.visible = false; });
+  const torso = new THREE.Mesh(new THREE.CapsuleGeometry(.34, .66, 5, 12), shirt);
+  torso.position.set(0, 1.72, 0); torso.scale.set(1.12, 1, .82); torso.castShadow = true; avatar.add(torso);
+  const collar = new THREE.Mesh(new THREE.TorusGeometry(.2, .055, 8, 18), seam);
+  collar.position.set(0, 2.12, .015); collar.rotation.x = Math.PI / 2; avatar.add(collar);
+  box(avatar, .12, .48, .035, seam, 0, 1.72, .29, false);
+  box(avatar, .68, .075, .06, pants, 0, 1.28, .02, false);
+  for (const y of [1.88, 1.7, 1.52]) {
+    const button = new THREE.Mesh(new THREE.SphereGeometry(.025, 8, 6), seam);
+    button.position.set(0, y, .325); avatar.add(button);
+  }
+  // Articulated capsule limbs replace the old rectangular blocks without changing their animation pivots.
+  pivots.forEach((pivot, index) => {
+    pivot.clear();
+    const isArm = index < 2;
+    const limb = new THREE.Mesh(
+      new THREE.CapsuleGeometry(isArm ? .135 : .17, isArm ? .48 : .52, 5, 10),
+      isArm ? shirt : pants
+    );
+    limb.position.y = isArm ? -.43 : -.39;
+    limb.castShadow = true; limb.receiveShadow = true; pivot.add(limb);
+    if (isArm) {
+      const hand = new THREE.Mesh(new THREE.SphereGeometry(.125, 12, 10), skin);
+      hand.position.set(0, -.82, .015); hand.castShadow = true; pivot.add(hand);
+      const cuff = new THREE.Mesh(new THREE.TorusGeometry(.135, .025, 6, 14), seam);
+      cuff.position.y = -.76; cuff.rotation.x = Math.PI / 2; pivot.add(cuff);
+    } else {
+      box(pivot, .34, .16, .52, shoe, 0, -.77, .09, false);
+      box(pivot, .35, .055, .54, seam, 0, -.85, .09, false);
+    }
+  });
+  // Retain the original head and hair spheres, then add facial structure and ears.
   for (const side of [-1, 1]) {
-    box(avatar, .31, .11, .32, collar, side * .53, 1.78, 0, false);
-    box(avatar, .4, .09, .59, dark, side * .25, .31, .02, false);
     const ear = new THREE.Mesh(new THREE.SphereGeometry(.075, 10, 8), skin);
     ear.position.set(side * .335, 2.61, 0); avatar.add(ear);
-    const eye = new THREE.Mesh(new THREE.SphereGeometry(.035, 8, 6), dark);
+    const eye = new THREE.Mesh(new THREE.SphereGeometry(.035, 8, 6), new THREE.MeshStandardMaterial({ color: '#202329', roughness: .4 }));
     eye.position.set(side * .12, 2.64, .303); avatar.add(eye);
+    const brow = box(avatar, .11, .025, .025, pants, side * .12, 2.71, .30, false);
+    brow.rotation.z = side * -.08;
   }
   const nose = new THREE.Mesh(new THREE.SphereGeometry(.055, 8, 6), skin);
   nose.scale.set(.7, .85, 1.2); nose.position.set(0, 2.56, .34); avatar.add(nose);
-  const hairline = new THREE.Mesh(new THREE.SphereGeometry(.35, 18, 10, 0, Math.PI * 2, 0, Math.PI * .25), dark);
+  const hairline = new THREE.Mesh(new THREE.SphereGeometry(.35, 18, 10, 0, Math.PI * 2, 0, Math.PI * .25), pants);
   hairline.position.set(0, 2.77, .02); avatar.add(hairline);
 }
