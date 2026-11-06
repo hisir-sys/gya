@@ -123,3 +123,14 @@ assert.match(visual, /plasterBump/, 'Building facades must use procedural surfac
 assert.match(visual, /streetFurniture/, 'The city must receive street furniture');
 assert.match(visual, /realisticPass/, 'Avatar detail pass must avoid duplicate additions');
 console.log('Neon State realistic-world visual pass checks passed.');
+
+assert.match(js, /function addVehicleDetail\(/, 'Shared detailed vehicle builder must remain available');
+assert.match(js, /steering=new THREE\.Mesh\(new THREE\.TorusGeometry/, 'Vehicles must include a visible steering wheel');
+assert.match(js, /seatMat/, 'Vehicles must include cockpit seating');
+assert.match(js, /wheelRadius\*\.58/, 'Vehicles must include detailed wheel hubs');
+assert.match(js, /function makePed\(/, 'Pedestrian builder must remain available');
+assert.match(js, /new THREE\.CapsuleGeometry\(\.25,\.56/, 'Pedestrians must use smooth anatomical torso geometry');
+assert.match(js, /u\.armL\.rotation\.x/, 'Pedestrian walking animation must drive articulated arms');
+assert.match(visual, /new THREE\.CapsuleGeometry\(\.34, \.66/, 'Player torso must use smooth anatomical geometry');
+assert.match(visual, /pivot\.clear\(\)/, 'Player limb pivots must retain animation while replacing block meshes');
+console.log('Neon State vehicle and character geometry checks passed.');
