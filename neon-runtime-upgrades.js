@@ -54,6 +54,7 @@ export function createWeatherSystem(THREE, scene, roadMaterial) {
   };
   let mode = 'CLEAR';
   let elapsed = 0;
+  let baseFogDensity = scene.fog?.density || 0.0031;
 
   function setWeather(next) {
     mode = ['CLEAR', 'RAIN', 'FOG'].includes(next) ? next : 'CLEAR';
@@ -65,14 +66,14 @@ export function createWeatherSystem(THREE, scene, roadMaterial) {
       roadMaterial.clearcoat = 0.82;
       roadMaterial.clearcoatRoughness = 0.08;
       roadMaterial.needsUpdate = true;
-      if (scene.fog) scene.fog.density = Math.max(scene.fog.density, 0.0038);
+      if (scene.fog) scene.fog.density = Math.max(baseFogDensity, 0.0038);
     } else {
       roadMaterial.roughness = original.roughness;
       roadMaterial.metalness = original.metalness;
       roadMaterial.clearcoat = original.clearcoat ?? 0;
       roadMaterial.clearcoatRoughness = original.clearcoatRoughness ?? 0.1;
       roadMaterial.needsUpdate = true;
-      if (mode === 'FOG' && scene.fog) scene.fog.density = 0.006;
+      if (scene.fog) scene.fog.density = mode === 'FOG' ? 0.006 : baseFogDensity;
     }
     return mode;
   }
@@ -99,6 +100,11 @@ export function createWeatherSystem(THREE, scene, roadMaterial) {
 
   return {
     setWeather,
+    setBaseFogDensity(value) {
+      if (Number.isFinite(value)) baseFogDensity = value;
+      if (mode !== 'CLEAR') setWeather(mode);
+      else if (scene.fog) scene.fog.density = baseFogDensity;
+    },
     update,
     get mode() { return mode; },
     dispose() {
