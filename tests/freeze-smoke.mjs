@@ -110,3 +110,34 @@ assert.match(js, /performanceMonitor\?\.endFrame\(frameDelta\)/, 'GPU telemetry 
 assert.match(js, /dataset\.graphicsQuality=graphicsQuality/, 'Active graphics preset must be exposed for diagnostics');
 assert.match(html, /WEATHER · CLEAR/, 'Weather control must start in the safe clear-weather state');
 console.log('Neon State weather and GPU telemetry wiring checks passed.');
+
+const visual = await readFile(new URL('../neon-visual-overhaul.js', import.meta.url), 'utf8');
+assert.match(js, /import\('\.\/neon-visual-overhaul\.js'\)/, 'Visual overhaul module must load optionally');
+assert.match(js, /upgradeCityVisuals\?\.\(THREE,city,buildings,renderer\)/, 'Kolkata buildings must receive the visual detail pass');
+assert.match(js, /enhanceAvatar\?\.\(THREE,avatar,color,box,mat\)/, 'Player avatar must receive the anatomy and garment detail pass');
+assert.match(visual, /new THREE\.InstancedMesh/, 'Architectural detail must be instanced for draw-call efficiency');
+assert.match(visual, /balconySlabs/, 'Buildings must receive balcony geometry');
+assert.match(visual, /acUnits/, 'Buildings must receive air-conditioning units');
+assert.match(visual, /drainPipes/, 'Buildings must receive facade utility pipes');
+assert.match(visual, /plasterBump/, 'Building facades must use procedural surface relief');
+assert.match(visual, /streetFurniture/, 'The city must receive street furniture');
+assert.match(visual, /realisticPass/, 'Avatar detail pass must avoid duplicate additions');
+console.log('Neon State realistic-world visual pass checks passed.');
+
+assert.match(js, /function addVehicleDetail\(/, 'Shared detailed vehicle builder must remain available');
+assert.match(js, /steering=new THREE\.Mesh\(new THREE\.TorusGeometry/, 'Vehicles must include a visible steering wheel');
+assert.match(js, /seatMat/, 'Vehicles must include cockpit seating');
+assert.match(js, /wheelRadius\*\.58/, 'Vehicles must include detailed wheel hubs');
+assert.match(js, /function makePed\(/, 'Pedestrian builder must remain available');
+assert.match(js, /new THREE\.CapsuleGeometry\(\.25,\.56/, 'Pedestrians must use smooth anatomical torso geometry');
+assert.match(js, /u\.armL\.rotation\.x/, 'Pedestrian walking animation must drive articulated arms');
+assert.match(visual, /new THREE\.CapsuleGeometry\(\.34, \.66/, 'Player torso must use smooth anatomical geometry');
+assert.match(visual, /pivot\.clear\(\)/, 'Player limb pivots must retain animation while replacing block meshes');
+console.log('Neon State vehicle and character geometry checks passed.');
+
+assert.match(js, /loadPolyHavenStreetEnvironment/, 'Optional photographic HDR environment must be wired into the scene');
+assert.match(js, /proceduralEnvironmentTarget/, 'Procedural environment must be retained for safe resource replacement');
+assert.match(html, /three\/addons\//, 'Three.js addon imports must resolve through the import map');
+assert.match(visual, /urban_street_01_1k\.hdr/, 'Photographic HDRI must use the CC0 Poly Haven street environment');
+assert.match(visual, /procedural lighting/, 'HDRI failure must preserve procedural lighting fallback');
+console.log('Neon State HDR environment lighting checks passed.');
