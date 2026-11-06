@@ -355,3 +355,47 @@ button:focus-visible,input:focus-visible{outline:2px solid #a4f8ff;outline-offse
 /* Phase 16 — persistent audio control state */
 #sound-toggle[aria-pressed="false"]{border-color:#ff8b9c;color:#ffb6c1;background:#4a1724aa}#sound-toggle[aria-pressed="true"]{border-color:#8debd0;color:#a8f5df}
 @media(max-width:540px){#journal-panel{max-height:76%;padding:14px}#journal-panel .journal-card{padding:9px}}
+
+
+/* Full-screen Vice Coast gameplay presentation */
+html,body{width:100%;height:100%;min-height:100%;margin:0;padding:0;overflow:hidden;background:#080d15}
+body{display:block;place-items:initial}
+#shell{width:100vw;height:100dvh;min-height:100vh;max-width:none;margin:0;padding:0;border:0;border-radius:0;overflow:hidden;box-shadow:none;background:#080d15}
+.topbar,body>#shell>footer{display:none!important}
+#viewport{width:100%;height:100dvh;min-height:100vh;max-height:none;position:relative;overflow:hidden}
+#viewport canvas#world{width:100%!important;height:100%!important;display:block}
+#hud{top:18px;left:18px;width:260px;gap:8px}
+.hero-card,.objective{background:rgba(5,10,16,.66);border:1px solid rgba(255,255,255,.13);border-radius:8px;box-shadow:0 8px 28px rgba(0,0,0,.24);backdrop-filter:blur(7px)}
+.hero-card{padding:11px 13px}.objective{padding:12px 14px}
+.hero-switch button{background:rgba(8,13,20,.6)}
+#minimap{position:absolute;left:22px;right:auto;top:auto;bottom:22px;width:174px;padding:5px;background:rgba(5,9,14,.72);border:1px solid rgba(255,255,255,.16);border-radius:5px;backdrop-filter:blur(5px)}
+#minimap span{display:none}
+#vehicle-hud{right:24px;bottom:22px;background:rgba(5,9,14,.72);border:1px solid rgba(255,255,255,.16);border-radius:5px;backdrop-filter:blur(5px)}
+#view-controls{left:50%;top:auto;bottom:18px;transform:translateX(-50%);max-width:calc(100vw - 390px);flex-wrap:wrap;justify-content:center;gap:5px}
+#view-controls button{padding:7px 9px;background:rgba(5,9,14,.72);font-size:8px}
+#look-hint{bottom:84px;background:rgba(5,9,14,.58)}
+#location-tag{top:18px;background:rgba(5,9,14,.58);border-color:rgba(255,255,255,.14)}
+#wanted-hud{top:18px;right:20px}#race-status{top:60px}
+#toast{bottom:100px;background:rgba(5,9,14,.78)}
+#loading{background:#080d15}#loading.done{opacity:0;visibility:hidden}
+#touch-controls{z-index:5}
+@media(max-width:850px){
+ #hud{top:10px;left:10px;width:min(230px,55vw)}
+ #minimap{left:10px;bottom:12px;width:125px}
+ #vehicle-hud{right:10px;bottom:12px}
+ #view-controls{max-width:calc(100vw - 160px);bottom:12px}
+ #look-hint{display:none}#wanted-hud{right:10px;top:10px}
+ #location-tag{top:110px}
+}
+@media(max-width:540px){
+ #hud{width:calc(100vw - 20px);grid-template-columns:1fr 1fr}
+ .hero-card,.objective{padding:8px}.hero-card,.objective{min-height:125px}
+ .glass h2{font-size:18px}.glass h3{font-size:15px}
+ #minimap{width:108px;bottom:10px}
+ #vehicle-hud{bottom:10px;right:8px;min-width:125px}
+ #view-controls{left:50%;bottom:132px;max-width:calc(100vw - 16px);width:calc(100vw - 16px)}
+ #view-controls button{padding:6px 7px;font-size:7px}
+ #wanted-hud{top:148px;right:8px}
+ #location-tag{top:148px;left:8px;transform:none}
+ #race-status{top:180px}#toast{bottom:125px;max-width:92%}
+}
