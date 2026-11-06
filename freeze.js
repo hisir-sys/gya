@@ -5,12 +5,12 @@ const THREE_CDNS=[
 async function loadThree(){
  let lastError;
  for(const url of THREE_CDNS){
-  try{const THREE=await import(url);const optional=await Promise.all([import('postprocessing').catch(()=>null),import('cannon-es').catch(()=>null),import('howler').catch(()=>null),import('recast-navigation').catch(()=>null),import('./neon-runtime-upgrades.js').catch(()=>null)]);return {THREE,postprocessing:optional[0],cannon:optional[1],howler:optional[2],recast:optional[3],upgrades:optional[4]}}
+  try{const THREE=await import(url);const optional=await Promise.all([import('postprocessing').catch(()=>null),import('cannon-es').catch(()=>null),import('howler').catch(()=>null),import('recast-navigation').catch(()=>null),import('./neon-runtime-upgrades.js').catch(()=>null),import('./neon-visual-overhaul.js').catch(()=>null)]);return {THREE,postprocessing:optional[0],cannon:optional[1],howler:optional[2],recast:optional[3],upgrades:optional[4],visualOverhaul:optional[5]}}
   catch(error){lastError=error;console.warn('Three.js CDN failed:',url,error)}
  }
  throw new Error('Could not load Three.js from either CDN. Check network filtering or try another connection. '+(lastError?.message||''));
 }
-loadThree().then(({THREE,postprocessing,cannon,howler,recast,upgrades})=>{
+loadThree().then(({THREE,postprocessing,cannon,howler,recast,upgrades,visualOverhaul})=>{
 (() => {
 'use strict';
 const root=document.querySelector('#viewport'),map=document.querySelector('#map'),mctx=map.getContext('2d'),fullscreenButton=document.querySelector('#fullscreen-toggle');
@@ -78,7 +78,7 @@ function addDistrictFeature(x,z,type,color){const g=new THREE.Group();g.position
 function addHowrahBridge(){const bridge=new THREE.Group();city.add(bridge);const steel=mat('#65716e',.48,.78);box(bridge,178,1.25,13,mat('#565b56',.8),-222,.65,0);for(const x of [-270,-174]){for(const z of [-7,7])box(bridge,1.8,39,1.8,steel,x,27.5,z);box(bridge,2.4,1.2,16,steel,x,47,0)}for(let x=-310;x<=-132;x+=7)for(const z of [-6.4,6.4])box(bridge,.32,18,.32,steel,x,18,z,false);for(let x=-305;x<-180;x+=8)box(bridge,8,1,.45,steel,x,16,0,false);box(city,58,.12,15,materials.road,-130,-.02,0,false)}
 addHowrahBridge();addDistrictFeature(118,128,'memorial','#d9d2bd');addDistrictFeature(-22,-34,'hall','#c7b89b');
 function addLocalVehicle(x,z,type){const g=new THREE.Group();g.position.set(x,.15,z);city.add(g);const width=type==='tram'?3.2:type==='auto'?1.65:2.05,length=type==='tram'?17:type==='auto'?2.7:4.6,height=type==='tram'?3.2:type==='auto'?2.25:1.75;const body=type==='taxi'?mat('#e2b83f',.58):type==='auto'?mat('#4b8b62',.65):type==='bus'?mat('#c36b43') :mat('#d9d1b8',.7),glass=mat('#38535a',.28,.35),black=mat('#202624',.48,.2);box(g,width,height,length,body,0,height/2,0);box(g,width*.82,height*.42,length*.66,glass,0,height*.83,0,false);if(type==='taxi')box(g,width*.86,.24,length*.75,mat('#eee2c5'),0,height+.08,0,false);if(type==='auto')box(g,width*.9,.18,length*.7,black,0,height+.08,0,false);if(type==='tram')box(g,width*1.04,.2,length*.94,body,0,height+.12,0,false);for(const xx of [-width*.42,width*.42])for(const zz of [-length*.32,length*.32]){const wheel=new THREE.Mesh(new THREE.CylinderGeometry(type==='tram'?.42:.34,type==='tram'?.42:.34,.22,12),black);wheel.rotation.z=Math.PI/2;wheel.position.set(xx,.42,zz);g.add(wheel)}return g}
-addLocalVehicle(-42,18,'taxi');addLocalVehicle(46,-18,'auto');addLocalVehicle(78,20,'bus');addLocalVehicle(-88,-24,'tram');
+addLocalVehicle(-42,18,'taxi');addLocalVehicle(46,-18,'auto');addLocalVehicle(78,20,'bus');addLocalVehicle(-88,-24,'tram');\nconst visualReport=visualOverhaul?.upgradeCityVisuals?.(THREE,city,buildings,renderer);if(visualReport)document.documentElement.dataset.visualDetailCount=String(visualReport.details);
 function addLandmark(x,z,label,color='#e8bd70'){const g=new THREE.Group();g.position.set(x,0,z);scene.add(g);const base=new THREE.Mesh(new THREE.CylinderGeometry(3.3,4.3,.65,24),mat('#1a242d',.5,.2));base.position.y=.3;g.add(base);const pole=box(g,.18,4,.18,mat(color,.3,.2),0,2.5,0,false);pole.castShadow=false;const orb=new THREE.Mesh(new THREE.OctahedronGeometry(1.15),mat(color,.3,.1));orb.position.y=5;g.add(orb);const ring=new THREE.Mesh(new THREE.TorusGeometry(4.6,.12,8,40),mat(color,.4,.2));ring.rotation.x=Math.PI/2;ring.position.y=.5;g.add(ring);const item={x,z,label,group:g,orb,ring};landmarks.push(item);return item}
 const storyData=[
  {name:'ARJUN SEN',role:'Taxi Driver · The City Never Sleeps',color:'#e8bd70',missions:[
@@ -119,7 +119,7 @@ function buildAvatar(color){
  box(armL,.27,.84,.29,shirt,0,-.42,0);box(armL,.24,.2,.25,skin,0,-.91,.015,false);box(armR,.27,.84,.29,shirt,0,-.42,0);box(armR,.24,.2,.25,skin,0,-.91,.015,false);
  const legL=new THREE.Group(),legR=new THREE.Group();legL.position.set(-.25,1.18,0);legR.position.set(.25,1.18,0);avatar.add(legL,legR);
  box(legL,.34,.78,.35,pants,0,-.39,0);box(legR,.34,.78,.35,pants,0,-.39,0);box(legL,.38,.2,.55,shoe,0,-.84,.09);box(legR,.38,.2,.55,shoe,0,-.84,.09);
- heroParts=[armL,armR,legL,legR];avatar.position.y=0;avatar.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});
+ heroParts=[armL,armR,legL,legR];avatar.position.y=0;avatar.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});avatar.userData.realisticPass=false;visualOverhaul?.enhanceAvatar?.(THREE,avatar,color,box,mat);
 }
 buildAvatar(storyData[0].color);
 player.position.set(0,0,0);
