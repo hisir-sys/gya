@@ -225,12 +225,13 @@ export async function loadPolyHavenStreetEnvironment(THREE, scene, renderer) {
         try {
           const pmrem = new THREE.PMREMGenerator(renderer);
           const target = pmrem.fromEquirectangular(texture);
-          const previous = scene.environment;
+          const previousTarget = scene.userData.proceduralEnvironmentTarget || scene.userData.polyHavenEnvironment;
           scene.environment = target.texture;
           scene.userData.polyHavenEnvironment = target;
+          scene.userData.proceduralEnvironmentTarget = null;
           texture.dispose();
           pmrem.dispose();
-          if (previous?.dispose) previous.dispose();
+          if (previousTarget && previousTarget !== target) previousTarget.dispose();
           document.documentElement.dataset.environmentLighting = 'polyhaven-urban-street-01';
           resolve(true);
         } catch (error) {
