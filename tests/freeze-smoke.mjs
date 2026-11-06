@@ -108,5 +108,5 @@ assert.match(js, /weatherSystem\?\.update\(dt,player\.position\)/, 'Weather part
 assert.match(js, /createPerformanceMonitor/, 'GPU telemetry must be connected to the renderer');
 assert.match(js, /performanceMonitor\?\.endFrame\(frameDelta\)/, 'GPU telemetry must sample completed render frames');
 assert.match(js, /dataset\.graphicsQuality=graphicsQuality/, 'Active graphics preset must be exposed for diagnostics');
-assert.match(js, /WEATHER · CLEAR/, 'Weather control must start in the safe clear-weather state');
+assert.match(html, /WEATHER · CLEAR/, 'Weather control must start in the safe clear-weather state');
 console.log('Neon State weather and GPU telemetry wiring checks passed.');
