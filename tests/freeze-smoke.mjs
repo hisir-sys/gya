@@ -110,3 +110,16 @@ assert.match(js, /performanceMonitor\?\.endFrame\(frameDelta\)/, 'GPU telemetry 
 assert.match(js, /dataset\.graphicsQuality=graphicsQuality/, 'Active graphics preset must be exposed for diagnostics');
 assert.match(html, /WEATHER · CLEAR/, 'Weather control must start in the safe clear-weather state');
 console.log('Neon State weather and GPU telemetry wiring checks passed.');
+
+const visual = await readFile(new URL('../neon-visual-overhaul.js', import.meta.url), 'utf8');
+assert.match(js, /import\('\.\/neon-visual-overhaul\.js'\)/, 'Visual overhaul module must load optionally');
+assert.match(js, /upgradeCityVisuals\?\.\(THREE,city,buildings,renderer\)/, 'Kolkata buildings must receive the visual detail pass');
+assert.match(js, /enhanceAvatar\?\.\(THREE,avatar,color,box,mat\)/, 'Player avatar must receive the anatomy and garment detail pass');
+assert.match(visual, /new THREE\.InstancedMesh/, 'Architectural detail must be instanced for draw-call efficiency');
+assert.match(visual, /balconySlabs/, 'Buildings must receive balcony geometry');
+assert.match(visual, /acUnits/, 'Buildings must receive air-conditioning units');
+assert.match(visual, /drainPipes/, 'Buildings must receive facade utility pipes');
+assert.match(visual, /plasterBump/, 'Building facades must use procedural surface relief');
+assert.match(visual, /streetFurniture/, 'The city must receive street furniture');
+assert.match(visual, /realisticPass/, 'Avatar detail pass must avoid duplicate additions');
+console.log('Neon State realistic-world visual pass checks passed.');
