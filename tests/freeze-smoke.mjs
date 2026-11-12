@@ -153,3 +153,39 @@ assert.match(cinematic, /plasterBump/, 'Building masses must receive PBR surface
 assert.match(cinematic, /Rooftop water tanks/, 'Building roofs must receive rooftop utility details');
 assert.match(cinematic, /Aged asphalt response/, 'Existing road meshes must receive the aged asphalt material pass');
 console.log('Neon State cinematic facade and surface checks passed.');
+
+
+const [mapCatalog, sideStories, districtScenes] = await Promise.all([
+  readFile(new URL('../neon-map-catalog.js', import.meta.url), 'utf8'),
+  readFile(new URL('../neon-side-stories.js', import.meta.url), 'utf8'),
+  readFile(new URL('../neon-district-scenes.js', import.meta.url), 'utf8'),
+]);
+assert(ids.includes('district-panel'), 'District selector panel must exist');
+assert(ids.includes('district-toggle'), 'District selector must have a visible toggle');
+assert(ids.includes('district-list'), 'District selector must expose the map list');
+assert(ids.includes('side-story-list'), 'District selector must expose optional side stories');
+assert.match(html, /data-map="kumartuli"/, 'Kumartuli must be selectable');
+assert.match(html, /data-map="sector-v"/, 'Sector V must be selectable');
+assert.match(html, /data-map="south-lakes"/, 'South Kolkata Lakes must be selectable');
+assert.match(html, /data-map="eco-park"/, 'Eco Park must be selectable');
+assert.match(html, /DISTRICTS · M/, 'District selector keyboard shortcut must be discoverable');
+assert.match(css, /#district-panel/, 'District selector must have responsive panel styling');
+assert.match(js, /buildNewDistrictScenes/, 'New map scenery must be created in the Three.js world');
+assert.match(js, /function travelToMap\(/, 'District selection must teleport to a safe spawn');
+assert.match(js, /function activateSideStory\(/, 'Side stories must be startable from the selector');
+assert.match(js, /sideStoryProgress/, 'Side-story progress must be persisted separately');
+assert.match(js, /activeMapId,activeSideStoryId,sideStoryProgress/, 'Save data must retain map and side-story state');
+assert.match(js, /state.completed=state.step>=story.missions.length/, 'Side stories must complete after their final mission');
+assert.match(js, /host.replaceChildren\(summary,\.\.\.cards,\.\.\.sideCards\)/, 'Journal must display side-story progress');
+assert.match(mapCatalog, /KUMARTULI & NORTH KOLKATA/, 'Kumartuli region metadata must exist');
+assert.match(mapCatalog, /SALT LAKE SECTOR V/, 'Sector V region metadata must exist');
+assert.match(mapCatalog, /SOUTH KOLKATA LAKES/, 'South Kolkata Lakes region metadata must exist');
+assert.match(mapCatalog, /NEW TOWN ECO PARK/, 'Eco Park region metadata must exist');
+assert.match(sideStories, /LANTERNS OF KUMARTULI/, 'Kumartuli story arc must exist');
+assert.match(sideStories, /AFTER HOURS, SECTOR V/, 'Sector V story arc must exist');
+assert.match(sideStories, /THE LAKE KEEPS TIME/, 'Lakeside story arc must exist');
+assert.equal((sideStories.match(/title: '/g) || []).length >= 9, true, 'Side-story module must define at least nine mission beats');
+assert.match(sideStories, /normalizeSideStoryProgress/, 'Old saves must receive safe side-story defaults');
+assert.match(districtScenes, /buildNewDistrictScenes/, 'Each new district must have dedicated 3D scenery');
+assert.match(districtScenes, /kumartuli|sector-v|south-lakes|eco-park/, 'District scene builder must cover all new map themes');
+console.log('Neon State new maps and side-story checks passed.');

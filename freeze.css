@@ -411,3 +411,21 @@ html,body,#shell,#viewport{background:#172a28}
 #hud .objective-foot span:first-child,#waypoint-arrow{color:#e8c56f}
 #vehicle-hud .speed-read strong,#cash{color:#f0ce78}
 #touch-controls button{background:rgba(25,37,32,.92);border-color:#c5b68d}
+
+
+/* District travel and optional story selector */
+#district-panel{position:absolute;right:196px;top:70px;z-index:6;width:min(360px,calc(100% - 28px));max-height:min(72%,560px);overflow:auto;padding:16px}
+#district-panel[hidden]{display:none}
+#district-panel .district-intro{margin:8px 0 12px;color:#c0c9d4;font-size:10px;line-height:1.6}
+.district-list,.side-story-list{display:grid;gap:7px}
+.district-list button,.side-story-list button{display:grid;gap:4px;text-align:left;padding:10px 12px;border:1px solid #ffffff20;border-radius:7px;background:linear-gradient(110deg,#ffffff0c,#ffffff04);color:#f4f6f8;transition:border-color .18s,background .18s,transform .18s}
+.district-list button:hover,.side-story-list button:hover{border-color:var(--cyan);background:#8dd7d812;transform:translateY(-1px)}
+.district-list button b{font-size:10px;letter-spacing:1px;color:var(--gold)}
+.district-list button small{font-size:9px;letter-spacing:.3px;color:var(--muted)}
+.district-story-head{margin:15px 0 8px;padding-top:12px;border-top:1px solid var(--line);font-size:9px;font-weight:800;letter-spacing:1.4px;color:var(--cyan)}
+.side-story-list button{display:block;font-size:9px;font-weight:800;letter-spacing:.7px}
+#district-panel>small{display:block;margin-top:13px;color:var(--muted);font-size:8px;letter-spacing:1px}
+#district-toggle{border-color:#8dd7d855;color:var(--cyan)}
+#district-toggle[aria-expanded="true"]{background:#8dd7d81a}
+@media(max-width:850px){#district-panel{right:10px;top:54px;width:min(340px,calc(100% - 20px));max-height:68%}}
+@media(max-width:540px){#district-panel{top:220px;left:10px;right:10px;width:auto;max-height:55%}}
