@@ -257,7 +257,7 @@ function makePed(i){
  city.add(g);pedestrians.push(g);
 }
 for(let i=0;i<30;i++)makePed(i);
-const zones=[{name:'HOWRAH RIVERFRONT',x:-132,z:0,w:42,d:180},{name:'BURRABAZAR',x:-72,z:-104,w:90,d:90},{name:'BBD BAGH',x:-22,z:-34,w:90,d:90},{name:'COLLEGE STREET',x:0,z:-120,w:90,d:75},{name:'ESPLANADE',x:52,z:0,w:90,d:90},{name:'PARK STREET',x:104,z:-52,w:90,d:75},{name:'MAIDAN',x:80,z:104,w:120,d:100},{name:'VICTORIA MEMORIAL',x:118,z:128,w:65,d:65},{name:'NEW MARKET',x:52,z:52,w:75,d:75}],...(mapCatalog?.MAP_REGIONS||[]).map(region=>({name:region.name,x:region.x-region.radius,z:region.z-region.radius,w:region.radius*2,d:region.radius*2}))];
+const zones=[{name:'HOWRAH RIVERFRONT',x:-132,z:0,w:42,d:180},{name:'BURRABAZAR',x:-72,z:-104,w:90,d:90},{name:'BBD BAGH',x:-22,z:-34,w:90,d:90},{name:'COLLEGE STREET',x:0,z:-120,w:90,d:75},{name:'ESPLANADE',x:52,z:0,w:90,d:90},{name:'PARK STREET',x:104,z:-52,w:90,d:75},{name:'MAIDAN',x:80,z:104,w:120,d:100},{name:'VICTORIA MEMORIAL',x:118,z:128,w:65,d:65},{name:'NEW MARKET',x:52,z:52,w:75,d:75},...(mapCatalog?.MAP_REGIONS||[]).map(region=>({name:region.name,x:region.x-region.radius,z:region.z-region.radius,w:region.radius*2,d:region.radius*2}))];
 const discoveredDistricts=new Set();let activeDistrict='';
 addDistrictFeature(148,-96,'hall','#d7c7a8');addDistrictFeature(-78,112,'hall','#d7c7a8');
 function discoverDistrict(zone){if(!zone||zone.name===activeDistrict)return;activeDistrict=zone.name;if(!discoveredDistricts.has(zone.name)){discoveredDistricts.add(zone.name);const reward=100;money+=reward;setText('cash','$'+money);say('DISTRICT DISCOVERED · '+zone.name+' · +$'+reward);saveGame()}setText('location-tag',zone.name)}
