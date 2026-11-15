@@ -5,12 +5,12 @@ const THREE_CDNS=[
 async function loadThree(){
  let lastError;
  for(const url of THREE_CDNS){
-  try{const THREE=await import(url);const optional=await Promise.all([import('postprocessing').catch(()=>null),import('cannon-es').catch(()=>null),import('howler').catch(()=>null),import('recast-navigation').catch(()=>null),import('./neon-runtime-upgrades.js').catch(()=>null),import('./neon-visual-overhaul.js').catch(()=>null),import('./neon-cinematic-world.js').catch(()=>null),import('./neon-map-catalog.js').catch(()=>null),import('./neon-side-stories.js').catch(()=>null),import('./neon-district-scenes.js').catch(()=>null)]);return {THREE,postprocessing:optional[0],cannon:optional[1],howler:optional[2],recast:optional[3],upgrades:optional[4],visualOverhaul:optional[5],cinematicWorld:optional[6],mapCatalog:optional[7],sideStories:optional[8],districtScenes:optional[9]}}
+  try{const THREE=await import(url);const optional=await Promise.all([import('postprocessing').catch(()=>null),import('cannon-es').catch(()=>null),import('howler').catch(()=>null),import('recast-navigation').catch(()=>null),import('./neon-runtime-upgrades.js').catch(()=>null),import('./neon-visual-overhaul.js').catch(()=>null),import('./neon-cinematic-world.js').catch(()=>null),import('./neon-map-catalog.js').catch(()=>null),import('./neon-side-stories.js').catch(()=>null),import('./neon-district-scenes.js').catch(()=>null),import('./neon-city-detail-pack.js').catch(()=>null)]);return {THREE,postprocessing:optional[0],cannon:optional[1],howler:optional[2],recast:optional[3],upgrades:optional[4],visualOverhaul:optional[5],cinematicWorld:optional[6],mapCatalog:optional[7],sideStories:optional[8],districtScenes:optional[9],cityDetails:optional[10]}}
   catch(error){lastError=error;console.warn('Three.js CDN failed:',url,error)}
  }
  throw new Error('Could not load Three.js from either CDN. Check network filtering or try another connection. '+(lastError?.message||''));
 }
-loadThree().then(({THREE,postprocessing,cannon,howler,recast,upgrades,visualOverhaul,cinematicWorld,mapCatalog,sideStories,districtScenes})=>{
+loadThree().then(({THREE,postprocessing,cannon,howler,recast,upgrades,visualOverhaul,cinematicWorld,mapCatalog,sideStories,districtScenes,cityDetails})=>{
 (() => {
 'use strict';
 const root=document.querySelector('#viewport'),map=document.querySelector('#map'),mctx=map.getContext('2d'),fullscreenButton=document.querySelector('#fullscreen-toggle');
@@ -81,6 +81,7 @@ function addLocalVehicle(x,z,type){const g=new THREE.Group();g.position.set(x,.1
 addLocalVehicle(-42,18,'taxi');addLocalVehicle(46,-18,'auto');addLocalVehicle(78,20,'bus');addLocalVehicle(-88,-24,'tram');
 const visualReport=visualOverhaul?.upgradeCityVisuals?.(THREE,city,buildings,renderer);if(visualReport)document.documentElement.dataset.visualDetailCount=String(visualReport.details);const cinematicReport=cinematicWorld?.installCinematicWorldPass?.(THREE,city,buildings,renderer);if(cinematicReport){document.documentElement.dataset.cinematicWindows=String(cinematicReport.windows);document.documentElement.dataset.cinematicBalconies=String(cinematicReport.balconies);}
 const districtSceneReport=mapCatalog?.MAP_REGIONS&&districtScenes?.buildNewDistrictScenes?.(THREE,scene,city,buildings,box,mat,mapCatalog.MAP_REGIONS);if(districtSceneReport)document.documentElement.dataset.newDistrictCount=String(districtSceneReport.length);
+const cityDetailReport=cityDetails?.installKolkataCityDetails?.(THREE,city);if(cityDetailReport){document.documentElement.dataset.cityDetailCount=String(cityDetailReport.installed);document.documentElement.dataset.cityDetailFailures=String(cityDetailReport.failed);}
 const environmentUpgrade=visualOverhaul?.loadPolyHavenStreetEnvironment?.(THREE,scene,renderer);environmentUpgrade?.then(ok=>{if(ok)say('Real-world HDR lighting loaded · Poly Haven CC0')});
 function addLandmark(x,z,label,color='#e8bd70'){const g=new THREE.Group();g.position.set(x,0,z);scene.add(g);const base=new THREE.Mesh(new THREE.CylinderGeometry(3.3,4.3,.65,24),mat('#1a242d',.5,.2));base.position.y=.3;g.add(base);const pole=box(g,.18,4,.18,mat(color,.3,.2),0,2.5,0,false);pole.castShadow=false;const orb=new THREE.Mesh(new THREE.OctahedronGeometry(1.15),mat(color,.3,.1));orb.position.y=5;g.add(orb);const ring=new THREE.Mesh(new THREE.TorusGeometry(4.6,.12,8,40),mat(color,.4,.2));ring.rotation.x=Math.PI/2;ring.position.y=.5;g.add(ring);const item={x,z,label,group:g,orb,ring};landmarks.push(item);return item}
 const storyData=[
