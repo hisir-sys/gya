@@ -1,0 +1,1 @@
+export function install(THREE, city) {const g=new THREE.Group();g.name='River ghat stone steps';const stone=new THREE.MeshStandardMaterial({color:'#a99b82',roughness:.96});for(let i=0;i<8;i++){const s=new THREE.Mesh(new THREE.BoxGeometry(7,.22,2.2),stone);s.position.set(-145-i*.35,.12-i*.12,58+i*2.2);g.add(s)}city.add(g);return g;}
