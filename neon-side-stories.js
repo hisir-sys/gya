@@ -42,6 +42,7 @@ export const SIDE_STORIES = Object.freeze([
       { title: 'FRAMES BY THE WATER', text: 'Speak with the gardener near the lake pavilion.', x: -174, z: 132, reward: 250, speaker: 'BIMAL · GARDENER', lines: ['I found it before the afternoon rain and kept it dry.', 'There is one photograph you should see before returning it.'], choices: ['Look through the photos', 'Return the camera unopened'] },
       { title: 'A CITY IN REFLECTION', text: 'Return the camera to Tara by the promenade.', x: -142, z: 168, reward: 370, speaker: 'TARA · PHOTOGRAPHER', lines: ['These photographs belong to the people in them.', 'I will print a set for the community hall. Thank you.'], choices: ['Organise a public display', 'Make a private album'] }
       {"title":"THE FOOTBRIDGE NOTEBOOK","text":"Meet Tara at the eastern footbridge and review her notes.","x":-138,"z":145,"reward":205,"speaker":"TARA · PHOTOGRAPHER","lines":["I wrote down where each photograph was taken, but the pages got mixed up.","The gardeners remember which paths changed after the rains."],"choices":["Sort by location","Sort by the people in each frame"]},
+      {"title":"THE GARDEN PATH","text":"Speak with the groundskeeper beside the north garden.","x":-178,"z":140,"reward":215,"speaker":"BIMAL · GARDENER","lines":["The path is still usable, but the signposts have faded.","Visitors keep missing the quiet loop around the water."],"choices":["Restore the old route markers","Add a simple new map"]},
     ]
   }
 ]);
