@@ -189,5 +189,8 @@ assert.match(sideStories, /normalizeSideStoryProgress/, 'Old saves must receive 
 assert.match(districtScenes, /buildNewDistrictScenes/, 'Each new district must have dedicated 3D scenery');
 assert.match(districtScenes, /kumartuli|sector-v|south-lakes|eco-park/, 'District scene builder must cover all new map themes');
 assert.equal((sideStories.match(/\"title\":/g) || []).length, 28, 'The three district stories must include all 28 added playable beats');
+const addedStoryBeats = [...sideStories.matchAll(/\{\"title\":\"([^\"]+)\",\"text\":\"([^\"]+)\",\"x\":(-?\d+),\"z\":(-?\d+),\"reward\":(\d+),\"speaker\":\"([^\"]+)\",\"lines\":\[\"([^\"]+)\",\"([^\"]+)\"\],\"choices\":\[\"([^\"]+)\",\"([^\"]+)\"\]\}/g)];
+assert.equal(addedStoryBeats.length, 28, 'Every added district beat must have a complete mission payload');
+assert.ok(addedStoryBeats.every(match => Number(match[5]) > 0 && match[7] && match[8] && match[9] && match[10]), 'Every added beat needs a reward, dialogue and two choices');
 assert.match(js, /const storyTotal=activeSideStoryId\?\(currentSideStory\(\)\?\.missions\.length\|\|0\):3/, 'Side-story HUD must show its actual mission total');
 console.log('Neon State new maps and side-story checks passed.');
