@@ -24,6 +24,7 @@ export const SIDE_STORIES = Object.freeze([
       { title: 'THE SEALED ARCHIVE', text: 'Meet Ishan outside the Sector V office plaza.', x: 158, z: -154, reward: 200, speaker: 'ISHAN · ARCHIVIST', lines: ['This archive belongs to the people who built the first office here.', 'The night shift can get it to the right desk.'], choices: ['Take the direct route', 'Verify the recipient'] },
       { title: 'LAST LIFT DOWN', text: 'Find the night-shift supervisor by the transit entrance.', x: 174, z: -132, reward: 260, speaker: 'NANDITA · SUPERVISOR', lines: ['The lifts are closing, but the service lobby is still open.', 'Someone has been waiting for this record for years.'], choices: ['Leave a signed copy', 'Deliver the original'] },
       { title: 'THE OFFICE LIGHTS', text: 'Return to Ishan at the plaza and close the story.', x: 142, z: -168, reward: 380, speaker: 'ISHAN · ARCHIVIST', lines: ['The archive is safe. The people in it finally have their names back.', 'Some of the city lives in records. Some of it lives in people.'], choices: ['Share the story publicly', 'Keep the family details private'] }
+      {"title":"THE NIGHT SHIFT ROSTER","text":"Meet the facilities coordinator at the plaza's east entrance.","x":139,"z":-150,"reward":210,"speaker":"KABERI · COORDINATOR","lines":["The archive team worked different hours, so their names were missed.","A careful roster can put every contribution back on record."],"choices":["Rebuild the full roster","Start with the night crew"]},
     ]
   },
   {
