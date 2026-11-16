@@ -6,6 +6,7 @@ export const SIDE_STORIES = Object.freeze([
       { title: 'THE EMPTY COURTYARD', text: 'Visit the artisan courtyard and ask Malini about the missing commission.', x: -158, z: -154, reward: 180, speaker: 'MALINI · ARTISAN', lines: ['The clay figures were ready, but the delivery never arrived.', 'I do not need a hero. I need someone who knows these lanes.'], choices: ['Check the workshop ledger', 'Ask the courier first'] },
       { title: 'A NOTE IN THE LANE', text: 'Meet the courier near the north-lane tea stall.', x: -174, z: -132, reward: 240, speaker: 'RITAM · COURIER', lines: ['I left the parcel with a neighbour when the rain started.', 'The address was smudged, but the red lantern was easy to spot.'], choices: ['Return to Malini', 'Search the courtyard'] },
       { title: 'LIGHTS FOR THE PARADE', text: 'Bring the recovered commission back to the workshop.', x: -142, z: -168, reward: 360, speaker: 'MALINI · ARTISAN', lines: ['You brought it back. The whole para can help finish the lanterns.', 'Tonight, the lane will be bright again.'], choices: ['Help hang the lanterns', 'Let the young artists lead'] }
+      {"title":"THE CLAY THAT REMEMBERS","text":"Visit the small kiln yard and help Malini identify the finished pieces.","x":-139,"z":-150,"reward":190,"speaker":"MALINI · ARTISAN","lines":["Every mark on the clay tells us which hands shaped it.","The oldest pieces carry the names of the families who made them."],"choices":["Record each maker's name","Ask the apprentices to lead"]},
     ]
   },
   {
