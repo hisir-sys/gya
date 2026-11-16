@@ -47,6 +47,7 @@ export const SIDE_STORIES = Object.freeze([
       {"title":"THE BENCH WITH A VIEW","text":"Find the carpenter beside the southern promenade.","x":-137,"z":180,"reward":235,"speaker":"NIRMAL · CARPENTER","lines":["This bench has held generations of conversations.","I can repair it with reclaimed timber from the park store."],"choices":["Keep the original shape","Add a wider accessible seat"]},
       {"title":"A FRAME FOR THE NEIGHBOURHOOD","text":"Meet Tara at the pavilion and choose photographs for a display.","x":-184,"z":164,"reward":245,"speaker":"TARA · PHOTOGRAPHER","lines":["The best photographs are not always the most polished ones.","I want the display to feel like the neighbourhood sees itself."],"choices":["Invite residents to select frames","Let the children curate a section"]},
       {"title":"THE RAIN GAUGE","text":"Visit the gardener near the west path and check the weather notes.","x":-151,"z":132,"reward":255,"speaker":"BIMAL · GARDENER","lines":["We have kept rainfall notes for years, but nobody has collected them.","They could help the next gardening team understand the seasons."],"choices":["Create a shared record","Display a simple seasonal chart"]},
+      {"title":"A WALK WITHOUT BARRIERS","text":"Meet the volunteer at the lakeside entrance.","x":-181,"z":184,"reward":270,"speaker":"MEERA · VOLUNTEER","lines":["Some visitors cannot use the uneven steps near the water.","Let's mark a smoother route and make it easy to find."],"choices":["Prioritise the accessible path","Add clearer signs at every entrance"]},
     ]
   }
 ]);
