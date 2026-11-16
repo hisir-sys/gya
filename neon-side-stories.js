@@ -11,6 +11,7 @@ export const SIDE_STORIES = Object.freeze([
       {"title":"THE LANTERN MAKERS","text":"Find the apprentice group near the lane entrance.","x":-165,"z":-180,"reward":220,"speaker":"MILI · APPRENTICE","lines":["We have enough paper, but not enough hands to finish the frames.","The younger students want to help if someone shows them how."],"choices":["Teach the first group","Invite the whole lane"]},
       {"title":"COLOURS FROM THE PARA","text":"Speak with the colour seller at the southern corner.","x":-140,"z":-176,"reward":230,"speaker":"JAVED · COLOUR SELLER","lines":["These pigments came from a shop that has served this lane for years.","I saved the last warm shades for the festival."],"choices":["Use the traditional palette","Let the children choose"]},
       {"title":"THE OLD PHOTOGRAPH","text":"Meet the retired photographer outside the courtyard.","x":-181,"z":-140,"reward":240,"speaker":"SOMA · PHOTOGRAPHER","lines":["This photograph shows the first lantern walk on this street.","Look closely: the same families are still here, making new memories."],"choices":["Display the photograph","Return it to the family album"]},
+      {"title":"A MESSAGE IN TWO SCRIPTS","text":"Visit the sign painter and help prepare the festival notice.","x":-151,"z":-130,"reward":250,"speaker":"DEB · SIGN PAINTER","lines":["A notice should welcome everyone who passes this lane.","I can letter it in Bengali and English before evening."],"choices":["Put Bengali first","Give both scripts equal space"]},
     ]
   },
   {
