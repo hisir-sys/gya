@@ -13,6 +13,7 @@ export const SIDE_STORIES = Object.freeze([
       {"title":"THE OLD PHOTOGRAPH","text":"Meet the retired photographer outside the courtyard.","x":-181,"z":-140,"reward":240,"speaker":"SOMA · PHOTOGRAPHER","lines":["This photograph shows the first lantern walk on this street.","Look closely: the same families are still here, making new memories."],"choices":["Display the photograph","Return it to the family album"]},
       {"title":"A MESSAGE IN TWO SCRIPTS","text":"Visit the sign painter and help prepare the festival notice.","x":-151,"z":-130,"reward":250,"speaker":"DEB · SIGN PAINTER","lines":["A notice should welcome everyone who passes this lane.","I can letter it in Bengali and English before evening."],"choices":["Put Bengali first","Give both scripts equal space"]},
       {"title":"THE COURTYARD REHEARSAL","text":"Find the music group beside the workshop steps.","x":-132,"z":-164,"reward":260,"speaker":"RUPA · MUSIC TEACHER","lines":["The parade needs a rhythm that the whole neighbourhood can follow.","The children have made a tune from the sounds of this street."],"choices":["Keep the children's tune","Blend it with the old procession song"]},
+      {"title":"A PLACE FOR EVERYONE","text":"Meet the organisers at the northern lane junction.","x":-185,"z":-174,"reward":270,"speaker":"MALINI · ARTISAN","lines":["The narrow lane can become crowded when the parade begins.","Let's leave room for neighbours who need a quieter route."],"choices":["Make a clear side passage","Shorten the parade route"]},
     ]
   },
   {
