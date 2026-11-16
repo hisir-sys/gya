@@ -12,6 +12,7 @@ export const SIDE_STORIES = Object.freeze([
       {"title":"COLOURS FROM THE PARA","text":"Speak with the colour seller at the southern corner.","x":-140,"z":-176,"reward":230,"speaker":"JAVED · COLOUR SELLER","lines":["These pigments came from a shop that has served this lane for years.","I saved the last warm shades for the festival."],"choices":["Use the traditional palette","Let the children choose"]},
       {"title":"THE OLD PHOTOGRAPH","text":"Meet the retired photographer outside the courtyard.","x":-181,"z":-140,"reward":240,"speaker":"SOMA · PHOTOGRAPHER","lines":["This photograph shows the first lantern walk on this street.","Look closely: the same families are still here, making new memories."],"choices":["Display the photograph","Return it to the family album"]},
       {"title":"A MESSAGE IN TWO SCRIPTS","text":"Visit the sign painter and help prepare the festival notice.","x":-151,"z":-130,"reward":250,"speaker":"DEB · SIGN PAINTER","lines":["A notice should welcome everyone who passes this lane.","I can letter it in Bengali and English before evening."],"choices":["Put Bengali first","Give both scripts equal space"]},
+      {"title":"THE COURTYARD REHEARSAL","text":"Find the music group beside the workshop steps.","x":-132,"z":-164,"reward":260,"speaker":"RUPA · MUSIC TEACHER","lines":["The parade needs a rhythm that the whole neighbourhood can follow.","The children have made a tune from the sounds of this street."],"choices":["Keep the children's tune","Blend it with the old procession song"]},
     ]
   },
   {
