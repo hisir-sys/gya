@@ -8,6 +8,7 @@ export const SIDE_STORIES = Object.freeze([
       { title: 'LIGHTS FOR THE PARADE', text: 'Bring the recovered commission back to the workshop.', x: -142, z: -168, reward: 360, speaker: 'MALINI · ARTISAN', lines: ['You brought it back. The whole para can help finish the lanterns.', 'Tonight, the lane will be bright again.'], choices: ['Help hang the lanterns', 'Let the young artists lead'] }
       {"title":"THE CLAY THAT REMEMBERS","text":"Visit the small kiln yard and help Malini identify the finished pieces.","x":-139,"z":-150,"reward":190,"speaker":"MALINI · ARTISAN","lines":["Every mark on the clay tells us which hands shaped it.","The oldest pieces carry the names of the families who made them."],"choices":["Record each maker's name","Ask the apprentices to lead"]},
       {"title":"A ROOF ABOVE THE WORKSHOP","text":"Meet the carpenter beside the western courtyard.","x":-178,"z":-160,"reward":210,"speaker":"ARUP · CARPENTER","lines":["The rain found a gap above the drying shelves.","I can mend it, but the workshop should choose what to save first."],"choices":["Protect the unfinished work","Repair the oldest shelf"]},
+      {"title":"THE LANTERN MAKERS","text":"Find the apprentice group near the lane entrance.","x":-165,"z":-180,"reward":220,"speaker":"MILI · APPRENTICE","lines":["We have enough paper, but not enough hands to finish the frames.","The younger students want to help if someone shows them how."],"choices":["Teach the first group","Invite the whole lane"]},
     ]
   },
   {
