@@ -44,6 +44,7 @@ export const SIDE_STORIES = Object.freeze([
       {"title":"THE FOOTBRIDGE NOTEBOOK","text":"Meet Tara at the eastern footbridge and review her notes.","x":-138,"z":145,"reward":205,"speaker":"TARA · PHOTOGRAPHER","lines":["I wrote down where each photograph was taken, but the pages got mixed up.","The gardeners remember which paths changed after the rains."],"choices":["Sort by location","Sort by the people in each frame"]},
       {"title":"THE GARDEN PATH","text":"Speak with the groundskeeper beside the north garden.","x":-178,"z":140,"reward":215,"speaker":"BIMAL · GARDENER","lines":["The path is still usable, but the signposts have faded.","Visitors keep missing the quiet loop around the water."],"choices":["Restore the old route markers","Add a simple new map"]},
       {"title":"BIRDS AT FIRST LIGHT","text":"Meet the local birdwatcher near the lakeside steps.","x":-164,"z":178,"reward":225,"speaker":"IRA · BIRDWATCHER","lines":["The lake is busiest just after sunrise, when the birds return.","A respectful viewing point would help people watch without disturbing them."],"choices":["Mark a quiet viewing area","Organise a guided morning walk"]},
+      {"title":"THE BENCH WITH A VIEW","text":"Find the carpenter beside the southern promenade.","x":-137,"z":180,"reward":235,"speaker":"NIRMAL · CARPENTER","lines":["This bench has held generations of conversations.","I can repair it with reclaimed timber from the park store."],"choices":["Keep the original shape","Add a wider accessible seat"]},
     ]
   }
 ]);
