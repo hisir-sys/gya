@@ -43,6 +43,7 @@ export const SIDE_STORIES = Object.freeze([
       { title: 'A CITY IN REFLECTION', text: 'Return the camera to Tara by the promenade.', x: -142, z: 168, reward: 370, speaker: 'TARA · PHOTOGRAPHER', lines: ['These photographs belong to the people in them.', 'I will print a set for the community hall. Thank you.'], choices: ['Organise a public display', 'Make a private album'] }
       {"title":"THE FOOTBRIDGE NOTEBOOK","text":"Meet Tara at the eastern footbridge and review her notes.","x":-138,"z":145,"reward":205,"speaker":"TARA · PHOTOGRAPHER","lines":["I wrote down where each photograph was taken, but the pages got mixed up.","The gardeners remember which paths changed after the rains."],"choices":["Sort by location","Sort by the people in each frame"]},
       {"title":"THE GARDEN PATH","text":"Speak with the groundskeeper beside the north garden.","x":-178,"z":140,"reward":215,"speaker":"BIMAL · GARDENER","lines":["The path is still usable, but the signposts have faded.","Visitors keep missing the quiet loop around the water."],"choices":["Restore the old route markers","Add a simple new map"]},
+      {"title":"BIRDS AT FIRST LIGHT","text":"Meet the local birdwatcher near the lakeside steps.","x":-164,"z":178,"reward":225,"speaker":"IRA · BIRDWATCHER","lines":["The lake is busiest just after sunrise, when the birds return.","A respectful viewing point would help people watch without disturbing them."],"choices":["Mark a quiet viewing area","Organise a guided morning walk"]},
     ]
   }
 ]);
