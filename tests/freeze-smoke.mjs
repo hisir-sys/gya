@@ -188,4 +188,6 @@ assert.equal((sideStories.match(/title: '/g) || []).length >= 9, true, 'Side-sto
 assert.match(sideStories, /normalizeSideStoryProgress/, 'Old saves must receive safe side-story defaults');
 assert.match(districtScenes, /buildNewDistrictScenes/, 'Each new district must have dedicated 3D scenery');
 assert.match(districtScenes, /kumartuli|sector-v|south-lakes|eco-park/, 'District scene builder must cover all new map themes');
+assert.equal((sideStories.match(/\"title\":/g) || []).length, 28, 'The three district stories must include all 28 added playable beats');
+assert.match(js, /const storyTotal=activeSideStoryId\?\(currentSideStory\(\)\?\.missions\.length\|\|0\):3/, 'Side-story HUD must show its actual mission total');
 console.log('Neon State new maps and side-story checks passed.');
