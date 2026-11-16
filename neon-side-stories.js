@@ -30,6 +30,7 @@ export const SIDE_STORIES = Object.freeze([
       {"title":"THE ARCHIVE MAP","text":"Meet Ishan at the pedestrian plaza and mark the record's route.","x":137,"z":-177,"reward":240,"speaker":"ISHAN · ARCHIVIST","lines":["The archive passed through three departments before it reached us.","A simple map will help the next person find it without guesswork."],"choices":["Publish the route map","Keep a copy with the archive"]},
       {"title":"COFFEE BEFORE CLOSING","text":"Speak with the late-shift café owner on the south walk.","x":178,"z":-137,"reward":250,"speaker":"ANJALI · CAFÉ OWNER","lines":["The night crew kept this place going when the offices were quiet.","They deserve to see their names in the anniversary display."],"choices":["Add a staff appreciation wall","Record their oral histories"]},
       {"title":"THE MISSING CAPTION","text":"Find the display curator outside the glass lobby.","x":151,"z":-132,"reward":260,"speaker":"SEN · CURATOR","lines":["One photograph has no caption, and nobody wants to guess.","Let's ask the people who were there before we print anything."],"choices":["Delay the display until verified","Show it with a note requesting help"]},
+      {"title":"A COPY FOR THE COMMUNITY","text":"Meet the records volunteer beside the plaza steps.","x":132,"z":-165,"reward":275,"speaker":"MEGHA · VOLUNTEER","lines":["The community centre asked for a copy of the public archive.","We can make it accessible without sharing personal files."],"choices":["Prepare a printed edition","Create an accessible digital copy"]},
     ]
   },
   {
