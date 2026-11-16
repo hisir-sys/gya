@@ -28,6 +28,7 @@ export const SIDE_STORIES = Object.freeze([
       {"title":"THE QUIET SERVER ROOM","text":"Find the technician beside the service corridor.","x":180,"z":-162,"reward":220,"speaker":"RITWIK · TECHNICIAN","lines":["The old records are safe, but the labels are inconsistent.","We should make a readable index before anyone moves the boxes."],"choices":["Create a paper index","Prepare a digital catalogue"]},
       {"title":"A DESK LEFT OPEN","text":"Visit the reception desk near the transit entrance.","x":165,"z":-180,"reward":230,"speaker":"NANDITA · SUPERVISOR","lines":["Someone left a note asking for a copy of the first project plan.","We can share the public record without exposing private details."],"choices":["Prepare a public extract","Ask the requester to verify their link"]},
       {"title":"THE ARCHIVE MAP","text":"Meet Ishan at the pedestrian plaza and mark the record's route.","x":137,"z":-177,"reward":240,"speaker":"ISHAN · ARCHIVIST","lines":["The archive passed through three departments before it reached us.","A simple map will help the next person find it without guesswork."],"choices":["Publish the route map","Keep a copy with the archive"]},
+      {"title":"COFFEE BEFORE CLOSING","text":"Speak with the late-shift café owner on the south walk.","x":178,"z":-137,"reward":250,"speaker":"ANJALI · CAFÉ OWNER","lines":["The night crew kept this place going when the offices were quiet.","They deserve to see their names in the anniversary display."],"choices":["Add a staff appreciation wall","Record their oral histories"]},
     ]
   },
   {
