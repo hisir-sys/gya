@@ -31,6 +31,7 @@ export const SIDE_STORIES = Object.freeze([
       {"title":"COFFEE BEFORE CLOSING","text":"Speak with the late-shift café owner on the south walk.","x":178,"z":-137,"reward":250,"speaker":"ANJALI · CAFÉ OWNER","lines":["The night crew kept this place going when the offices were quiet.","They deserve to see their names in the anniversary display."],"choices":["Add a staff appreciation wall","Record their oral histories"]},
       {"title":"THE MISSING CAPTION","text":"Find the display curator outside the glass lobby.","x":151,"z":-132,"reward":260,"speaker":"SEN · CURATOR","lines":["One photograph has no caption, and nobody wants to guess.","Let's ask the people who were there before we print anything."],"choices":["Delay the display until verified","Show it with a note requesting help"]},
       {"title":"A COPY FOR THE COMMUNITY","text":"Meet the records volunteer beside the plaza steps.","x":132,"z":-165,"reward":275,"speaker":"MEGHA · VOLUNTEER","lines":["The community centre asked for a copy of the public archive.","We can make it accessible without sharing personal files."],"choices":["Prepare a printed edition","Create an accessible digital copy"]},
+      {"title":"LIGHTS ON THE WALKWAY","text":"Visit the maintenance team near the eastern footpath.","x":185,"z":-185,"reward":290,"speaker":"ARUN · MAINTENANCE","lines":["The walkway is dim after the last office shuttle leaves.","A few repaired lights will make the route easier for everyone."],"choices":["Repair the whole walkway","Prioritise the transit entrance"]},
     ]
   },
   {
