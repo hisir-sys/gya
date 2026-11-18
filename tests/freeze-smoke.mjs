@@ -194,3 +194,14 @@ assert.equal(addedStoryBeats.length, 28, 'Every added district beat must have a 
 assert.ok(addedStoryBeats.every(match => Number(match[5]) > 0 && match[7] && match[8] && match[9] && match[10]), 'Every added beat needs a reward, dialogue and two choices');
 assert.match(js, /const storyTotal=activeSideStoryId\?\(currentSideStory\(\)\?\.missions\.length\|\|0\):3/, 'Side-story HUD must show its actual mission total');
 console.log('Neon State new maps and side-story checks passed.');
+
+// Guard the fullscreen startup regression and ensure touch input cannot remain stuck.
+
+assert.match(js, /fullscreenButton=document\.querySelector\('#fullscreen-toggle'\)/, 'Fullscreen control must be bound before its handlers are registered');
+assert.match(js, /fullscreenButton\?\.addEventListener\('click'/, 'Fullscreen control must handle user clicks without blocking startup when absent');
+assert.match(js, /document\.addEventListener\('fullscreenchange',syncFullscreenButton\)/, 'Fullscreen label and accessibility state must follow browser fullscreen changes');
+assert.match(js, /function syncFullscreenButton\(\)/, 'Fullscreen control must expose its current state');
+assert.match(js, /setAttribute\('aria-pressed',String\(active\)\)/, 'Fullscreen state must be exposed to assistive technology');
+assert.match(js, /touchControls\?\.addEventListener\('pointercancel'/, 'Touch movement must stop when a pointer is cancelled');
+assert.match(js, /touchControls\?\.addEventListener\('lostpointercapture'/, 'Touch movement must stop when pointer capture is lost');
+console.log('Neon State fullscreen and touch-input regression checks passed.');
