@@ -239,3 +239,6 @@ assert.ok(MAP_REGIONS.every(region => /^#[0-9a-f]{6}$/i.test(region.accent)), 'E
 
 // test: require district descriptions
 assert.ok(MAP_REGIONS.every(region => typeof region.description === 'string' && region.description.trim().length > 12), 'Every district needs a useful description.');
+
+// test: resolve known Kolkata districts
+assert.equal(getMapRegion('kumartuli'), MAP_REGIONS[0], 'Known district ids must resolve to their catalog record.');
