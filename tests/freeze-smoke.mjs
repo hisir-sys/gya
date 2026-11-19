@@ -281,3 +281,6 @@ assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => [mission.t
 
 // test: validate district mission coordinates
 assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Number.isFinite(mission.x) && Number.isFinite(mission.z))), 'Every district mission needs finite world coordinates.');
+
+// test: require positive district mission rewards
+assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Number.isFinite(mission.reward) && mission.reward > 0)), 'Every district mission must award a positive finite reward.');
