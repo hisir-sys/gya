@@ -290,3 +290,6 @@ assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Array.isAr
 
 // test: require two choices per district mission
 assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Array.isArray(mission.choices) && mission.choices.length === 2 && mission.choices.every(choice => typeof choice === 'string' && choice.trim()))), 'Every district mission must provide two non-empty choices.');
+
+// test: return the first mission for fresh side-story progress
+for (const story of SIDE_STORIES) assert.equal(getCurrentSideMission(story, createSideStoryProgress()), story.missions[0], story.id + ' must begin at its first mission.');
