@@ -272,3 +272,6 @@ assert.equal(new Set(SIDE_STORIES.map(story => story.id)).size, SIDE_STORIES.len
 
 // test: link optional side stories to known regions
 assert.ok(SIDE_STORIES.every(story => MAP_REGIONS.some(region => region.id === story.region)), 'Every optional side story must reference a known district.');
+
+// test: require playable beats in every district story
+assert.ok(SIDE_STORIES.every(story => Array.isArray(story.missions) && story.missions.length >= 3), 'Every optional district story must contain at least three playable beats.');
