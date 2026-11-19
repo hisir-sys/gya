@@ -236,3 +236,6 @@ assert.ok(MAP_REGIONS.every(region => Array.isArray(region.palette) && region.pa
 
 // test: validate district accent colors
 assert.ok(MAP_REGIONS.every(region => /^#[0-9a-f]{6}$/i.test(region.accent)), 'Every district accent must be a six-digit hex color.');
+
+// test: require district descriptions
+assert.ok(MAP_REGIONS.every(region => typeof region.description === 'string' && region.description.trim().length > 12), 'Every district needs a useful description.');
