@@ -284,3 +284,6 @@ assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Number.isF
 
 // test: require positive district mission rewards
 assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Number.isFinite(mission.reward) && mission.reward > 0)), 'Every district mission must award a positive finite reward.');
+
+// test: require two dialogue lines per district mission
+assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Array.isArray(mission.lines) && mission.lines.length === 2 && mission.lines.every(line => typeof line === 'string' && line.trim()))), 'Every district mission must provide two non-empty dialogue lines.');
