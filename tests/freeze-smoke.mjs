@@ -230,3 +230,6 @@ assert.ok(MAP_REGIONS.every(region => region.spawn && region.spawn.x === region.
 
 // test: require positive district discovery radii
 assert.ok(MAP_REGIONS.every(region => Number.isFinite(region.radius) && region.radius > 0), 'Every district needs a positive discovery radius.');
+
+// test: validate district palette completeness
+assert.ok(MAP_REGIONS.every(region => Array.isArray(region.palette) && region.palette.length === 3), 'Each district must provide its three base palette colors.');
