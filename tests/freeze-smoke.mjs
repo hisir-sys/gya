@@ -297,3 +297,6 @@ for (const story of SIDE_STORIES) assert.equal(getCurrentSideMission(story, crea
 // test: create progress for every optional side story
 const freshSideStoryProgress = createSideStoryProgress();
 assert.deepEqual(Object.keys(freshSideStoryProgress).sort(), SIDE_STORIES.map(story => story.id).sort(), 'Fresh progress must include every optional side story exactly once.');
+
+// test: initialize side-story progress safely
+assert.ok(SIDE_STORIES.every(story => freshSideStoryProgress[story.id].step === 0 && freshSideStoryProgress[story.id].completed === false && Array.isArray(freshSideStoryProgress[story.id].choices) && freshSideStoryProgress[story.id].choices.length === 0), 'Fresh side-story progress must start empty and incomplete.');
