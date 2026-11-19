@@ -205,3 +205,13 @@ assert.match(js, /setAttribute\('aria-pressed',String\(active\)\)/, 'Fullscreen 
 assert.match(js, /touchControls\?\.addEventListener\('pointercancel'/, 'Touch movement must stop when a pointer is cancelled');
 assert.match(js, /touchControls\?\.addEventListener\('lostpointercapture'/, 'Touch movement must stop when pointer capture is lost');
 console.log('Neon State fullscreen and touch-input regression checks passed.');
+
+// Execute the pure district/story data modules without requiring a browser or bundler.
+
+const mapModule = await import('data:text/javascript;base64,' + Buffer.from(await readFile(new URL('../neon-map-catalog.js', import.meta.url), 'utf8')).toString('base64'));
+const storyModule = await import('data:text/javascript;base64,' + Buffer.from(await readFile(new URL('../neon-side-stories.js', import.meta.url), 'utf8')).toString('base64'));
+const { MAP_REGIONS, STORY_ARCS, getMapRegion, getMapRegionAt } = mapModule;
+const { SIDE_STORIES, createSideStoryProgress, normalizeSideStoryProgress, getCurrentSideMission } = storyModule;
+
+assert.equal(MAP_REGIONS.length, 4, 'All four Kolkata districts must remain in the map catalog.');
+console.log('Kolkata district catalog count check passed.');
