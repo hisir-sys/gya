@@ -269,3 +269,6 @@ assert.equal(SIDE_STORIES.length, 3, 'All three optional district story arcs mus
 
 // test: enforce unique optional side story ids
 assert.equal(new Set(SIDE_STORIES.map(story => story.id)).size, SIDE_STORIES.length, 'Optional side story ids must be unique.');
+
+// test: link optional side stories to known regions
+assert.ok(SIDE_STORIES.every(story => MAP_REGIONS.some(region => region.id === story.region)), 'Every optional side story must reference a known district.');
