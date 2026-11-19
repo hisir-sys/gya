@@ -278,3 +278,6 @@ assert.ok(SIDE_STORIES.every(story => Array.isArray(story.missions) && story.mis
 
 // test: validate district mission text payloads
 assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => [mission.title, mission.text, mission.speaker].every(value => typeof value === 'string' && value.trim()))), 'Every district mission needs a title, objective and speaker.');
+
+// test: validate district mission coordinates
+assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Number.isFinite(mission.x) && Number.isFinite(mission.z))), 'Every district mission needs finite world coordinates.');
