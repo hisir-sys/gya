@@ -233,3 +233,6 @@ assert.ok(MAP_REGIONS.every(region => Number.isFinite(region.radius) && region.r
 
 // test: validate district palette completeness
 assert.ok(MAP_REGIONS.every(region => Array.isArray(region.palette) && region.palette.length === 3), 'Each district must provide its three base palette colors.');
+
+// test: validate district accent colors
+assert.ok(MAP_REGIONS.every(region => /^#[0-9a-f]{6}$/i.test(region.accent)), 'Every district accent must be a six-digit hex color.');
