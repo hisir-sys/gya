@@ -263,3 +263,6 @@ assert.equal(new Set(STORY_ARCS.map(arc => arc.id)).size, STORY_ARCS.length, 'Di
 
 // test: link district stories to known regions
 assert.ok(STORY_ARCS.every(arc => MAP_REGIONS.some(region => region.id === arc.region)), 'Every district story summary must reference an existing map region.');
+
+// test: preserve three optional side stories
+assert.equal(SIDE_STORIES.length, 3, 'All three optional district story arcs must remain available.');
