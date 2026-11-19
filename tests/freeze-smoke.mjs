@@ -245,3 +245,6 @@ assert.equal(getMapRegion('kumartuli'), MAP_REGIONS[0], 'Known district ids must
 
 // test: reject unknown Kolkata district ids
 assert.equal(getMapRegion('not-a-real-district'), null, 'Unknown district ids must not resolve to a fallback region.');
+
+// test: resolve districts at their map centers
+for (const region of MAP_REGIONS) assert.equal(getMapRegionAt(region.x, region.z), region, region.id + ' must be discoverable at its center.');
