@@ -254,3 +254,6 @@ for (const region of MAP_REGIONS) assert.equal(getMapRegionAt(region.x + region.
 
 // test: exclude positions beyond district radius
 for (const region of MAP_REGIONS) assert.equal(getMapRegionAt(region.x + region.radius + 1, region.z), null, region.id + ' must not discover positions outside its radius.');
+
+// test: preserve three district story summaries
+assert.equal(STORY_ARCS.length, 3, 'The three authored district story summaries must remain available.');
