@@ -218,3 +218,6 @@ console.log('Kolkata district catalog count check passed.');
 
 // test: enforce unique Kolkata district ids
 assert.equal(new Set(MAP_REGIONS.map(region => region.id)).size, MAP_REGIONS.length, 'District ids must be unique.');
+
+// test: lock the four explorable district ids
+assert.deepEqual(MAP_REGIONS.map(region => region.id), ['kumartuli', 'sector-v', 'south-lakes', 'eco-park'], 'The four established district ids must remain stable for saved games.');
