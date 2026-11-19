@@ -215,3 +215,6 @@ const { SIDE_STORIES, createSideStoryProgress, normalizeSideStoryProgress, getCu
 
 assert.equal(MAP_REGIONS.length, 4, 'All four Kolkata districts must remain in the map catalog.');
 console.log('Kolkata district catalog count check passed.');
+
+// test: enforce unique Kolkata district ids
+assert.equal(new Set(MAP_REGIONS.map(region => region.id)).size, MAP_REGIONS.length, 'District ids must be unique.');
