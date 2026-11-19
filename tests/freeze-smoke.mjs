@@ -251,3 +251,6 @@ for (const region of MAP_REGIONS) assert.equal(getMapRegionAt(region.x, region.z
 
 // test: include district discovery radius boundary
 for (const region of MAP_REGIONS) assert.equal(getMapRegionAt(region.x + region.radius, region.z), region, region.id + ' must include the edge of its discovery radius.');
+
+// test: exclude positions beyond district radius
+for (const region of MAP_REGIONS) assert.equal(getMapRegionAt(region.x + region.radius + 1, region.z), null, region.id + ' must not discover positions outside its radius.');
