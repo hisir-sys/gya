@@ -260,3 +260,6 @@ assert.equal(STORY_ARCS.length, 3, 'The three authored district story summaries 
 
 // test: enforce unique district story ids
 assert.equal(new Set(STORY_ARCS.map(arc => arc.id)).size, STORY_ARCS.length, 'District story ids must be unique.');
+
+// test: link district stories to known regions
+assert.ok(STORY_ARCS.every(arc => MAP_REGIONS.some(region => region.id === arc.region)), 'Every district story summary must reference an existing map region.');
