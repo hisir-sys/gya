@@ -227,3 +227,6 @@ assert.ok(MAP_REGIONS.every(region => Number.isFinite(region.x) && Number.isFini
 
 // test: keep district spawns aligned with map centers
 assert.ok(MAP_REGIONS.every(region => region.spawn && region.spawn.x === region.x && region.spawn.z === region.z), 'Each district spawn must match its catalog center.');
+
+// test: require positive district discovery radii
+assert.ok(MAP_REGIONS.every(region => Number.isFinite(region.radius) && region.radius > 0), 'Every district needs a positive discovery radius.');
