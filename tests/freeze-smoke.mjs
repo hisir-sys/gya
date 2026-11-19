@@ -275,3 +275,6 @@ assert.ok(SIDE_STORIES.every(story => MAP_REGIONS.some(region => region.id === s
 
 // test: require playable beats in every district story
 assert.ok(SIDE_STORIES.every(story => Array.isArray(story.missions) && story.missions.length >= 3), 'Every optional district story must contain at least three playable beats.');
+
+// test: validate district mission text payloads
+assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => [mission.title, mission.text, mission.speaker].every(value => typeof value === 'string' && value.trim()))), 'Every district mission needs a title, objective and speaker.');
