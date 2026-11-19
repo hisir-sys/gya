@@ -257,3 +257,6 @@ for (const region of MAP_REGIONS) assert.equal(getMapRegionAt(region.x + region.
 
 // test: preserve three district story summaries
 assert.equal(STORY_ARCS.length, 3, 'The three authored district story summaries must remain available.');
+
+// test: enforce unique district story ids
+assert.equal(new Set(STORY_ARCS.map(arc => arc.id)).size, STORY_ARCS.length, 'District story ids must be unique.');
