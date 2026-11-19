@@ -224,3 +224,6 @@ assert.deepEqual(MAP_REGIONS.map(region => region.id), ['kumartuli', 'sector-v',
 
 // test: validate district world coordinates
 assert.ok(MAP_REGIONS.every(region => Number.isFinite(region.x) && Number.isFinite(region.z)), 'Every district needs finite world coordinates.');
+
+// test: keep district spawns aligned with map centers
+assert.ok(MAP_REGIONS.every(region => region.spawn && region.spawn.x === region.x && region.spawn.z === region.z), 'Each district spawn must match its catalog center.');
