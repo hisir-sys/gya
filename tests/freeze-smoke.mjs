@@ -266,3 +266,6 @@ assert.ok(STORY_ARCS.every(arc => MAP_REGIONS.some(region => region.id === arc.r
 
 // test: preserve three optional side stories
 assert.equal(SIDE_STORIES.length, 3, 'All three optional district story arcs must remain available.');
+
+// test: enforce unique optional side story ids
+assert.equal(new Set(SIDE_STORIES.map(story => story.id)).size, SIDE_STORIES.length, 'Optional side story ids must be unique.');
