@@ -287,3 +287,6 @@ assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Number.isF
 
 // test: require two dialogue lines per district mission
 assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Array.isArray(mission.lines) && mission.lines.length === 2 && mission.lines.every(line => typeof line === 'string' && line.trim()))), 'Every district mission must provide two non-empty dialogue lines.');
+
+// test: require two choices per district mission
+assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Array.isArray(mission.choices) && mission.choices.length === 2 && mission.choices.every(choice => typeof choice === 'string' && choice.trim()))), 'Every district mission must provide two non-empty choices.');
