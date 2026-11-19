@@ -248,3 +248,6 @@ assert.equal(getMapRegion('not-a-real-district'), null, 'Unknown district ids mu
 
 // test: resolve districts at their map centers
 for (const region of MAP_REGIONS) assert.equal(getMapRegionAt(region.x, region.z), region, region.id + ' must be discoverable at its center.');
+
+// test: include district discovery radius boundary
+for (const region of MAP_REGIONS) assert.equal(getMapRegionAt(region.x + region.radius, region.z), region, region.id + ' must include the edge of its discovery radius.');
