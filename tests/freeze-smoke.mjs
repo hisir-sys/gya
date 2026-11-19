@@ -293,3 +293,7 @@ assert.ok(SIDE_STORIES.every(story => story.missions.every(mission => Array.isAr
 
 // test: return the first mission for fresh side-story progress
 for (const story of SIDE_STORIES) assert.equal(getCurrentSideMission(story, createSideStoryProgress()), story.missions[0], story.id + ' must begin at its first mission.');
+
+// test: create progress for every optional side story
+const freshSideStoryProgress = createSideStoryProgress();
+assert.deepEqual(Object.keys(freshSideStoryProgress).sort(), SIDE_STORIES.map(story => story.id).sort(), 'Fresh progress must include every optional side story exactly once.');
