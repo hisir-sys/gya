@@ -199,12 +199,24 @@ console.log('Neon State new maps and side-story checks passed.');
 
 assert.match(js, /fullscreenButton=document\.querySelector\('#fullscreen-toggle'\)/, 'Fullscreen control must be bound before its handlers are registered');
 assert.match(js, /fullscreenButton\?\.addEventListener\('click'/, 'Fullscreen control must handle user clicks without blocking startup when absent');
-assert.match(js, /document\.addEventListener\('fullscreenchange',syncFullscreenButton\)/, 'Fullscreen label and accessibility state must follow browser fullscreen changes');
+assert.match(js, /function syncFullscreenButton\(\)/, 'Fullscreen label and accessibility state must be synchronized');
 assert.match(js, /function syncFullscreenButton\(\)/, 'Fullscreen control must expose its current state');
 assert.match(js, /setAttribute\('aria-pressed',String\(active\)\)/, 'Fullscreen state must be exposed to assistive technology');
 assert.match(js, /touchControls\?\.addEventListener\('pointercancel'/, 'Touch movement must stop when a pointer is cancelled');
 assert.match(js, /touchControls\?\.addEventListener\('lostpointercapture'/, 'Touch movement must stop when pointer capture is lost');
 console.log('Neon State fullscreen and touch-input regression checks passed.');
+
+assert.match(js, /function resizeGameRenderer\(\)/, 'Renderer resizing must use one shared viewport synchronization function');
+assert.match(js, /Math\.max\(1,Math\.floor\(root\.clientWidth\)\)/, 'Zero-width viewports must not create an invalid camera aspect ratio');
+assert.match(js, /Math\.max\(1,Math\.floor\(root\.clientHeight\)\)/, 'Zero-height viewports must not create an invalid camera aspect ratio');
+assert.match(js, /new ResizeObserver\(resizeGameRenderer\)/, 'Container-only layout changes must resize the 3D renderer');
+assert.match(js, /visualViewport\?\.addEventListener\('resize',resizeGameRenderer/, 'Mobile browser viewport changes must resize the 3D renderer');
+assert.match(js, /addEventListener\('orientationchange',resizeGameRenderer/, 'Device rotation must resize the 3D renderer');
+assert.match(js, /document\.addEventListener\('fullscreenchange',\(\)=>\{syncFullscreenButton\(\);resizeGameRenderer\(\)\}\)/, 'Fullscreen transitions must update both controls and renderer dimensions');
+assert.equal((js.match(/document\.addEventListener\('fullscreenchange'/g)||[]).length,1,'Fullscreen state and viewport sizing must share one event listener');
+assert.match(js, /renderer\.setPixelRatio\(Math\.min\(window\.devicePixelRatio\|\|1,currentGraphicsProfile\.ratio\*adaptiveScale\)\)/, 'Viewport resizing must respect the active quality and adaptive scale');
+console.log('Neon State responsive viewport and renderer regression checks passed.');
+
 
 // Execute the pure district/story data modules without requiring a browser or bundler.
 
