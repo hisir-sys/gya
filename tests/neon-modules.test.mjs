@@ -153,3 +153,11 @@ test('district palettes contain valid six-digit hex colours', () => {
     assert.match(region.accent, /^#[0-9a-f]{6}$/i);
   }
 });
+
+
+test('region centre and spawn coordinates stay synchronized', () => {
+  for (const region of MAP_REGIONS) {
+    assert.equal(region.spawn.x, region.x);
+    assert.equal(region.spawn.z, region.z);
+  }
+});
