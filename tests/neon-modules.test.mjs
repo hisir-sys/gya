@@ -263,3 +263,9 @@ test('each new story receives an independent progress object', () => {
   assert.deepEqual(progress['after-hours'], { step: 0, completed: false, choices: [] });
   assert.deepEqual(progress['lake-time'], { step: 0, completed: false, choices: [] });
 });
+
+
+test('district lookup includes points exactly on the discovery boundary', () => {
+  const region = MAP_REGIONS[0];
+  assert.equal(getMapRegionAt(region.x + region.radius, region.z), region);
+});
