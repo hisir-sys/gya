@@ -188,3 +188,11 @@ test('side story titles are non-empty and distinct', () => {
   assert.equal(new Set(titles).size, titles.length);
   assert.ok(titles.every(title => title.trim().length > 4));
 });
+
+
+test('mission titles are unique within each story', () => {
+  for (const story of SIDE_STORIES) {
+    const titles = story.missions.map(mission => mission.title);
+    assert.equal(new Set(titles).size, titles.length, story.id + ' has duplicate mission titles');
+  }
+});
