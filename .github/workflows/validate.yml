@@ -27,3 +27,5 @@ jobs:
         run: node --check --input-type=module < freeze.js
       - name: Run 3D gameplay HUD smoke checks
         run: node tests/freeze-smoke.mjs
+      - name: Run district and side-story module tests
+        run: node --test tests/neon-modules.test.mjs
