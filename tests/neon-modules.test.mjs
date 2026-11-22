@@ -255,3 +255,11 @@ test('normalized choice arrays are independent of the source save', () => {
   progress[story.id].choices[0] = 1;
   assert.equal(choices[0], 0);
 });
+
+
+test('each new story receives an independent progress object', () => {
+  const progress = createSideStoryProgress();
+  progress.lanterns.choices.push(1);
+  assert.deepEqual(progress['after-hours'], { step: 0, completed: false, choices: [] });
+  assert.deepEqual(progress['lake-time'], { step: 0, completed: false, choices: [] });
+});
