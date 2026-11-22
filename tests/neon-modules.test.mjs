@@ -145,3 +145,11 @@ test('district display names are present and distinct', () => {
   assert.equal(new Set(names).size, names.length);
   assert.ok(names.every(name => typeof name === 'string' && name.length > 4));
 });
+
+
+test('district palettes contain valid six-digit hex colours', () => {
+  for (const region of MAP_REGIONS) {
+    for (const colour of region.palette) assert.match(colour, /^#[0-9a-f]{6}$/i);
+    assert.match(region.accent, /^#[0-9a-f]{6}$/i);
+  }
+});
