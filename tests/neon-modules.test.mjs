@@ -171,3 +171,13 @@ test('district discovery circles do not overlap', () => {
     }
   }
 });
+
+
+test('every story arc has a corresponding playable side story', () => {
+  for (const arc of STORY_ARCS) {
+    const story = SIDE_STORIES.find(item => item.id === arc.id);
+    assert.ok(story, 'Missing playable story for ' + arc.id);
+    assert.equal(story.region, arc.region);
+    assert.equal(story.title, arc.title);
+  }
+});
