@@ -218,3 +218,8 @@ test('mission rewards are whole non-negative currency amounts', () => {
     assert.ok(mission.reward >= 0);
   }
 });
+
+
+test('side story regions all exist in the district catalogue', () => {
+  for (const story of SIDE_STORIES) assert.ok(getMapRegion(story.region));
+});
