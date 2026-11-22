@@ -246,3 +246,12 @@ test('explicit completed flags survive normalization', () => {
   const progress = normalizeSideStoryProgress({ [story.id]: { step: 2, completed: true } });
   assert.equal(progress[story.id].completed, true);
 });
+
+
+test('normalized choice arrays are independent of the source save', () => {
+  const story = SIDE_STORIES[0];
+  const choices = [0, 1];
+  const progress = normalizeSideStoryProgress({ [story.id]: { step: 2, choices } });
+  progress[story.id].choices[0] = 1;
+  assert.equal(choices[0], 0);
+});
