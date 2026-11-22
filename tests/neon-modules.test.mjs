@@ -223,3 +223,10 @@ test('mission rewards are whole non-negative currency amounts', () => {
 test('side story regions all exist in the district catalogue', () => {
   for (const story of SIDE_STORIES) assert.ok(getMapRegion(story.region));
 });
+
+
+test('out-of-range story steps safely return no current mission', () => {
+  const story = SIDE_STORIES[0];
+  assert.equal(getCurrentSideMission(story, { [story.id]: { step: story.missions.length } }), null);
+  assert.equal(getCurrentSideMission(story, { [story.id]: { step: story.missions.length + 1 } }), null);
+});
