@@ -203,3 +203,10 @@ test('mission dialogue is always a pair of readable strings', () => {
     assert.ok(mission.lines.every(line => typeof line === 'string' && line.trim().length > 0));
   }
 });
+
+
+test('mission choices are always two readable strings', () => {
+  for (const story of SIDE_STORIES) for (const mission of story.missions) {
+    assert.ok(mission.choices.every(choice => typeof choice === 'string' && choice.trim().length > 0));
+  }
+});
