@@ -230,3 +230,12 @@ test('out-of-range story steps safely return no current mission', () => {
   assert.equal(getCurrentSideMission(story, { [story.id]: { step: story.missions.length } }), null);
   assert.equal(getCurrentSideMission(story, { [story.id]: { step: story.missions.length + 1 } }), null);
 });
+
+
+test('fractional and non-numeric saved steps normalize safely', () => {
+  const story = SIDE_STORIES[0];
+  const progress = normalizeSideStoryProgress({ [story.id]: { step: 2.8 } });
+  assert.equal(progress[story.id].step, 2);
+  const invalid = normalizeSideStoryProgress({ [story.id]: { step: 'not-a-number' } });
+  assert.equal(invalid[story.id].step, 0);
+});
