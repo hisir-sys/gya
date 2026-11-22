@@ -210,3 +210,11 @@ test('mission choices are always two readable strings', () => {
     assert.ok(mission.choices.every(choice => typeof choice === 'string' && choice.trim().length > 0));
   }
 });
+
+
+test('mission rewards are whole non-negative currency amounts', () => {
+  for (const story of SIDE_STORIES) for (const mission of story.missions) {
+    assert.ok(Number.isInteger(mission.reward));
+    assert.ok(mission.reward >= 0);
+  }
+});
