@@ -181,3 +181,10 @@ test('every story arc has a corresponding playable side story', () => {
     assert.equal(story.title, arc.title);
   }
 });
+
+
+test('side story titles are non-empty and distinct', () => {
+  const titles = SIDE_STORIES.map(story => story.title);
+  assert.equal(new Set(titles).size, titles.length);
+  assert.ok(titles.every(title => title.trim().length > 4));
+});
