@@ -239,3 +239,10 @@ test('fractional and non-numeric saved steps normalize safely', () => {
   const invalid = normalizeSideStoryProgress({ [story.id]: { step: 'not-a-number' } });
   assert.equal(invalid[story.id].step, 0);
 });
+
+
+test('explicit completed flags survive normalization', () => {
+  const story = SIDE_STORIES[1];
+  const progress = normalizeSideStoryProgress({ [story.id]: { step: 2, completed: true } });
+  assert.equal(progress[story.id].completed, true);
+});
