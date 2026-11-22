@@ -161,3 +161,13 @@ test('region centre and spawn coordinates stay synchronized', () => {
     assert.equal(region.spawn.z, region.z);
   }
 });
+
+
+test('district discovery circles do not overlap', () => {
+  for (let i = 0; i < MAP_REGIONS.length; i++) {
+    for (let j = i + 1; j < MAP_REGIONS.length; j++) {
+      const a = MAP_REGIONS[i], b = MAP_REGIONS[j];
+      assert.ok(Math.hypot(a.x - b.x, a.z - b.z) > a.radius + b.radius);
+    }
+  }
+});
