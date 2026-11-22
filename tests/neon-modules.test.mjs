@@ -196,3 +196,10 @@ test('mission titles are unique within each story', () => {
     assert.equal(new Set(titles).size, titles.length, story.id + ' has duplicate mission titles');
   }
 });
+
+
+test('mission dialogue is always a pair of readable strings', () => {
+  for (const story of SIDE_STORIES) for (const mission of story.missions) {
+    assert.ok(mission.lines.every(line => typeof line === 'string' && line.trim().length > 0));
+  }
+});
