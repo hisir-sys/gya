@@ -138,3 +138,10 @@ test('normalizing progress does not mutate the saved object', () => {
   normalizeSideStoryProgress(saved);
   assert.deepEqual(saved, before);
 });
+
+
+test('district display names are present and distinct', () => {
+  const names = MAP_REGIONS.map(region => region.name);
+  assert.equal(new Set(names).size, names.length);
+  assert.ok(names.every(name => typeof name === 'string' && name.length > 4));
+});
