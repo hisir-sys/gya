@@ -53,7 +53,7 @@ assert.match(js, /const followDistance=\(driving\?11\.8:8\.5\)/, 'Driving camera
 assert.match(js, /SPORT:\{label:'SPORT COUPE'/, 'Sports coupe must remain available');
 assert.match(js, /SEDAN:\{label:'CITY SEDAN'/, 'City sedan must be available');
 assert.match(js, /SUV:\{label:'CITY SUV'/, 'Coastal SUV must be available');
-assert.match(js, /selectedVehicle,completedServices,audioMuted,updatedAt/, 'Selected vehicle must persist in the local save');
+assert.match(js, /selectedVehicle,completedServices,playerPosition,playerRotation,vehiclePosition,vehicleRotation,audioMuted,updatedAt/, 'Selected vehicle must persist in the local save');
 assert.match(html, /data-vehicle="SEDAN"/, 'Garage must expose the sedan selector');
 assert.match(html, /data-vehicle="SUV"/, 'Garage must expose the SUV selector');
 assert.match(css, /\.vehicle-picker/, 'Vehicle selector needs responsive styling');
