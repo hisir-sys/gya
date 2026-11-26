@@ -267,7 +267,20 @@ function toggleDistrictPanel(force){if(!districtPanel)return;const open=typeof f
 function travelToMap(id){const region=mapCatalog?.getMapRegion?.(id);if(!region||paused||dialogue)return;if(driving){driving=false;avatar.visible=true;driveSpeed=0}player.position.set(region.spawn.x,0,region.spawn.z);player.rotation.y=0;if(playerCar)playerCar.position.set(region.spawn.x+5,.15,region.spawn.z+5);cameraYaw=0;cameraPitch=.12;activeMapId=id;activeDistrict=region.name;setText('location-tag',region.name);toggleDistrictPanel(false);say('ARRIVED · '+region.name+' · '+region.subtitle);saveGame()}
 function activateSideStory(id){const story=sideStories?.SIDE_STORIES?.find(item=>item.id===id);if(!story)return;activeSideStoryId=id;travelToMap(story.region);syncUI();say('SIDE STORY STARTED · '+story.title)}
 document.querySelector('#district-toggle')?.addEventListener('click',()=>toggleDistrictPanel());document.querySelector('#district-close')?.addEventListener('click',()=>toggleDistrictPanel(false));document.querySelectorAll('[data-map]').forEach(button=>button.addEventListener('click',()=>travelToMap(button.dataset.map)));document.querySelectorAll('[data-side-story]').forEach(button=>button.addEventListener('click',()=>activateSideStory(button.dataset.sideStory)));
-function collides(x,z,pad=1.1){return buildings.some(b=>Math.abs(x-b.x)<b.w/2+pad&&Math.abs(z-b.z)<b.d/2+pad)}
+// Index static building bounds once so every pedestrian and vehicle collision check
+// only visits nearby blocks instead of scanning the entire city.
+const BUILDING_COLLISION_CELL=24,buildingCollisionGrid=new Map();
+for(const building of buildings){
+ const minX=Math.floor((building.x-building.w/2)/BUILDING_COLLISION_CELL),maxX=Math.floor((building.x+building.w/2)/BUILDING_COLLISION_CELL);
+ const minZ=Math.floor((building.z-building.d/2)/BUILDING_COLLISION_CELL),maxZ=Math.floor((building.z+building.d/2)/BUILDING_COLLISION_CELL);
+ for(let cx=minX;cx<=maxX;cx++)for(let cz=minZ;cz<=maxZ;cz++){const key=cx+','+cz;let bucket=buildingCollisionGrid.get(key);if(!bucket)buildingCollisionGrid.set(key,bucket=[]);bucket.push(building)}
+}
+function collides(x,z,pad=1.1){
+ const minX=Math.floor((x-pad)/BUILDING_COLLISION_CELL),maxX=Math.floor((x+pad)/BUILDING_COLLISION_CELL),minZ=Math.floor((z-pad)/BUILDING_COLLISION_CELL),maxZ=Math.floor((z+pad)/BUILDING_COLLISION_CELL);
+ const checked=new Set();
+ for(let cx=minX;cx<=maxX;cx++)for(let cz=minZ;cz<=maxZ;cz++){const bucket=buildingCollisionGrid.get(cx+','+cz);if(!bucket)continue;for(const b of bucket){if(checked.has(b))continue;checked.add(b);if(Math.abs(x-b.x)<b.w/2+pad&&Math.abs(z-b.z)<b.d/2+pad)return true}}
+ return false
+}
 function closeToMission(){const m=currentMission();return m&&Math.hypot(player.position.x-m.x,player.position.z-m.z)<8}
 function nearestRelic(){let best=null,bestD=5.2;for(const r of relics){if(r.collected)continue;const d=Math.hypot(player.position.x-r.x,player.position.z-r.z);if(d<bestD){best=r;bestD=d}}return best}
 function nearestPedestrian(){let best=null,bestD=4.6;for(const p of pedestrians){const d=Math.hypot(player.position.x-p.position.x,player.position.z-p.position.z);if(d<bestD){best=p;bestD=d}}return best}
