@@ -324,3 +324,5 @@ assert.match(js, /JSON\.stringify\(\{version:10,progress/, 'World-position save 
 
 assert.match(js, /const BUILDING_COLLISION_CELL=24,buildingCollisionGrid=new Map\(\)/, 'Static building collision bounds must be spatially indexed');
 assert.match(js, /buildingCollisionGrid\.get\(cx\+','\+cz\)/, 'Collision queries must inspect nearby spatial cells');
+
+assert.match(js, /autosaveClock>=15\)\{saveGame\(\);autosaveClock=0\}/, 'World progress must autosave periodically during play');
