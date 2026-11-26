@@ -70,7 +70,7 @@ The 3D Freeze Build now uses a viewport-filling layout and includes a fullscreen
 
 ## Current gameplay improvements
 
-The current build includes a live objective compass, a heading-aware minimap player marker, stamina-limited running with automatic recovery, safer vehicle recovery after collisions, a story-interaction check that requires exiting the car, and automatic local saves when the page is hidden or closed. When the browser tab becomes hidden, the game pauses to prevent unattended simulation from continuing. The versioned save also restores the player's last on-foot location and the parked vehicle's position and heading, with coordinate validation and safe fallback to the district spawn for older saves.
+The current build includes a live objective compass, a heading-aware minimap player marker, stamina-limited running with automatic recovery, safer vehicle recovery after collisions, a story-interaction check that requires exiting the car, and automatic local saves every 15 seconds and when the page is hidden or closed. When the browser tab becomes hidden, the game pauses to prevent unattended simulation from continuing. The versioned save also restores the player's last on-foot location and the parked vehicle's position and heading, with coordinate validation and safe fallback to the district spawn for older saves.
 
 
 ## Phase 5–6: City exploration and pedestrian life
