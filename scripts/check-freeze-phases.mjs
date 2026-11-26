@@ -46,7 +46,7 @@ assert.match(game, /vehicleCatalog/);
 assert.match(game, /SPORT:\{label:'SPORT COUPE'/);
 assert.match(game, /SEDAN:\{label:'CITY SEDAN'/);
 assert.match(game, /SUV:\{label:'CITY SUV'/);
-assert.match(game, /selectedVehicle,completedServices,audioMuted,updatedAt/, 'Selected vehicle and one-time service rewards must persist');
+assert.match(game, /selectedVehicle,completedServices,playerPosition,playerRotation,vehiclePosition,vehicleRotation,audioMuted,updatedAt/, 'Selected vehicle and one-time service rewards must persist');
 assert.match(game, /completedServices.includes\(service.name\)/, 'Cafe reward must not be repeatable');
 assert.match(page, /data-vehicle="SPORT"/);
 assert.match(page, /data-vehicle="SEDAN"/);
