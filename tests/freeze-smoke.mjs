@@ -321,3 +321,6 @@ assert.match(js, /Number\.isFinite\(s\.vehiclePosition\.x\)/, 'Saved vehicle coo
 console.log('Kolkata world-position persistence checks passed.');
 
 assert.match(js, /JSON\.stringify\(\{version:10,progress/, 'World-position save schema must be versioned');
+
+assert.match(js, /const BUILDING_COLLISION_CELL=24,buildingCollisionGrid=new Map\(\)/, 'Static building collision bounds must be spatially indexed');
+assert.match(js, /buildingCollisionGrid\.get\(cx\+','\+cz\)/, 'Collision queries must inspect nearby spatial cells');
