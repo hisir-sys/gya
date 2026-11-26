@@ -314,7 +314,7 @@ assert.deepEqual(Object.keys(freshSideStoryProgress).sort(), SIDE_STORIES.map(st
 assert.ok(SIDE_STORIES.every(story => freshSideStoryProgress[story.id].step === 0 && freshSideStoryProgress[story.id].completed === false && Array.isArray(freshSideStoryProgress[story.id].choices) && freshSideStoryProgress[story.id].choices.length === 0), 'Fresh side-story progress must start empty and incomplete.');
 
 assert.match(js, /playerPosition:\{x:player\.position\.x,z:player\.position\.z\}/, 'Save data must include the player world position');
-assert.match(js, /vehiclePosition:\{x:playerCar\.position\.x,z:playerCar\.position\.z\}/, 'Save data must include the parked vehicle position');
+assert.match(js, /vehiclePosition:playerCar\?\{x:playerCar\.position\.x,z:playerCar\.position\.z\}/, 'Save data must include the parked vehicle position');
 assert.match(js, /hasSavedWorldPosition/, 'Loading a saved position must prevent map-spawn logic from overwriting it');
 assert.match(js, /Number\.isFinite\(s\.playerPosition\.x\)/, 'Saved player coordinates must be validated before restore');
 assert.match(js, /Number\.isFinite\(s\.vehiclePosition\.x\)/, 'Saved vehicle coordinates must be validated before restore');
