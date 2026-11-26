@@ -319,3 +319,5 @@ assert.match(js, /hasSavedWorldPosition/, 'Loading a saved position must prevent
 assert.match(js, /Number\.isFinite\(s\.playerPosition\.x\)/, 'Saved player coordinates must be validated before restore');
 assert.match(js, /Number\.isFinite\(s\.vehiclePosition\.x\)/, 'Saved vehicle coordinates must be validated before restore');
 console.log('Kolkata world-position persistence checks passed.');
+
+assert.match(js, /JSON\.stringify\(\{version:10,progress/, 'World-position save schema must be versioned');
