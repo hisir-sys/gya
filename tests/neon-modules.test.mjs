@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { MAP_REGIONS, STORY_ARCS, getMapRegion, getMapRegionAt } from '../neon-map-catalog.js';
 import { SIDE_STORIES, createSideStoryProgress, normalizeSideStoryProgress, getCurrentSideMission } from '../neon-side-stories.js';
+import { KOLKATA_ATLAS_BOUNDS, KOLKATA_ATLAS_PLACES, projectKolkataPoint } from '../neon-geographic-atlas.js';
 
 test('map region identifiers are unique and stable', () => {
   const ids = MAP_REGIONS.map(region => region.id);
@@ -268,4 +269,30 @@ test('each new story receives an independent progress object', () => {
 test('district lookup includes points exactly on the discovery boundary', () => {
   const region = MAP_REGIONS[0];
   assert.equal(getMapRegionAt(region.x + region.radius, region.z), region);
+});
+
+
+test('offline Kolkata atlas contains unique, geographically valid WGS84 place locators', () => {
+  const ids = KOLKATA_ATLAS_PLACES.map(place => place.id);
+  assert.equal(new Set(ids).size, ids.length);
+  assert.ok(KOLKATA_ATLAS_PLACES.length >= 10);
+  for (const place of KOLKATA_ATLAS_PLACES) {
+    assert.ok(place.name.length > 2);
+    assert.ok(place.lat >= -90 && place.lat <= 90);
+    assert.ok(place.lon >= -180 && place.lon <= 180);
+    assert.ok(place.lat >= KOLKATA_ATLAS_BOUNDS.south && place.lat <= KOLKATA_ATLAS_BOUNDS.north);
+    assert.ok(place.lon >= KOLKATA_ATLAS_BOUNDS.west && place.lon <= KOLKATA_ATLAS_BOUNDS.east);
+  }
+});
+
+test('Kolkata atlas projection maps geographic bounds to the padded canvas edges', () => {
+  const southwest = projectKolkataPoint(KOLKATA_ATLAS_BOUNDS.south, KOLKATA_ATLAS_BOUNDS.west);
+  const northeast = projectKolkataPoint(KOLKATA_ATLAS_BOUNDS.north, KOLKATA_ATLAS_BOUNDS.east);
+  assert.deepEqual(southwest, { x: 28, y: 332 });
+  assert.deepEqual(northeast, { x: 572, y: 28 });
+});
+
+test('Kolkata atlas projection rejects invalid bounds and non-finite coordinates', () => {
+  assert.equal(projectKolkataPoint(NaN, 88.35), null);
+  assert.equal(projectKolkataPoint(22.56, 88.35, { south: 1, north: 1, west: 2, east: 3 }), null);
 });
