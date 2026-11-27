@@ -17,6 +17,9 @@ The district selector now includes a lightweight, offline geographic locator. It
 | Tagore's House | 22.58487 | 88.35824 | [Mapcarta / OSM feature](https://mapcarta.com/N4974850621) |
 | Geological Survey of India | 22.55559 | 88.35072 | [Mapcarta / OSM feature](https://mapcarta.com/N2934412981) |
 | College Square | 22.57468 | 88.36377 | [Open data map reference](https://www.mycoolkata.com/map) |
+| Rabindra Sarobar Metro | 22.50722 | 88.34549 | [Mapcarta / OSM feature](https://mapcarta.com/N5421538365) |
+| New Town Eco Park | 22.60309 | 88.46658 | [Eco Park coordinate reference](https://www.latlong.net/place/eco-park-kolkata-india-31556.html) |
+| Salt Lake Sector V station | 22.58091 | 88.42902 | [Mapcarta / OSM feature](https://mapcarta.com/W535333512) | |
 
 ## Accuracy and scope
 
