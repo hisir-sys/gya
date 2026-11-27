@@ -413,6 +413,11 @@ html,body,#shell,#viewport{background:#172a28}
 #touch-controls button{background:rgba(25,37,32,.92);border-color:#c5b68d}
 
 
+/* Offline WGS84 Kolkata atlas */
+.atlas-heading{margin:12px 0 7px;color:var(--gold);font-size:9px;font-weight:800;letter-spacing:1.1px}
+#kolkata-atlas{display:block;width:100%;height:auto;aspect-ratio:5/3;border:1px solid #ffffff24;border-radius:8px;background:#101a23}
+.atlas-credit{margin:6px 0 10px;color:#9eacb6;font-size:8px;line-height:1.45}
+
 /* District travel and optional story selector */
 #district-panel{position:absolute;right:196px;top:70px;z-index:6;width:min(360px,calc(100% - 28px));max-height:min(72%,560px);overflow:auto;padding:16px}
 #district-panel[hidden]{display:none}
