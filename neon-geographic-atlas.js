@@ -2,10 +2,10 @@
 // Coordinates are static OpenStreetMap-derived place coordinates; the canvas is a locator map,
 // not a street-level navigation replacement.
 export const KOLKATA_ATLAS_BOUNDS = Object.freeze({
-  south: 22.535,
-  north: 22.595,
+  south: 22.505,
+  north: 22.615,
   west: 88.325,
-  east: 88.445
+  east: 88.480
 });
 
 export const KOLKATA_ATLAS_PLACES = Object.freeze([
@@ -19,7 +19,10 @@ export const KOLKATA_ATLAS_PLACES = Object.freeze([
   { id: 'prinsep-ghat', name: 'Prinsep Ghat', category: 'river', lat: 22.55, lon: 88.33333 },
   { id: 'sector-v', name: 'Salt Lake Sector V', category: 'neighbourhood', lat: 22.57545, lon: 88.43226 },
   { id: 'gsi', name: 'Geological Survey of India', category: 'civic', lat: 22.55559, lon: 88.35072 },
-  { id: 'college-square', name: 'College Square', category: 'park', lat: 22.57468, lon: 88.36377 }
+  { id: 'college-square', name: 'College Square', category: 'park', lat: 22.57468, lon: 88.36377 },
+  { id: 'rabindra-sarobar', name: 'Rabindra Sarobar Metro', category: 'transit', lat: 22.50722, lon: 88.34549 },
+  { id: 'eco-park', name: 'New Town Eco Park', category: 'park', lat: 22.60309, lon: 88.46658 },
+  { id: 'sector-v-metro', name: 'Salt Lake Sector V Station', category: 'transit', lat: 22.58091, lon: 88.42902 }
 ]);
 
 const PALETTE = Object.freeze({
